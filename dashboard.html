@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>George — Command Center</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#fff;--card:#f8f8fb;--text:#111;--sub:#555;--muted:#999;--border:#e2e2ea;--urgent:#c0392b;--ok:#27ae60;--warn:#e67e22;--info:#2980b9;--biz:#6c3483;--career:#2980b9;--personal:#c0392b;--invest:#d4ac0d;--health:#27ae60;--growth:#2471a3;--ops:#0984e3}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.45;font-size:13px;overflow-x:hidden}
+.app{max-width:1100px;margin:0 auto;padding:16px 12px}
+
+/* Header */
+.hdr{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:2px solid #111;margin-bottom:12px}
+.hdr h1{font-size:16px;font-weight:700}
+.hdr-r{font-size:11px;color:var(--sub)}
+@media(max-width:600px){.hdr h1{font-size:14px}}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab{padding:4px 10px;border-radius:14px;border:1px solid var(--border);background:transparent;color:var(--sub);cursor:pointer;font-family:Arial;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;flex-shrink:0}
+.tab:hover{border-color:#111;color:#111}.tab.on{background:#111;color:#fff;border-color:#111}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+@media(max-width:600px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{padding:10px 12px;border:1px solid var(--border);border-radius:8px}
+.kpi-l{font-size:9px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-weight:700}
+.kpi-v{font-size:22px;font-weight:700;margin-top:2px}
+.kpi-s{font-size:9px;color:var(--muted)}
+
+/* Main grid */
+.grid{display:grid;grid-template-columns:1fr 260px;gap:14px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+
+/* Sections */
+.sec{margin-bottom:14px}
+.sec-h{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);margin-bottom:2px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.badge{font-size:8px;padding:1px 6px;border-radius:6px;font-weight:700;color:#fff}
+.badge-u{background:var(--urgent)}.badge-w{background:var(--warn)}.badge-ops{background:var(--ops)}
+.badge-ns{background:#f0f0f0;color:#666;font-weight:700}.badge-ip{background:#e0ecff;color:#2980b9;font-weight:700}.badge-or{background:#fff3e0;color:#e67e22;font-weight:700}.badge-lr{background:#f0e6ff;color:#6c3483;font-weight:700}.badge-d{background:#e6f8ef;color:#27ae60;font-weight:700}.badge-bl{background:#ffe6e6;color:#c0392b;font-weight:700}
+
+/* Drop zone */
+.dropzone{min-height:20px;transition:background .15s;border-radius:6px}
+.dropzone.over{background:#f0f0ff}
+
+/* Task item */
+.t{display:flex;align-items:flex-start;gap:7px;padding:7px 4px;border-bottom:1px solid #f3f3f3;cursor:grab;user-select:none;touch-action:pan-y;border-radius:4px;transition:background .1s}
+.t:active{cursor:grabbing;background:#f8f8ff}
+.t.dragging{opacity:.4}
+.t:last-child{border-bottom:none}
+.grip{color:#ccc;font-size:10px;line-height:20px;flex-shrink:0;cursor:grab;padding:0 2px}
+.chk{width:15px;height:15px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;cursor:pointer;transition:all .15s}
+.chk:hover{border-color:#111}.chk.done{background:var(--ok);border-color:var(--ok)}
+.t-t{font-size:12px;font-weight:500}.t-t.done{text-decoration:line-through;color:var(--muted)}
+.t-m{font-size:10px;color:var(--muted);margin-top:1px}
+
+/* Tags */
+.tag{display:inline-block;padding:0 6px;border-radius:7px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.2px;margin-right:3px;vertical-align:middle}
+.d-biz{background:#f0e6ff;color:var(--biz)}.d-career{background:#e6f0ff;color:var(--career)}.d-personal{background:#ffe6e6;color:var(--personal)}.d-invest{background:#fef9e6;color:var(--invest)}.d-health{background:#e6f8ef;color:var(--health)}.d-growth{background:#e6f0ff;color:var(--growth)}.d-ops{background:#e0ecff;color:var(--ops)}
+.alert{font-size:8px;padding:1px 5px;border-radius:5px;background:#ffe6e6;color:var(--urgent);font-weight:700}
+.wb{font-size:8px;padding:1px 5px;border-radius:5px;background:#fff3e0;color:var(--warn);font-weight:700}
+.who{font-size:9px;color:var(--ops);font-weight:600}
+
+/* Sidebar */
+.sb{border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px}
+.sb-t{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:8px}
+.tl-i{display:flex;gap:8px;padding:4px 0;border-bottom:1px solid #f5f5f5;font-size:11px}
+.tl-i:last-child{border-bottom:none}
+.tl-d{min-width:44px;font-weight:700;color:var(--sub);font-size:10px}
+.ppl-i{display:flex;justify-content:space-between;padding:3px 0;font-size:11px;border-bottom:1px solid #f8f8f8}
+.ppl-i:last-child{border-bottom:none}
+.ppl-n{font-weight:600}.ppl-r{color:var(--muted);font-size:10px;text-align:right}
+.dr{display:flex;justify-content:space-between;padding:3px 0;font-size:11px}
+.dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:5px}.ct{font-weight:700}
+
+/* Quick add */
+.qa{display:flex;gap:4px;padding-top:10px;margin-top:10px;border-top:1px solid var(--border)}
+.qa input{flex:1;padding:7px 9px;border:1px solid var(--border);border-radius:6px;font-family:Arial;font-size:12px;background:#fafafa}
+.qa input::placeholder{color:#bbb}
+.qa select{padding:7px;border:1px solid var(--border);border-radius:6px;font-family:Arial;font-size:10px;background:#fafafa}
+.qa button{padding:7px 14px;border:none;border-radius:6px;background:#111;color:#fff;font-family:Arial;font-weight:700;font-size:11px;cursor:pointer}
+
+/* Sync indicator */
+.sync{position:fixed;bottom:12px;right:12px;font-size:9px;color:var(--muted);background:#fff;padding:4px 8px;border-radius:12px;border:1px solid var(--border);z-index:99}
+.sync.saving{color:var(--ok)}
+
+.ftr{text-align:center;padding:14px 0 4px;color:var(--muted);font-size:9px}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hdr"><h1>George — Command Center</h1><div class="hdr-r" id="hd"></div></div>
+
+<div class="tabs" id="tabs">
+<button class="tab on" onclick="F('all',this)">All</button>
+<button class="tab" onclick="F('biz',this)">Business</button>
+<button class="tab" onclick="F('ops',this)">Ops Team</button>
+<button class="tab" onclick="F('career',this)">Career</button>
+<button class="tab" onclick="F('personal',this)">Personal</button>
+<button class="tab" onclick="F('invest',this)">Investing</button>
+<button class="tab" onclick="F('health',this)">Health</button>
+<button class="tab" onclick="F('growth',this)">Growth</button>
+</div>
+
+<div class="kpis">
+<div class="kpi"><div class="kpi-l">Active</div><div class="kpi-v" id="kA">0</div><div class="kpi-s" id="kAs">all</div></div>
+<div class="kpi"><div class="kpi-l">Urgent</div><div class="kpi-v" id="kU" style="color:var(--urgent)">0</div><div class="kpi-s">do first</div></div>
+<div class="kpi"><div class="kpi-l">Ops Active</div><div class="kpi-v" id="kO" style="color:var(--ops)">0</div><div class="kpi-s">team tasks</div></div>
+<div class="kpi"><div class="kpi-l">Done</div><div class="kpi-v" id="kD" style="color:var(--ok)">0</div><div class="kpi-s">this week</div></div>
+</div>
+
+<div class="grid">
+<div>
+<div id="board"></div>
+<div class="qa">
+<input id="qi" placeholder="Add a task..." onkeypress="if(event.key==='Enter')addT()">
+<select id="qd"><option value="biz">Business</option><option value="ops">Ops</option><option value="career">Career</option><option value="personal">Personal</option><option value="invest">Investing</option><option value="health">Health</option><option value="growth">Growth</option></select>
+<select id="qs"><option value="ui">Urgent</option><option value="in" selected>Important</option><option value="ops">Ops</option><option value="waiting">Waiting</option><option value="backlog">Backlog</option></select>
+<button onclick="addT()">Add</button>
+</div>
+</div>
+<div>
+<div class="sb"><div class="sb-t">Upcoming</div><div id="tl"></div></div>
+<div class="sb"><div class="sb-t">People To Follow Up</div><div id="ppl"></div></div>
+<div class="sb"><div class="sb-t">By Domain</div><div id="ds"></div></div>
+</div>
+</div>
+<div class="ftr">George v3.0 — Drag tasks to reprioritize. All data saves locally.</div>
+</div>
+<div class="sync" id="syncStatus">Saved</div>
+
+<script>
+// =============== DATA ===============
+const DL={biz:"Business",ops:"Ops Team",career:"Career",personal:"Personal",invest:"Investing",health:"Health",growth:"Growth"};
+const DC={biz:"#6c3483",ops:"#0984e3",career:"#2980b9",personal:"#c0392b",invest:"#d4ac0d",health:"#27ae60",growth:"#2471a3"};
+const SO={ui:0,in:1,ops:2,waiting:3,backlog:4,done:5};
+const SL={ui:"Urgent + Important",in:"Important \u2014 Schedule",ops:"Ops Team Active",waiting:"Waiting On",backlog:"Backlog",done:"Done"};
+
+const DEFAULT_TASKS=[
+// URGENT + IMPORTANT
+{id:1,t:"Michael Friedman strategy call",d:"biz",s:"ui",m:"TODAY 1:00\u20131:50 PM PT. Nighthawk Tech. LinkedIn Ads, Sales Accelerator, Lead Gen.",done:false,flag:"alert"},
+{id:2,t:"Review 2025 tax return with Gene Heo",d:"personal",s:"ui",m:"TODAY 3:30\u20134:00 PM PT. Full financials attached. Zoom ready.",done:false,flag:"alert"},
+{id:3,t:"Launch 30 Free Clips campaign",d:"biz",s:"ui",m:"Playbook done. Sunshine targeting APPROVED\u2014needs merge+prep. Review messaging.",done:false},
+{id:4,t:"Review 3 campaign playbooks",d:"biz",s:"ui",m:"30 Free Clips + MedDevice + RIA + VC/PE. Final sign-off.",done:false},
+{id:5,t:"Fix Zoom cloud storage (recordings disabled)",d:"biz",s:"ui",m:"Zoom sent another warning today. Delete old or upgrade.",done:false},
+{id:6,t:"Approve RIA/PE/VC target lists",d:"biz",s:"ui",m:"Ops #15: Lists ready\u2014Apollo links in sheet. For Lena\u2019s approval.",done:false},
+// IMPORTANT \u2014 SCHEDULE
+{id:7,t:"Follow up Medical Murray proposal",d:"biz",s:"in",m:"Gil Jimenez, VP Ops\u2014sent, no response. 3d waiting.",done:false},
+{id:8,t:"Prep INVIZA check-in call Mar 31",d:"biz",s:"in",m:"Robert Andosca CONFIRMED 1 PM PT. Review proposal status.",done:false},
+{id:9,t:"Follow up Jared Hutar (Piraeus Medical)",d:"biz",s:"in",m:"New prospect\u2014after Hawaii return Mar 28.",done:false},
+{id:10,t:"Follow up Victor Suturin (Aliform Surgical)",d:"biz",s:"in",m:"New prospect\u2014after Hawaii return.",done:false},
+{id:11,t:"Women in Tech Symposium",d:"growth",s:"in",m:"Fri Mar 21\u2014full day event.",done:false},
+{id:12,t:"Pack for Hawaii (Sat Mar 21\u2013Fri Mar 28)",d:"personal",s:"in",m:"Hawaiian Airlines trip confirmed. Koa resort. With Daniel.",done:false},
+{id:13,t:"Update Gmail signature phone number",d:"personal",s:"in",m:"949 \u2192 714-391-3771.",done:false},
+{id:14,t:"Review Mazdak intel\u2014LinkedIn only",d:"biz",s:"in",m:"Ops #20: Responded not interested. Gather intelligence, no selling.",done:false},
+// OPS TEAM ACTIVE
+{id:30,t:"Case study progress\u2014Francis",d:"ops",s:"ops",m:"#5: Building case studies. Drive folder active.",who:"Lyneth/Francis",st:"in-progress"},
+{id:31,t:"Case study clips\u2014blur deal sheet editing",d:"ops",s:"ops",m:"#9: Clip, blur sensitive data, show first name + deal count",who:"Francis",st:"in-progress"},
+{id:32,t:"MTS deals\u2014supervise meetings + action items",d:"ops",s:"ops",m:"#11: Daily task. Joy checks recap. Deal sheet needs fixes.",who:"Sunshine/Joy",st:"in-progress"},
+{id:33,t:"Medica deals\u2014follow up rescheduling",d:"ops",s:"ops",m:"#14: Follow up for rescheduling appt and deals.",who:"Joy",st:"in-progress"},
+{id:34,t:"Google inbox backtrack\u2014confirm Sep 2025 cancel",d:"ops",s:"ops",m:"#18: Ongoing.",who:"Sunshine",st:"in-progress"},
+{id:35,t:"Video clips\u2014AI clipping (30-40 clips per batch)",d:"ops",s:"ops",m:"#25: Clips generated, in Drive folder. READY FOR LENA.",who:"Sunshine",st:"lena-review"},
+{id:36,t:"SOP: video creation + posting workflow",d:"ops",s:"ops",m:"#26: Joy=posting SOP. Sunshine=clipping SOP.",who:"Joy/Sunshine",st:"in-progress"},
+{id:37,t:"Scale posting: 1\u21925 videos/day",d:"ops",s:"ops",m:"#27: NOT YET STARTED. Delegated to Joy.",who:"Joy",st:"not-started"},
+{id:38,t:"Calendly rename to generic \u2018Lucid Strategy Session\u2019",d:"ops",s:"ops",m:"#28: Needs clarification from Lena.",who:"Sunshine",st:"blocked"},
+{id:39,t:"Create posting captions + hashtags + UTM",d:"ops",s:"ops",m:"#30: Joy working in master sheet.",who:"Joy",st:"in-progress"},
+{id:40,t:"Merge targeting + prep campaign materials",d:"ops",s:"ops",m:"Targeting APPROVED. Sunshine merges. Lena reviews messaging.",who:"Sunshine",st:"in-progress"},
+{id:41,t:"RIA/PE/VC list curation + messaging drafts",d:"ops",s:"ops",m:"#15: Lists built, Apollo links ready. FOR LENA APPROVAL.",who:"Team",st:"lena-review"},
+// WAITING ON
+{id:50,t:"INVIZA proposal response",d:"biz",s:"waiting",m:"Robert Andosca\u2014call CONFIRMED Mar 31 1PM PT.",done:false,w:0},
+{id:51,t:"Medical Murray proposal response",d:"biz",s:"waiting",m:"Gil Jimenez, VP Operations.",done:false,w:3},
+{id:52,t:"Recruiter responses (autoresponder active)",d:"career",s:"waiting",m:"35 emails sent 3/17 + 7 drafts from Session 4.",done:false,w:2},
+{id:53,t:"RAPA/Langfeldt reschedule",d:"biz",s:"waiting",m:"Langfeldt declined. Rescheduled Apr 21. Dirk OOO til Mar 30.",done:false,w:0},
+// BACKLOG
+{id:60,t:"SVRN Ventures pipeline tracking",d:"invest",s:"backlog",m:"No system yet.",done:false},
+{id:61,t:"Fitness program check-in",d:"health",s:"backlog",m:"Review coaching skill progress.",done:false},
+{id:62,t:"Plan post-Hawaii April sprint",d:"biz",s:"backlog",m:"Map priorities during downtime.",done:false},
+// DONE
+{id:70,t:"Resolve calendar conflict (Friedman vs CPA)",d:"personal",s:"done",m:"3/19\u2014Friedman 1PM, CPA 3:30PM",done:true},
+{id:71,t:"35 recruiter emails sent with PDFs",d:"career",s:"done",m:"3/17",done:true},
+{id:72,t:"INVIZA proposal created + sent",d:"biz",s:"done",m:"3/18\u20133/19",done:true},
+{id:73,t:"2 master campaign playbooks built",d:"biz",s:"done",m:"Video Sales Accel + VC/PE/RIA\u20143/19",done:true},
+{id:74,t:"George system deployed",d:"personal",s:"done",m:"3/19",done:true},
+{id:75,t:"Robert Andosca confirmed Mar 31 call",d:"biz",s:"done",m:"3/19",done:true},
+{id:76,t:"Calendly links updated to /LS sitewide",d:"ops",s:"done",m:"#6: Done by Sunshine",done:true},
+{id:77,t:"Subscriptions audit\u2014$539 saved",d:"ops",s:"done",m:"#7-8: QB, Calendly, Zoom, JustCall",done:true},
+{id:78,t:"Campaign analytics tracking set up",d:"ops",s:"done",m:"#24: UTM codes + master sheet",done:true},
+];
+
+const TL=[
+{dt:"TODAY",txt:"Friedman call 1:00 PM",d:"biz"},
+{dt:"TODAY",txt:"Gene Heo CPA 3:30 PM",d:"personal"},
+{dt:"Mar 20",txt:"Sunshine: targeting merge due",d:"ops"},
+{dt:"Mar 21",txt:"Women in Tech Symposium",d:"growth"},
+{dt:"Mar 21",txt:"Hawaii starts (thru Mar 28)",d:"personal"},
+{dt:"Mar 31",txt:"INVIZA call 1 PM PT",d:"biz"},
+{dt:"Apr 21",txt:"RAPA/Langfeldt rescheduled call",d:"biz"},
+];
+const PPL=[
+{n:"Robert Andosca",r:"INVIZA\u2014Mar 31 call confirmed"},
+{n:"Gil Jimenez",r:"Medical Murray\u2014follow up"},
+{n:"Jared Hutar",r:"Piraeus Med\u2014post-Hawaii"},
+{n:"Victor Suturin",r:"Aliform Surg\u2014post-Hawaii"},
+{n:"Sunshine",r:"Targeting merge due tomorrow"},
+{n:"Gene Heo",r:"CPA\u2014tax review today 3:30"},
+{n:"Michael Friedman",r:"Nighthawk\u2014call today 1PM"},
+];
+
+// =============== STATE ===============
+const STORAGE_KEY = 'george_dashboard_v3';
+let T, cf = 'all';
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) { T = JSON.parse(saved); return; }
+  } catch(e) {}
+  T = JSON.parse(JSON.stringify(DEFAULT_TASKS));
+}
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(T));
+    const el = document.getElementById('syncStatus');
+    el.textContent = 'Saved'; el.classList.add('saving');
+    setTimeout(() => el.classList.remove('saving'), 1500);
+  } catch(e) {}
+}
+
+// =============== FILTERS ===============
+function F(d, el) {
+  cf = d;
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  R();
+}
+function gf() {
+  if (cf === 'all') return T;
+  if (cf === 'ops') return T.filter(x => x.d === 'ops');
+  return T.filter(x => x.d === cf);
+}
+
+// =============== ACTIONS ===============
+function tog(id) {
+  const t = T.find(x => x.id === id);
+  if (!t) return;
+  t.done = !t.done;
+  if (t.done) { t.s = 'done'; t.m = new Date().toLocaleDateString('en-US',{month:'numeric',day:'numeric'}) + ' \u2014 ' + t.m; }
+  saveState(); R();
+}
+
+function addT() {
+  const i = document.getElementById('qi'), d = document.getElementById('qd').value, s = document.getElementById('qs').value;
+  if (!i.value.trim()) return;
+  T.push({id: Date.now(), t: i.value.trim(), d, s, m: 'Added ' + new Date().toLocaleDateString(), done: false});
+  i.value = ''; saveState(); R();
+}
+
+// =============== DRAG AND DROP ===============
+let dragId = null, dragOverSec = null;
+
+function onDragStart(e, id) {
+  dragId = id;
+  e.dataTransfer.effectAllowed = 'move';
+  e.target.classList.add('dragging');
+  // For touch
+  if (e.dataTransfer.setData) e.dataTransfer.setData('text/plain', id);
+}
+function onDragEnd(e) {
+  dragId = null;
+  document.querySelectorAll('.dragging').forEach(el => el.classList.remove('dragging'));
+  document.querySelectorAll('.dropzone.over').forEach(el => el.classList.remove('over'));
+}
+function onDragOver(e, sec) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  const dz = e.currentTarget;
+  if (!dz.classList.contains('over')) {
+    document.querySelectorAll('.dropzone.over').forEach(el => el.classList.remove('over'));
+    dz.classList.add('over');
+  }
+  dragOverSec = sec;
+}
+function onDrop(e, sec) {
+  e.preventDefault();
+  if (dragId === null) return;
+  const t = T.find(x => x.id === dragId);
+  if (t) {
+    t.s = sec;
+    if (sec === 'done') { t.done = true; t.m = new Date().toLocaleDateString('en-US',{month:'numeric',day:'numeric'}) + ' \u2014 ' + t.m; }
+    else { t.done = false; }
+    saveState(); R();
+  }
+  dragId = null;
+  document.querySelectorAll('.dropzone.over').forEach(el => el.classList.remove('over'));
+}
+
+// Touch drag support
+let touchDragEl = null, touchDragId = null, touchClone = null;
+function onTouchStart(e, id) {
+  const touch = e.touches[0];
+  touchDragId = id;
+  touchDragEl = e.currentTarget;
+  // Long press to start drag
+  touchDragEl._longPress = setTimeout(() => {
+    touchDragEl.classList.add('dragging');
+    touchClone = touchDragEl.cloneNode(true);
+    touchClone.style.cssText = 'position:fixed;pointer-events:none;opacity:.7;z-index:999;width:' + touchDragEl.offsetWidth + 'px;left:' + touch.clientX + 'px;top:' + touch.clientY + 'px;transform:translate(-50%,-50%)';
+    document.body.appendChild(touchClone);
+  }, 300);
+}
+function onTouchMove(e, id) {
+  if (!touchClone) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  touchClone.style.left = touch.clientX + 'px';
+  touchClone.style.top = touch.clientY + 'px';
+  // Find dropzone under finger
+  const el = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (el) {
+    const dz = el.closest('.dropzone');
+    if (dz) {
+      document.querySelectorAll('.dropzone.over').forEach(d => d.classList.remove('over'));
+      dz.classList.add('over');
+    }
+  }
+}
+function onTouchEnd(e, id) {
+  clearTimeout(touchDragEl?._longPress);
+  if (touchClone) {
+    const touch = e.changedTouches[0];
+    const el = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (el) {
+      const dz = el.closest('.dropzone');
+      if (dz && dz.dataset.sec) {
+        const t = T.find(x => x.id === touchDragId);
+        if (t) {
+          t.s = dz.dataset.sec;
+          if (t.s === 'done') { t.done = true; }
+          else { t.done = false; }
+          saveState();
+        }
+      }
+    }
+    document.body.removeChild(touchClone);
+    touchClone = null;
+  }
+  if (touchDragEl) touchDragEl.classList.remove('dragging');
+  document.querySelectorAll('.dropzone.over').forEach(d => d.classList.remove('over'));
+  touchDragEl = null; touchDragId = null;
+  R();
+}
+
+// =============== RENDER ===============
+function R() {
+  document.getElementById('hd').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const f = gf(), a = f.filter(x=>!x.done), u = f.filter(x=>x.s==='ui'&&!x.done), o = T.filter(x=>x.d==='ops'&&!x.done), d = f.filter(x=>x.done);
+  document.getElementById('kA').textContent = a.length;
+  document.getElementById('kAs').textContent = cf==='all'?'all domains':DL[cf]||cf;
+  document.getElementById('kU').textContent = u.length;
+  document.getElementById('kO').textContent = o.length;
+  document.getElementById('kD').textContent = d.length;
+
+  let h = '';
+  Object.entries(SL).sort((a,b)=>SO[a[0]]-SO[b[0]]).forEach(([k,lbl])=>{
+    const items = f.filter(x=>x.s===k);
+    if (!items.length && k !== 'ui' && k !== 'in') return;
+    const bc = k==='ui'?'badge-u':k==='ops'?'badge-ops':k==='waiting'?'badge-w':'';
+    const cnt = items.filter(x=>!x.done).length;
+    const bdg = bc && cnt ? ` <span class="badge ${bc}">${cnt}</span>` : '';
+    h += `<div class="sec"><div class="sec-h">${lbl}${bdg}</div>`;
+    h += `<div class="dropzone" data-sec="${k}" ondragover="onDragOver(event,'${k}')" ondrop="onDrop(event,'${k}')">`;
+    items.forEach(t => {
+      const wb = t.w !== undefined ? ` <span class="wb">${t.w}d</span>` : '';
+      const fl = t.flag === 'alert' ? ` <span class="alert">ACTION</span>` : '';
+      const wh = t.who ? ` <span class="who">\u2192 ${t.who}</span>` : '';
+      let stBadge = '';
+      if (t.st) {
+        const statusMap = {
+          'not-started': {cls:'badge-ns',lbl:'NOT STARTED'},
+          'in-progress': {cls:'badge-ip',lbl:'IN PROGRESS'},
+          'ops-review': {cls:'badge-or',lbl:'OPS REVIEW'},
+          'lena-review': {cls:'badge-lr',lbl:'LENA REVIEW'},
+          'done': {cls:'badge-d',lbl:'DONE'},
+          'blocked': {cls:'badge-bl',lbl:'BLOCKED'}
+        };
+        const st = statusMap[t.st];
+        if (st) stBadge = ` <span class="badge ${st.cls}">${st.lbl}</span>`;
+      }
+      h += `<div class="t" draggable="true" ondragstart="onDragStart(event,${t.id})" ondragend="onDragEnd(event)" ontouchstart="onTouchStart(event,${t.id})" ontouchmove="onTouchMove(event,${t.id})" ontouchend="onTouchEnd(event,${t.id})">`;
+      h += `<div class="grip">\u2261</div>`;
+      h += `<div class="chk ${t.done?'done':''}" onclick="event.stopPropagation();tog(${t.id})"></div>`;
+      h += `<div style="flex:1"><div class="t-t ${t.done?'done':''}"><span class="tag d-${t.d}">${DL[t.d]||t.d}</span>${t.t}${wb}${fl}${stBadge}${wh}</div><div class="t-m">${t.m}</div></div></div>`;
+    });
+    if (!items.length) h += `<div style="padding:8px;color:#ccc;font-size:11px;text-align:center">Drop tasks here</div>`;
+    h += `</div></div>`;
+  });
+  document.getElementById('board').innerHTML = h;
+
+  let tl = '';
+  TL.forEach(i => { tl += `<div class="tl-i"><div class="tl-d">${i.dt}</div><div><span class="tag d-${i.d}">${DL[i.d]||''}</span>${i.txt}</div></div>`; });
+  document.getElementById('tl').innerHTML = tl;
+
+  let pp = '';
+  PPL.forEach(p => { pp += `<div class="ppl-i"><div class="ppl-n">${p.n}</div><div class="ppl-r">${p.r}</div></div>`; });
+  document.getElementById('ppl').innerHTML = pp;
+
+  const ac = T.filter(x=>!x.done);
+  let ds = '';
+  Object.entries(DL).forEach(([k,l]) => {
+    const c = ac.filter(x=>x.d===k).length;
+    if (!c) return;
+    ds += `<div class="dr"><div><span class="dot" style="background:${DC[k]||'#999'}"></span>${l}</div><div class="ct">${c}</div></div>`;
+  });
+  document.getElementById('ds').innerHTML = ds;
+}
+
+// =============== INIT ===============
+loadState();
+R();
+</script>
+</body>
+</html>
