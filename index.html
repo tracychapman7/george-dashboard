@@ -1,5 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>George Dashboard v5</title>
-<style>*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif;background:#f8f9fa;color:#2c3e50;line-height:1.5}.c{max-width:1200px;margin:0 auto;padding:0}header{background:#fff;padding:12px 16px;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,0.1)}.h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.ht{font-size:20px;font-weight:600;color:#d4ac0d}.hd{font-size:12px;color:#7f8c8d}.sb{font-size:11px;color:#27ae60;background:#ecf9f5;padding:4px 8px;border-radius:3px}.st{background:#fff;padding:12px 16px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;border-bottom:1px solid #e0e0e0}.s{text-align:center}.sn{font-weight:700;font-size:18px;color:#d4ac0d}.sl{font-size:11px;color:#7f8c8d;text-transform:uppercase}main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}@media(max-width:768px){main{grid-template-columns:1fr;padding:12px}}.ps{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,0.05)}.st_t{font-size:14px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:2px solid #f0f0f0}.st_t.u{border-bottom-color:#c0392b}.st_t.t{border-bottom-color:#27ae60}.st_t.w{border-bottom-color:#3498db}.ti{display:flex;gap:12px;padding:12px;border-radius:6px;background:#fafafa;margin-bottom:8px;align-items:flex-start;transition:all 0.2s}.ti:hover{background:#f0f0f0}.ti.d{opacity:0.6}.ti.d .tt{text-decoration:line-through;color:#95a5a6}.tc{width:20px;height:20px;margin-top:2px;cursor:pointer;flex-shrink:0}.tct{flex:1}.ttime{font-size:11px;color:#7f8c8d;font-weight:600}.tt{font-size:13px;font-weight:500;color:#2c3e50;margin-top:2px}.tag{display:inline-block;font-size:10px;padding:2px 6px;border-radius:3px;margin-top:4px}.tag.u{background:#fadbd8;color:#c0392b}.tag.m{background:#d5f4e6;color:#27ae60}.tag.tx{background:#fef5e7;color:#d4ac0d}.tag.tr{background:#eaf2f8;color:#3498db}.cw{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,0.05)}.ct{font-size:13px;font-weight:600;margin-bottom:12px}.ws{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-bottom:16px}.wd{text-align:center;padding:8px 4px;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;transition:all 0.2s;color:#7f8c8d}.wd.tod{background:#d4ac0d;color:#fff;font-weight:700}.dot{width:4px;height:4px;border-radius:50%;margin:2px auto 0;transition:all 0.2s}.dot.t{background:#f39c12}.dot.e{background:#c0392b}.de{font-size:12px;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0}.de-e{padding:4px 0}.de-t{color:#7f8c8d;font-weight:600}.de-x{color:#2c3e50}.kp{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,0.05)}.kpt{font-size:13px;font-weight:600;margin-bottom:12px}.pc{padding:12px;border-radius:6px;background:#fafafa;margin-bottom:8px;border-left:3px solid #d4ac0d}.pn{font-weight:600;font-size:13px}.pr{font-size:11px;color:#7f8c8d;margin-top:2px}.pl{display:inline-block;margin-top:6px;font-size:11px;color:#3498db;text-decoration:none;padding:4px 8px;background:#ecf0f1;border-radius:3px;cursor:pointer;transition:all 0.2s}.pl:hover{background:#d5dbdb}.li{margin-right:2px}.cs{background:#fff;border-radius:8px;margin-top:8px;box-shadow:0 2px 4px rgba(0,0,0,0.05);overflow:hidden}.ch{padding:12px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#f8f9fa;border-bottom:1px solid #e0e0e0;user-select:none;transition:all 0.2s}.ch:hover{background:#f0f1f2}.ch.o{background:#f0f1f2}.cv{font-size:12px;transition:transform 0.3s;display:inline-block}.ch.o .cv{transform:rotate(90deg)}.cc{padding:16px;display:none}.ch.o+.cc{display:block}.tp{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:16px;border-radius:8px;text-align:center;text-decoration:none;display:block;margin-top:16px;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:all 0.2s;cursor:pointer}.tp:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,0.15)}.tpe{font-size:24px;margin-bottom:6px}.tpt{font-weight:600;font-size:14px}footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:#7f8c8d;border-top:1px solid #e0e0e0;margin-top:24px}.mn{display:none;position:fixed;bottom:0;width:100%;background:#fff;border-top:1px solid #e0e0e0;z-index:200}.nb{display:grid;grid-template-columns:repeat(4,1fr)}.nb-btn{padding:12px;text-align:center;cursor:pointer;font-size:11px;color:#7f8c8d;border:none;background:none;transition:all 0.2s;user-select:none}.nb-btn.a{color:#d4ac0d;border-top:2px solid #d4ac0d}@media(max-width:768px){.mn{display:block}body{padding-bottom:60px}main{grid-template-columns:1fr}.cw,.kp{display:none}}.qm{padding:12px 16px;background:#ecf0f1;border-radius:6px;margin-top:12px}.mi{width:100%;padding:8px;border:1px solid #bdc3c7;border-radius:4px;font-size:12px;resize:vertical}.mb{background:#d4ac0d;color:#fff;border:none;padding:8px 12px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;margin-top:8px;transition:all 0.2s}.mb:hover{background:#b8860b}.pb{display:inline-block;font-size:10px;font-weight:700;padding:2px 4px;border-radius:2px;margin-right:4px}.pb.p0{background:#fadbd8;color:#c0392b}
-</style></head><body><div class="c"><header><div class="h"><div><div class="ht">George — Command Center</div><div class="hd" id="headerDate"></div></div><div class="sb" id="syncBadge">Synced now</div></div></header><div class="st"><div class="s"><div class="sn" id="statToday">5</div><div class="sl">Today</div></div><div class="s"><div class="sn" id="statWeek">12</div><div class="sl">This Week</div></div><div class="s"><div class="sn" id="statUrgent">3</div><div class="sl">Urgent</div></div><div class="s"><div class="sn" id="statDone">0</div><div class="sl">Done</div></div></div><main><div><div class="ps"><div class="st_t u">🔴 TODAY (Fri Mar 20)</div><div id="doNowContainer"></div></div><div class="ps" style="margin-top:16px"><div class="st_t t">✈️ TOMORROW (Sat Mar 21)</div><div id="tomorrowContainer"></div></div><div class="ps" style="margin-top:16px"><div class="st_t w">📅 THIS WEEK (Priority Calls & Deadlines)</div><div id="thisWeekContainer"></div></div><div class="cs" style="margin-top:16px"><div class="ch"><span>▸ Post-Hawaii Tasks</span><span class="cv">▸</span></div><div class="cc"><div class="ti" id="task-posttrip"><input type="checkbox" class="tc"><div class="tct"><div class="tt">Review Hawaii expenses & receipts</div><span class="tag m">📊 Follow-up</span></div></div><div class="ti" id="task-photos"><input type="checkbox" class="tc"><div class="tct"><div class="tt">Organize trip photos</div><span class="tag">📷 Personal</span></div></div></div></div><div class="cs" style="margin-top:8px"><div class="ch"><span>▸ Lower Priority</span><span class="cv">▸</span></div><div class="cc"><div class="ti" id="task-payroll"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Tue Mar 24, 11:00 AM</div><div class="tt">Payroll transfer</div><span class="tag m">💰 Admin</span></div></div></div></div><div class="qm"><div style="font-size:12px;font-weight:600;margin-bottom:8px">📝 Quick Note to George</div><textarea class="mi" id="messageInput" placeholder="Type a note..."></textarea><button class="mb" onclick="saveMessage()">Save Note</button></div><a href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit?usp=sharing" class="tp" target="_blank" rel="noopener noreferrer" style="background:linear-gradient(135deg,#27ae60 0%,#2ecc71 100%);margin-top:16px"><div class="tpe">📊</div><div class="tpt">Video Content Approval &amp; KBI Sheet</div></a><a href="trip-planner.html" class="tp" target="_blank" rel="noopener noreferrer"><div class="tpe">🌴</div><div class="tpt">Asia-Germany Trip Planner</div></a></div><div><div class="cw"><div class="ct">📅 This Week & Upcoming</div><div class="ws" id="weekStrip"></div><div class="de" id="dayEvents"></div></div><div class="kp" style="margin-top:16px"><div class="kpt">👥 Key People This Week</div><div class="pc"><div class="pn">Gene Heo</div><div class="pr">CPA — TAX URGENCY</div><div style="font-size:10px;color:#7f8c8d;margin-top:4px">🔴 Deadline: Mar 23 (3 days)<br/>✅ Payroll docs SENT 9 AM · ⚠️ Gene requesting Form 941, 940, DE 9 for 2025 reconciliation<br/>Manager had emergency — updated draft tomorrow AM</div><span class="pl" style="background:#f5eef8;color:#7f8c8d;cursor:default">CPA (not in HubSpot)</span></div><div class="pc"><div class="pn">Pat Hwang</div><div class="pr">Women in Tech Symposium</div><div style="font-size:10px;color:#7f8c8d;margin-top:4px">📧 Draft ready | Event today 11:00 AM</div><a class="pl" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c135b986fd85" target="_blank" rel="noopener noreferrer" style="background:#fef5e7;color:#d4ac0d">📧 Open Draft</a> <a class="pl" onclick="openHubSpot('Pat Hwang')" title="Opens HubSpot — login required"><span class="li">🔒</span>HubSpot</a></div><div class="pc"><div class="pn">Nick Scarrozzo</div><div class="pr">FMLCPAs — QB ACCESS</div><div style="font-size:10px;color:#7f8c8d;margin-top:4px">🔴 Tonight: Grant QB access (10:00 PM)</div><a class="pl" onclick="openHubSpot('Nick Scarrozzo')" title="Opens HubSpot — login required"><span class="li">🔒</span>View Profile</a></div><div class="pc"><div class="pn">Michael Friedman</div><div class="pr">Nighthawk Tech — DEAL</div><div style="font-size:10px;color:#7f8c8d;margin-top:4px">📧 Draft ready | Follow-up call Mar 26</div><a class="pl" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c136a3311390" target="_blank" rel="noopener noreferrer" style="background:#fef5e7;color:#d4ac0d">📧 Open Draft</a> <a class="pl" onclick="openHubSpot('Michael Friedman')" title="Opens HubSpot — login required"><span class="li">🔒</span>HubSpot</a></div><div class="pc"><div class="pn">Gil Jimenez</div><div class="pr">Medical Murray — DEAL</div><div style="font-size:10px;color:#7f8c8d;margin-top:4px">📧 Draft ready | Responded 3/20 &mdash; traveling, back next week</div><a class="pl" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c137935f85e7" target="_blank" rel="noopener noreferrer" style="background:#fef5e7;color:#d4ac0d">📧 Open Draft</a> <a class="pl" onclick="openHubSpot('Gil Jimenez')" title="Opens HubSpot — login required"><span class="li">🔒</span>HubSpot</a></div><div class="pc"><div class="pn">Robert Andosca</div><div class="pr">INVIZA — DEAL</div><div style="font-size:10px;color:#7f8c8d;margin-top:4px">📧 Draft ready | Follow-up pending</div><a class="pl" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c13862eae88d" target="_blank" rel="noopener noreferrer" style="background:#fef5e7;color:#d4ac0d">📧 Open Draft</a> <a class="pl" onclick="openHubSpot('Robert Andosca')" title="Opens HubSpot — login required"><span class="li">🔒</span>HubSpot</a></div></div></div></main><footer><div>George v5.0 | Priority-Filtered Command Center | No sensitive data linked</div><div style="margin-top:4px" id="footerSync">Last synced: now</div></footer></div><div class="mn"><div class="nb"><button class="nb-btn a" onclick="navTo('today')">📋 Today</button><button class="nb-btn" onclick="navTo('calendar')">📅 Cal</button><button class="nb-btn" onclick="navTo('people')">👥 People</button><button class="nb-btn" onclick="navTo('settings')">⚙️ Settings</button></div></div><script>const SK='george_dashboard_v5';const HB='https://app.hubspot.com/contacts/6283041/record/0-1/';const HID={'Pat Hwang':'205338915337','Nick Scarrozzo':'210191618686','Michael Friedman':'64083088415','Gil Jimenez':'187801','Robert Andosca':'209183430921'};const CD={'Fri Mar 20':[{time:'8:00 AM',text:'Review follow-up: Victor Suturin (Aliform)',type:'task',tag:'📧'},{time:'9:00 AM',text:'Send payroll docs to Gene Heo',type:'task',tag:'💰'},{time:'9:35 AM',text:'Review follow-up: Jared Hutar (Piraeus) — 48hr',type:'task',tag:'📧'},{time:'10:00 AM',text:'Check payments Gene Heo',type:'task',tag:'💰'},{time:'11:00 AM',text:'Women in Tech Symposium — Pat',type:'event',tag:'👩‍💼'},{time:'2:30 PM',text:'Leave to event',type:'task',tag:'🚗'},{time:'3:30 PM',text:'Networking',type:'event',tag:'🤝'},{time:'5:00 PM',text:'Respond to Thomas (Isabel referral)',type:'task',tag:'📧'},{time:'6:00 PM',text:'Sell GDX',type:'task',tag:'📈'},{time:'7:15 PM',text:'Zouk Social — Aneska\'s Birthday',type:'event',tag:'🎉'},{time:'10:00 PM',text:'⚡ Grant Nick QB access',type:'urgent',tag:'🔴'},{time:'11:00 PM',text:'⚡ Verify Wealthfront',type:'urgent',tag:'🔴'}],'Sat Mar 21':[{time:'8:30 AM',text:'Flight LAX → Maui ✈️',type:'event',tag:'✈️'}],'Mon Mar 23':[{time:'3:00 PM',text:'DEADLINE: Personal Tax Return Gene Heo',type:'urgent',tag:'🔴'},{time:'6:00 PM',text:'6th Month Team Eval #1',type:'event',tag:'👥'}],'Tue Mar 24':[{time:'11:00 AM',text:'Payroll transfer',type:'task',tag:'💰'},{time:'5:00 PM',text:'Sell GDX > SGOV',type:'task',tag:'📈'}],'Wed Mar 25':[{time:'6:00 PM',text:'6th Month Team Eval #2',type:'event',tag:'👥'}],'Thu Mar 26':[{time:'1:00 PM',text:'Michael Friedman Follow-Up — Nighthawk Tech',type:'event',tag:'📞'}],'Fri Mar 27':[{time:'9:00 AM',text:'Piyush Sheth call (NEW PROSPECT)',type:'event',tag:'💼'},{time:'6:00 PM',text:'6th Month Team Eval #3',type:'event',tag:'👥'}],'Sat Mar 28':[{time:'3:10 PM',text:'Flight Maui → LAX ✈️',type:'event',tag:'✈️'},{time:'2:00 PM',text:'Zouk Vibes (⚠️ flight conflict)',type:'event',tag:'💃'},{time:'4:00 PM',text:'CASA del MAR (⚠️ flight conflict)',type:'event',tag:'🎶'},{time:'6:00 PM',text:'Saturday Salon — Newport (⚠️ flight conflict)',type:'event',tag:'🎶'}]};function init(){renderHeader();renderDoNow();renderTomorrow();renderThisWeek();renderCalendar();loadState();attachEventListeners();updateStats()}function renderHeader(){const today=new Date();document.getElementById('headerDate').textContent=today.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}function renderDoNow(){const html=`<div class="ti" id="task-payroll-docs"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Today 9:00 AM</div><div class="tt">Send payroll docs to Gene Heo</div><span class="tag m">💰 Admin</span></div></div><div class="ti" id="task-victor-fu"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Today 8:00 AM</div><div class="tt">Review follow-up: Victor Suturin (Aliform)</div><span class="tag m">📧 48hr check</span></div></div><div class="ti" id="task-thomas"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Today 5:00 PM</div><div class="tt">📧 Respond to Thomas (Isabel referral)</div><span class="tag u"><span class="pb p0">P0</span>Business</span></div></div><div class="ti" id="task-gdx"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Today 6:00 PM</div><div class="tt">📈 Sell GDX (at least partially)</div><span class="tag tx">Investing</span></div></div><div class="ti" id="task-qb-access"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Tonight 10:00 PM</div><div class="tt">⚡ Grant Nick QB access (FMLCPAs)</div><span class="tag u"><span class="pb p0">P0</span>Urgent</span></div></div><div class="ti" id="task-verify-wf"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Tonight 11:00 PM</div><div class="tt">⚡ Verify Wealthfront account details</div><span class="tag u"><span class="pb p0">P0</span>Before Trip</span></div></div>`;document.getElementById('doNowContainer').innerHTML=html}function renderTomorrow(){const html=`<div class="ti" id="task-flight"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">8:30 AM</div><div class="tt">Flight LAX → Maui (Hawaiian Airlines)</div><span class="tag tr">✈️ DEPARTURE</span></div></div><div class="ti" id="task-packing"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Before 11:00 PM tonight</div><div class="tt">Pack for Hawaii & Germany trip</div><span class="tag tr">🧳 Prep</span></div></div><div class="ti" id="task-passports"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Before departure</div><div class="tt">Confirm passports & travel docs ready</div><span class="tag tr">📄 Critical</span></div></div>`;document.getElementById('tomorrowContainer').innerHTML=html}function renderThisWeek(){const html=`<div class="ti" id="task-tax-deadline"><input type="checkbox" class="tc"><div class="tct"><div class="ttime">Mon Mar 23, 3:00 PM</div><div class="tt">DEADLINE: Personal Tax Return (Gene Heo)</div><span class="tag tx"><span class="pb p0">P0</span>DEADLINE</span></div></div><div class="ti" id="task-other-deals"><input type="checkbox" class="tc"><div class="tct"><div class="tt">Monitor active deals: Friedman/Nighthawk, INVIZA/Andosca, Medical Murray/Gil Jimenez, Guy Omacias</div><span class="tag m">💰 Pipeline</span></div></div>`;document.getElementById('thisWeekContainer').innerHTML=html}function renderCalendar(){const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat','Sun','Mon'];const today=new Date(2026,2,20);const weekStart=new Date(2026,2,20);let weekHtml='';for(let i=0;i<9;i++){const date=new Date(weekStart);date.setDate(weekStart.getDate()+i);const dateStr=date.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});const isToday=i===0;const events=CD[dateStr]||[];let dotsHtml='';events.forEach(evt=>{if(evt.type==='urgent')dotsHtml+='<div class="dot e"></div>';else if(evt.type==='event')dotsHtml+='<div class="dot e"></div>';else dotsHtml+='<div class="dot t"></div>'});const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];weekHtml+=`<div class="wd ${isToday?'tod':''}" onclick="showDayEvents('${dateStr}')">${dn[date.getDay()]}<br/><strong style="font-size:13px">${date.getDate()}</strong>${dotsHtml}</div>`}document.getElementById('weekStrip').innerHTML=weekHtml;showDayEvents('Fri Mar 20')}function showDayEvents(dateStr){const events=CD[dateStr]||[];let html=`<strong style="color:#d4ac0d;font-size:12px">${dateStr}</strong>`;if(events.length===0){html+='<div style="font-size:11px;color:#95a5a6;margin-top:6px;">No events scheduled</div>'}else{events.forEach(evt=>{html+=`<div class="de-e"><span class="de-t">${evt.time}</span><span class="de-x">${evt.tag} ${evt.text}</span></div>`})}document.getElementById('dayEvents').innerHTML=html}function updateStats(){document.getElementById('statToday').textContent='6';document.getElementById('statWeek').textContent='9';document.getElementById('statUrgent').textContent='2';const state=JSON.parse(localStorage.getItem(SK)||'{}');const done=Object.values(state).filter(v=>v).length;document.getElementById('statDone').textContent=done}function loadState(){const state=JSON.parse(localStorage.getItem(SK)||'{}');Object.keys(state).forEach(id=>{const el=document.getElementById(id);if(el){const checkbox=el.querySelector('.tc');if(state[id]){checkbox.checked=true;el.classList.add('d')}}});const msg=localStorage.getItem(SK+'_msg');if(msg){document.getElementById('messageInput').value=msg}}function attachEventListeners(){document.querySelectorAll('.tc').forEach(cb=>{cb.addEventListener('change',function(){const state=JSON.parse(localStorage.getItem(SK)||'{}');const taskId=this.closest('.ti').id;if(this.checked){this.closest('.ti').classList.add('d');state[taskId]=true}else{this.closest('.ti').classList.remove('d');state[taskId]=false}localStorage.setItem(SK,JSON.stringify(state));updateStats()})});document.querySelectorAll('.ch').forEach(header=>{header.addEventListener('click',function(){this.classList.toggle('o')})})}function saveMessage(){const msg=document.getElementById('messageInput').value;localStorage.setItem(SK+'_msg',msg);alert('Note saved to local storage')}function openHubSpot(name){const id=HID[name];if(id){window.open(HB+id,'_blank','noopener,noreferrer')}}function navTo(section){document.querySelectorAll('.nb-btn').forEach(btn=>btn.classList.remove('a'));event.target.classList.add('a')}window.addEventListener('DOMContentLoaded',init)</script></body></html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>George Dashboard v6</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif;background:#f8f9fa;color:#2c3e50;line-height:1.5;padding-bottom:70px}
+a{color:#3498db;text-decoration:none}
+a:hover{text-decoration:underline}
+.c{max-width:1200px;margin:0 auto;padding:0}
+header{background:#fff;padding:12px 16px;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.h{display:flex;justify-content:space-between;align-items:center}
+.ht{font-size:20px;font-weight:700;color:#d4ac0d}
+.hd{font-size:12px;color:#7f8c8d}
+.sb{font-size:11px;color:#27ae60;background:#ecf9f5;padding:4px 8px;border-radius:3px}
+.st{background:#fff;padding:10px 16px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-bottom:1px solid #e0e0e0}
+.s{text-align:center}.sn{font-weight:700;font-size:18px;color:#d4ac0d}.sl{font-size:10px;color:#7f8c8d;text-transform:uppercase}
+main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
+@media(max-width:768px){main{grid-template-columns:1fr;padding:12px}}
+.ps{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,.05);margin-bottom:16px}
+.sec-title{font-size:14px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:2px solid #f0f0f0}
+.sec-title.u{border-bottom-color:#c0392b}
+.sec-title.biz{border-bottom-color:#d4ac0d}
+.sec-title.per{border-bottom-color:#3498db}
+.sec-title.inv{border-bottom-color:#27ae60}
+.sec-title.cal{border-bottom-color:#8e44ad}
+.camp-header{font-size:13px;font-weight:700;color:#d4ac0d;margin:14px 0 8px;padding:8px 12px;background:#fef9e7;border-radius:6px;border-left:3px solid #d4ac0d;display:flex;justify-content:space-between;align-items:center}
+.camp-status{font-size:10px;padding:3px 8px;border-radius:10px;font-weight:600}
+.camp-status.active{background:#d5f4e6;color:#27ae60}
+.camp-status.review{background:#fef5e7;color:#e67e22}
+.camp-status.blocked{background:#fadbd8;color:#c0392b}
+.ti{display:flex;gap:10px;padding:10px 12px;border-radius:6px;background:#fafafa;margin-bottom:6px;align-items:flex-start;transition:all .2s}
+.ti:hover{background:#f0f0f0}
+.ti.d{opacity:.5}
+.ti.d .tt{text-decoration:line-through;color:#95a5a6}
+.ti.sub{margin-left:20px;background:#f5f5f5;border-left:2px solid #e0e0e0}
+.tc{width:18px;height:18px;margin-top:2px;cursor:pointer;flex-shrink:0;accent-color:#d4ac0d}
+.tct{flex:1;min-width:0}
+.ttime{font-size:10px;color:#7f8c8d;font-weight:600}
+.tt{font-size:12px;font-weight:500;color:#2c3e50;margin-top:1px}
+.tag{display:inline-block;font-size:9px;padding:2px 6px;border-radius:3px;margin-top:3px;margin-right:3px}
+.tag.u{background:#fadbd8;color:#c0392b}
+.tag.biz{background:#fef5e7;color:#d4ac0d}
+.tag.per{background:#eaf2f8;color:#3498db}
+.tag.inv{background:#d5f4e6;color:#27ae60}
+.tag.done{background:#ecf0f1;color:#95a5a6}
+.asset-link{display:inline-block;font-size:10px;padding:3px 8px;border-radius:3px;margin-top:4px;margin-right:3px;background:#ecf0f1;color:#3498db;text-decoration:none;cursor:pointer;transition:all .2s}
+.asset-link:hover{background:#d5dbdb;text-decoration:none}
+.asset-link.hs{background:#f5eef8;color:#7f8c8d;cursor:pointer}
+/* Calendar */
+.cw{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,.05);margin-bottom:16px}
+.ws{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-bottom:12px}
+.wd{text-align:center;padding:8px 4px;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;color:#7f8c8d}
+.wd.tod{background:#d4ac0d;color:#fff;font-weight:700}
+.wd:hover{background:#f0f0f0}
+.dot{width:4px;height:4px;border-radius:50%;margin:2px auto 0}
+.dot.t{background:#f39c12}.dot.e{background:#c0392b}.dot.b{background:#3498db}
+.de{font-size:11px;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0}
+.de-e{padding:3px 0;display:flex;gap:6px;align-items:baseline}
+.de-t{color:#7f8c8d;font-weight:600;white-space:nowrap;font-size:10px}
+.de-x{color:#2c3e50;font-size:11px}
+/* People */
+.pc{padding:10px 12px;border-radius:6px;background:#fafafa;margin-bottom:8px;border-left:3px solid #d4ac0d}
+.pn{font-weight:600;font-size:12px}.pr{font-size:10px;color:#7f8c8d;margin-top:1px}
+.pd{font-size:10px;color:#7f8c8d;margin-top:4px;line-height:1.4}
+/* Collapsible */
+.cs{background:#fff;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.05);overflow:hidden;margin-bottom:16px}
+.ch{padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#f8f9fa;border-bottom:1px solid #e0e0e0;user-select:none;transition:all .2s;font-size:13px;font-weight:600}
+.ch:hover{background:#f0f1f2}
+.ch.o{background:#f0f1f2}
+.cv{font-size:12px;transition:transform .3s;display:inline-block}
+.ch.o .cv{transform:rotate(90deg)}
+.cc{padding:12px 16px;display:none}
+.ch.o+.cc{display:block}
+/* Quick links */
+.ql{display:block;padding:14px;border-radius:8px;text-align:center;text-decoration:none;margin-bottom:8px;color:#fff;font-weight:600;font-size:13px;transition:all .2s;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.ql:hover{transform:translateY(-1px);box-shadow:0 4px 8px rgba(0,0,0,.15);text-decoration:none;color:#fff}
+.ql.green{background:linear-gradient(135deg,#27ae60,#2ecc71)}
+.ql.purple{background:linear-gradient(135deg,#667eea,#764ba2)}
+.ql.gold{background:linear-gradient(135deg,#d4ac0d,#f1c40f)}
+/* Note */
+.qm{padding:12px;background:#ecf0f1;border-radius:6px;margin-top:12px}
+.mi{width:100%;padding:8px;border:1px solid #bdc3c7;border-radius:4px;font-size:12px;resize:vertical}
+.mb{background:#d4ac0d;color:#fff;border:none;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .2s}
+.mb:hover{background:#b8860b}
+/* Nav */
+.mn{display:none;position:fixed;bottom:0;width:100%;background:#fff;border-top:1px solid #e0e0e0;z-index:200}
+.nb{display:grid;grid-template-columns:repeat(4,1fr)}
+.nb-btn{padding:12px;text-align:center;cursor:pointer;font-size:11px;color:#7f8c8d;border:none;background:none;transition:all .2s;user-select:none}
+.nb-btn.a{color:#d4ac0d;border-top:2px solid #d4ac0d}
+@media(max-width:768px){.mn{display:block}.hide-mobile{display:none}}
+footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:#7f8c8d;border-top:1px solid #e0e0e0;margin-top:16px}
+.p0{display:inline-block;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;background:#fadbd8;color:#c0392b;margin-right:2px}
+.gene-track{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 12px;margin-bottom:8px}
+.gene-track .gt-title{font-size:12px;font-weight:700;color:#856404;margin-bottom:6px}
+</style></head>
+<body>
+<div class="c">
+<header>
+<div class="h">
+<div>
+<div class="ht">George -- Command Center</div>
+<div class="hd">Friday, March 20, 2026 | v6.0</div>
+</div>
+<div class="sb">Synced 2:00 PM</div>
+</div>
+</header>
+
+<div class="st">
+<div class="s"><div class="sn" id="statToday">5</div><div class="sl">Today</div></div>
+<div class="s"><div class="sn" id="statWeek">14</div><div class="sl">This Week</div></div>
+<div class="s"><div class="sn" id="statUrgent">3</div><div class="sl">Urgent</div></div>
+<div class="s"><div class="sn" id="statDone">0</div><div class="sl">Done</div></div>
+</div>
+
+<main>
+<!-- LEFT COLUMN -->
+<div>
+
+<!-- DO NOW -->
+<div class="ps">
+<div class="sec-title u">TODAY -- Fri Mar 20</div>
+
+<div class="ti" id="t-thomas"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">5:00 PM</div>
+<div class="tt"><span class="p0">P0</span> Respond to Thomas (Isabel referral)</div>
+<span class="tag biz">Business</span>
+</div></div>
+
+<div class="ti" id="t-gdx"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">6:00 PM</div>
+<div class="tt">Sell GDX (at least partially)</div>
+<span class="tag inv">Investing</span>
+</div></div>
+
+<div class="ti" id="t-qb"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">10:00 PM</div>
+<div class="tt"><span class="p0">P0</span> Grant Nick Scarrozzo QB access (FMLCPAs)</div>
+<span class="tag u">URGENT -- Before Trip</span>
+</div></div>
+
+<div class="ti" id="t-wf"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">11:00 PM</div>
+<div class="tt"><span class="p0">P0</span> Verify Wealthfront $50K + $119K withdrawal</div>
+<span class="tag u">URGENT -- Before Trip</span>
+</div></div>
+
+<div class="ti" id="t-amy"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Tonight</div>
+<div class="tt">Reply to Amy Yoon -- payroll journal Q1-4Q 2025 for reconciliation</div>
+<span class="tag per">Gene Heo / CPA</span>
+</div></div>
+</div>
+
+<!-- BUSINESS / LUCID STRATEGIES -->
+<div class="ps">
+<div class="sec-title biz">BUSINESS -- Lucid Strategies</div>
+
+<!-- Campaign 1: AVC/PE -->
+<div class="camp-header">
+AVC/PE Campaign
+<span class="camp-status review">Needs Review</span>
+</div>
+
+<div class="ti sub" id="t-pe-targeting"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="tt">Targeting: APPROVED for Sunshine</div>
+<span class="tag done">DONE</span>
+</div></div>
+
+<div class="ti sub" id="t-pe-messaging"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="tt">Messaging: Master Playbook complete (PE + VC + RIA)</div>
+<span class="tag done">DONE</span>
+<a class="asset-link" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/" target="_blank">Content Calendar</a>
+</div></div>
+
+<div class="ti sub" id="t-pe-sunshine"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Sunshine: Merge targeting + prep materials</div>
+<span class="tag biz">Ops Team</span>
+</div></div>
+
+<div class="ti sub" id="t-pe-review"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Lena: Review PE/VC/RIA messaging &amp; playbook</div>
+<span class="tag u">Action Required</span>
+<a class="asset-link" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/" target="_blank">KBI Sheet</a>
+</div></div>
+
+<div class="ti sub" id="t-pe-deploy"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Deploy to outreach (post-review)</div>
+<span class="tag biz">Blocked on review</span>
+</div></div>
+
+<!-- Campaign 2: 30 Free Clips / Video Sales Excel -->
+<div class="camp-header">
+30 Free Clips / Video Sales Excel
+<span class="camp-status review">Partially Ready</span>
+</div>
+
+<div class="ti sub" id="t-clips-msg"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="tt">Messaging: Complete (outreach messaging doc)</div>
+<span class="tag done">DONE</span>
+</div></div>
+
+<div class="ti sub" id="t-clips-phone"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="tt">Phone script: Flushed out (MDM West format)</div>
+<span class="tag done">DONE</span>
+</div></div>
+
+<div class="ti sub" id="t-clips-posts"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Posts: Partially ready -- Lena review needed</div>
+<span class="tag u">Action Required</span>
+<a class="asset-link" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/" target="_blank">Content Calendar</a>
+</div></div>
+
+<div class="ti sub" id="t-clips-targeting"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Sunshine: Targeting prep (scheduled tomorrow)</div>
+<span class="tag biz">Ops Team</span>
+</div></div>
+
+<div class="ti sub" id="t-clips-assets"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Link all assets (messaging, script, posts, Excel)</div>
+<span class="tag u">Assets Needed</span>
+</div></div>
+
+<div class="ti sub" id="t-clips-launch"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Scheduled: Mar 29 1:00 PM</div>
+<div class="tt">Launch 30 Free Clips campaign</div>
+<span class="tag biz">Post-Hawaii</span>
+</div></div>
+
+<!-- Campaign 3: Show Hall -->
+<div class="camp-header">
+Show Hall
+<span class="camp-status blocked">Assets Pending</span>
+</div>
+
+<div class="ti sub" id="t-sh-cases"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Case studies from Frances</div>
+<span class="tag u">Waiting on Frances</span>
+</div></div>
+
+<div class="ti sub" id="t-sh-video"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Testimonial video</div>
+<span class="tag u">In Progress</span>
+</div></div>
+
+<div class="ti sub" id="t-sh-assets"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Compile &amp; link all Show Hall assets</div>
+<span class="tag biz">Blocked on above</span>
+</div></div>
+
+<!-- Other Business Tasks -->
+<div style="margin-top:14px;padding-top:10px;border-top:1px solid #f0f0f0">
+<div style="font-size:12px;font-weight:700;color:#7f8c8d;margin-bottom:8px">PIPELINE &amp; PROSPECTS</div>
+</div>
+
+<div class="ti" id="t-friedman"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Thu Mar 26, 1:00 PM</div>
+<div class="tt">Michael Friedman follow-up call (Nighthawk Tech)</div>
+<span class="tag biz">Deal</span>
+<div style="font-size:10px;color:#e74c3c;margin-top:2px">Note: Cole Matson DECLINED this meeting</div>
+<a class="asset-link" onclick="openHubSpot('Michael Friedman')">HubSpot</a>
+</div></div>
+
+<div class="ti" id="t-guy"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Thu Mar 26, 2:30 PM</div>
+<div class="tt">Guy Omacias -- LA Coaching Discovery (NEW)</div>
+<span class="tag biz">New Prospect</span>
+<div style="font-size:10px;color:#e67e22;margin-top:2px">Guy emailed: wants Mon Mar 23 instead (starts Capital One Mar 30)</div>
+<a class="asset-link" onclick="openHubSpot('Guy Omacias')">HubSpot</a>
+</div></div>
+
+<div class="ti" id="t-piyush"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Fri Mar 27, 9:00 AM</div>
+<div class="tt">Piyush Sheth call (NEW PROSPECT) -- Briefing needed</div>
+<span class="tag biz">New Prospect</span>
+<a class="asset-link" onclick="openHubSpot('Piyush Sheth')">HubSpot</a>
+</div></div>
+
+<div class="ti" id="t-nick-call"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Mon Mar 31, 2:00 PM</div>
+<div class="tt">Nick Scarrozzo &amp; LS call + FMLCPAs Intro</div>
+<span class="tag biz">New Prospect + CPA</span>
+<a class="asset-link" onclick="openHubSpot('Nick Scarrozzo')">HubSpot</a>
+</div></div>
+
+<div class="ti" id="t-andosca"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Mon Mar 31, 1:00 PM</div>
+<div class="tt">INVIZA check-in -- Robert Andosca, Ph.D.</div>
+<span class="tag biz">Deal</span>
+<a class="asset-link" onclick="openHubSpot('Robert Andosca')">HubSpot</a>
+</div></div>
+
+<div class="ti" id="t-review-pb"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Mar 29, 10:00 AM</div>
+<div class="tt">Review 3 campaign playbooks -- final sign-off</div>
+<span class="tag biz">Post-Hawaii</span>
+</div></div>
+
+<div class="ti" id="t-team-eval"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Mon Mar 23, 6:00 PM (first of 6)</div>
+<div class="tt">6th Month Team Evaluation (6 sessions thru Apr 3)</div>
+<span class="tag biz">Management</span>
+</div></div>
+
+<div class="ti" id="t-camp-review"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Mon Mar 30, 2:00 PM</div>
+<div class="tt">Milestone: Campaign Progress Reviews</div>
+<span class="tag biz">Post-Hawaii</span>
+</div></div>
+
+<!-- Waiting On -->
+<div style="margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0">
+<div style="font-size:12px;font-weight:700;color:#7f8c8d;margin-bottom:8px">WAITING ON</div>
+</div>
+
+<div class="ti" id="t-gil"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Gil Jimenez (Medical Murray) -- traveling, back next week IL</div>
+<span class="tag biz">Proposal sent</span>
+<a class="asset-link" onclick="openHubSpot('Gil Jimenez')">HubSpot</a>
+</div></div>
+
+<div class="ti" id="t-jared"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Jared Hutar (Piraeus Medical) -- follow-up #1 SENT 3/20</div>
+<span class="tag biz">Awaiting reply</span>
+</div></div>
+
+<div class="ti" id="t-victor"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Victor Suturin (Aliform Surgical) -- 48hr, no reply</div>
+<span class="tag biz">Follow-up drafted</span>
+</div></div>
+
+<div class="ti" id="t-rapa"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">RAPA/Langfeldt -- rescheduled Apr 21</div>
+<span class="tag done">Parked</span>
+</div></div>
+
+</div><!-- end Business section -->
+
+<!-- PERSONAL -->
+<div class="ps">
+<div class="sec-title per">PERSONAL</div>
+
+<!-- Gene Heo CPA Tracker -->
+<div class="gene-track">
+<div class="gt-title">Gene Heo / CPA -- Remaining Items</div>
+
+<div class="ti" id="t-gene-payroll" style="background:#fff3cd"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Amy Yoon: Provide payroll journal + Form 941, 940, DE 9 (all Q1-4Q 2025)</div>
+<span class="tag u">Reconciliation Request</span>
+</div></div>
+
+<div class="ti" id="t-gene-personal" style="background:#fff3cd"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">DUE: Mon Mar 23 EOD</div>
+<div class="tt"><span class="p0">DEADLINE</span> Personal Tax Return from Gene Heo</div>
+<span class="tag u">Waiting on CPA</span>
+</div></div>
+
+<div class="ti" id="t-gene-corp" style="background:#fff3cd"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Revised corporate return -- expected Sat 3/21 PM</div>
+<span class="tag per">Waiting on CPA</span>
+</div></div>
+</div>
+
+<div class="ti" id="t-flight-out"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Sat Mar 21, 8:30 AM (car pickup 4:30 AM)</div>
+<div class="tt">Flight LAX to Maui -- Hawaiian Airlines (MNIUDZ)</div>
+<span class="tag per">Tomorrow</span>
+</div></div>
+
+<div class="ti" id="t-atlas"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Sat Mar 21 (conflicts with flight)</div>
+<div class="tt">ATLAS data: Chase Roth IRA, Schwab screenshots, year-end statements</div>
+<span class="tag inv">Do from Maui if possible</span>
+</div></div>
+
+<div class="ti" id="t-payroll-xfer"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Tue Mar 24, 11:00 AM</div>
+<div class="tt">Payroll: Transfer to PayPal + 20% buffer</div>
+<span class="tag per">All invoices confirmed</span>
+</div></div>
+
+<div class="ti" id="t-tax-filings"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Apr 1 task blocks</div>
+<div class="tt">Tax filings: Personal Fed + CA Annual, Q1 Estimated, IRA max contribution</div>
+<span class="tag per">Apr 15 deadline</span>
+</div></div>
+
+<div class="ti" id="t-sig"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Update Gmail signature phone: 949 to 714-391-3771</div>
+<span class="tag per">Quick fix</span>
+</div></div>
+
+<div class="ti" id="t-flight-back"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Sat Mar 28, 3:10 PM</div>
+<div class="tt">Flight Maui to LAX</div>
+<span class="tag per">Return</span>
+</div></div>
+</div>
+
+<!-- INVESTING -->
+<div class="ps">
+<div class="sec-title inv">INVESTING</div>
+
+<div class="ti" id="t-gdx2"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Tue Mar 24, 5:00 PM</div>
+<div class="tt">Sell GDX &gt; SGOV (second attempt if needed)</div>
+<span class="tag inv">Trading</span>
+</div></div>
+
+<div class="ti" id="t-ib"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Sat Mar 22, 2:00 PM</div>
+<div class="tt">Set up Interactive Brokers account</div>
+<span class="tag inv">From Hawaii</span>
+</div></div>
+
+<div class="ti" id="t-ira"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Apr 1 (deadline Apr 15)</div>
+<div class="tt">IRA: Pay yearly maximum contribution</div>
+<span class="tag inv">Deadline</span>
+</div></div>
+
+<div class="ti" id="t-svrn"><input type="checkbox" class="tc"><div class="tct">
+<div class="tt">Set up SVRN Ventures pipeline tracking</div>
+<span class="tag inv">When ready</span>
+</div></div>
+</div>
+
+</div><!-- end LEFT column -->
+
+<!-- RIGHT COLUMN -->
+<div>
+
+<!-- CALENDAR PREVIEW -->
+<div class="cw">
+<div class="sec-title cal">CALENDAR PREVIEW</div>
+<div class="ws" id="weekStrip"></div>
+<div class="de" id="dayEvents"></div>
+</div>
+
+<!-- KEY PEOPLE -->
+<div class="ps">
+<div class="sec-title" style="border-bottom-color:#d4ac0d">KEY PEOPLE</div>
+
+<div class="pc">
+<div class="pn">Gene Heo <span style="font-size:10px;color:#c0392b">DEADLINE</span></div>
+<div class="pr">CPA -- Tax Urgency</div>
+<div class="pd">Personal return due Mon 3/23. Amy Yoon requesting payroll docs for reconciliation. Manager had emergency -- corporate draft expected Sat 3/21.</div>
+</div>
+
+<div class="pc">
+<div class="pn">Michael Friedman</div>
+<div class="pr">Nighthawk Tech -- Active Deal</div>
+<div class="pd">Follow-up call Thu Mar 26 1 PM. Cole Matson declined. Alexandra Corredor confirmed.</div>
+<a class="asset-link" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c136a3311390" target="_blank">Open Draft</a>
+<a class="asset-link hs" onclick="openHubSpot('Michael Friedman')">HubSpot</a>
+</div>
+
+<div class="pc">
+<div class="pn">Guy Omacias <span style="font-size:10px;color:#e67e22">NEW</span></div>
+<div class="pr">LA Coaching -- Discovery</div>
+<div class="pd">Calendly booking Thu Mar 26 2:30 PM. Guy requested Mon Mar 23 instead (starts Capital One Mar 30).</div>
+</div>
+
+<div class="pc">
+<div class="pn">Nick Scarrozzo <span style="font-size:10px;color:#c0392b">TONIGHT</span></div>
+<div class="pr">FMLCPAs -- QB Access Needed</div>
+<div class="pd">Grant QB access + upload prior year returns before Hawaii. Call Mon Mar 31 2 PM.</div>
+<a class="asset-link hs" onclick="openHubSpot('Nick Scarrozzo')">HubSpot</a>
+</div>
+
+<div class="pc">
+<div class="pn">Piyush Sheth <span style="font-size:10px;color:#e67e22">NEW</span></div>
+<div class="pr">New Prospect</div>
+<div class="pd">LS call Fri Mar 27 9 AM. Briefing needed before call.</div>
+<a class="asset-link hs" onclick="openHubSpot('Piyush Sheth')">HubSpot</a>
+</div>
+
+<div class="pc">
+<div class="pn">Gil Jimenez</div>
+<div class="pr">Medical Murray -- Traveling</div>
+<div class="pd">Responded 3/20: out of office, will provide info next week from IL.</div>
+<a class="asset-link" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c137935f85e7" target="_blank">Open Draft</a>
+<a class="asset-link hs" onclick="openHubSpot('Gil Jimenez')">HubSpot</a>
+</div>
+
+<div class="pc">
+<div class="pn">Robert Andosca</div>
+<div class="pr">INVIZA -- Check-in Mar 31</div>
+<div class="pd">Proposal sent. Call confirmed Mon Mar 31 1 PM.</div>
+<a class="asset-link" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c13862eae88d" target="_blank">Open Draft</a>
+<a class="asset-link hs" onclick="openHubSpot('Robert Andosca')">HubSpot</a>
+</div>
+
+<div class="pc">
+<div class="pn">Jared Hutar</div>
+<div class="pr">Piraeus Medical (via Maxim)</div>
+<div class="pd">Follow-up #1 SENT 3/20 10:42 AM. Proposed call week of 3/30.</div>
+</div>
+
+<div class="pc">
+<div class="pn">Sunshine</div>
+<div class="pr">LS Operations Manager</div>
+<div class="pd">Targeting APPROVED. Needs to merge + prep materials. Content Calendar updated daily.</div>
+</div>
+</div>
+
+<!-- QUICK LINKS -->
+<a class="ql green" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit" target="_blank" rel="noopener noreferrer">Content Calendar &amp; KBI Sheet</a>
+
+<a class="ql gold" href="https://www.calendly.com/lucidstrategies/ls" target="_blank" rel="noopener noreferrer">Calendly Booking Link</a>
+
+<a class="ql purple" href="trip-planner.html" target="_blank" rel="noopener noreferrer">Hawaii Trip Planner</a>
+
+<!-- QUICK NOTE -->
+<div class="qm">
+<div style="font-size:12px;font-weight:600;margin-bottom:6px">Quick Note to George</div>
+<textarea class="mi" id="messageInput" placeholder="Type a note..."></textarea>
+<button class="mb" onclick="saveMessage()">Save Note</button>
+</div>
+
+</div><!-- end RIGHT column -->
+</main>
+
+<footer>
+<div>George v6.0 | Chief of Staff Command Center | No sensitive data linked</div>
+<div style="margin-top:4px">
+<a href="https://tracychapman7.github.io/george-dashboard/" style="color:#3498db">Live Dashboard</a>
+</div>
+</footer>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mn"><div class="nb">
+<button class="nb-btn a" onclick="navTo('today')">Today</button>
+<button class="nb-btn" onclick="navTo('calendar')">Cal</button>
+<button class="nb-btn" onclick="navTo('people')">People</button>
+<button class="nb-btn" onclick="navTo('settings')">More</button>
+</div></div>
+
+<script>
+const SK='george_dashboard_v6';
+const HB='https://app.hubspot.com/contacts/6283041/record/0-1/';
+const HID={
+'Pat Hwang':'205338915337','Michael Friedman':'64083088415',
+'Nick Scarrozzo':'210191618686','Gil Jimenez':'187801',
+'Robert Andosca':'209183430921','Jared Hutar':'210111586304',
+'Victor Suturin':'210191676702','Piyush Sheth':'46645079467',
+'Isabel Deibel':'1249301','Guy Omacias':''
+};
+
+const CD={
+'Fri Mar 20':[
+{time:'5:00 PM',text:'Respond to Thomas (Isabel referral)',type:'task'},
+{time:'6:00 PM',text:'Sell GDX',type:'task'},
+{time:'7:15 PM',text:'Zouk Social -- Aneska Birthday',type:'event'},
+{time:'10:00 PM',text:'Grant Nick QB access',type:'urgent'},
+{time:'11:00 PM',text:'Verify Wealthfront',type:'urgent'}
+],
+'Sat Mar 21':[
+{time:'4:30 AM',text:'Car pickup',type:'task'},
+{time:'8:30 AM',text:'Flight LAX to Maui (Hawaiian Airlines)',type:'event'},
+{time:'9:15 AM',text:'ATLAS data tasks (do from Maui)',type:'task'}
+],
+'Sun Mar 22':[
+{time:'2:00 PM',text:'Interactive Brokers setup',type:'task'},
+{time:'3:00 PM',text:'Daniel: Claude discounts',type:'task'}
+],
+'Mon Mar 23':[
+{time:'EOD',text:'DEADLINE: Personal Tax Return (Gene Heo)',type:'urgent'},
+{time:'6:00 PM',text:'6th Month Team Eval #1',type:'event'}
+],
+'Tue Mar 24':[
+{time:'11:00 AM',text:'Payroll transfer',type:'task'},
+{time:'5:00 PM',text:'Sell GDX > SGOV',type:'task'}
+],
+'Wed Mar 25':[
+{time:'6:00 PM',text:'6th Month Team Eval #2',type:'event'}
+],
+'Thu Mar 26':[
+{time:'1:00 PM',text:'Michael Friedman -- Nighthawk',type:'event'},
+{time:'2:30 PM',text:'Guy Omacias -- LA Coaching',type:'event'}
+],
+'Fri Mar 27':[
+{time:'9:00 AM',text:'Piyush Sheth call (NEW)',type:'event'},
+{time:'6:00 PM',text:'6th Month Team Eval #3',type:'event'}
+],
+'Sat Mar 28':[
+{time:'3:10 PM',text:'Flight Maui to LAX',type:'event'}
+]
+};
+
+function init(){
+renderCalendar();
+loadState();
+attachEventListeners();
+updateStats();
+}
+
+function renderCalendar(){
+const start=new Date(2026,2,20);
+const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+let html='';
+for(let i=0;i<9;i++){
+const d=new Date(start);d.setDate(start.getDate()+i);
+const key=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+const evts=CD[key]||[];
+let dots='';
+evts.forEach(e=>{
+if(e.type==='urgent')dots+='<div class="dot e"></div>';
+else if(e.type==='event')dots+='<div class="dot b"></div>';
+else dots+='<div class="dot t"></div>';
+});
+html+=`<div class="wd ${i===0?'tod':''}" onclick="showDay('${key}')">${dn[d.getDay()]}<br><b>${d.getDate()}</b>${dots}</div>`;
+}
+document.getElementById('weekStrip').innerHTML=html;
+showDay('Fri Mar 20');
+}
+
+function showDay(key){
+const evts=CD[key]||[];
+let html='<strong style="color:#d4ac0d;font-size:12px">'+key+'</strong>';
+if(!evts.length){html+='<div style="font-size:11px;color:#95a5a6;margin-top:6px">No events</div>';}
+else{evts.forEach(e=>{
+const c=e.type==='urgent'?'color:#c0392b;font-weight:600':e.type==='event'?'color:#3498db':'';
+html+=`<div class="de-e"><span class="de-t">${e.time}</span><span class="de-x" style="${c}">${e.text}</span></div>`;
+});}
+document.getElementById('dayEvents').innerHTML=html;
+}
+
+function updateStats(){
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
+const done=Object.values(state).filter(v=>v).length;
+document.getElementById('statDone').textContent=done;
+}
+
+function loadState(){
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
+Object.keys(state).forEach(id=>{
+const el=document.getElementById(id);
+if(el){
+const cb=el.querySelector('.tc');
+if(cb&&!cb.disabled&&state[id]){cb.checked=true;el.classList.add('d');}
+}
+});
+const msg=localStorage.getItem(SK+'_msg');
+if(msg)document.getElementById('messageInput').value=msg;
+}
+
+function attachEventListeners(){
+document.querySelectorAll('.tc').forEach(cb=>{
+if(cb.disabled)return;
+cb.addEventListener('change',function(){
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
+const tid=this.closest('.ti').id;
+if(this.checked){this.closest('.ti').classList.add('d');state[tid]=true;}
+else{this.closest('.ti').classList.remove('d');state[tid]=false;}
+localStorage.setItem(SK,JSON.stringify(state));
+updateStats();
+});
+});
+document.querySelectorAll('.ch').forEach(h=>{
+h.addEventListener('click',function(){this.classList.toggle('o');});
+});
+}
+
+function saveMessage(){
+const msg=document.getElementById('messageInput').value;
+localStorage.setItem(SK+'_msg',msg);
+alert('Note saved');
+}
+
+function openHubSpot(name){
+const id=HID[name];
+if(id)window.open(HB+id,'_blank','noopener,noreferrer');
+}
+
+function navTo(s){
+document.querySelectorAll('.nb-btn').forEach(b=>b.classList.remove('a'));
+event.target.classList.add('a');
+}
+
+window.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
