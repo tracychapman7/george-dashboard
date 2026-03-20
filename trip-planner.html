@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lena's Asia-Germany Master Plan v4</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d10;--s1:#12151b;--s2:#1a1e27;--s3:#232833;--bd:#2d3340;--tx:#e2e5eb;--dm:#7c869a;--gd:#daa520;--gd2:#b8860b;--bl:#6196f5;--gn:#4fd882;--rd:#f26b6b;--or:#f5a623;--pr:#b07ff5;--tl:#3dd6c0;--pk:#f57fb0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
+.sf{font-family:'Playfair Display',serif}
+.hero{padding:48px 20px 32px;text-align:center;background:linear-gradient(180deg,#141720,var(--bg));border-bottom:1px solid var(--bd)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(24px,4.5vw,38px);color:var(--gd);margin-bottom:4px}
+.hero .sub{color:var(--dm);font-size:13px;font-weight:300}
+.pills{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.pill{background:var(--s1);border:1px solid var(--bd);border-radius:20px;padding:4px 12px;font-size:11px;display:flex;align-items:center;gap:5px}
+.pill .d{width:7px;height:7px;border-radius:50%}
+.w{max-width:1100px;margin:0 auto;padding:0 16px}
+.sec{margin:36px 0 0}
+.sh{font-family:'Playfair Display',serif;font-size:20px;color:var(--gd);display:flex;align-items:center;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--bd);margin-bottom:14px}
+.sh .n{background:var(--gd);color:var(--bg);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit';font-size:12px;font-weight:700;flex-shrink:0}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.card h3{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:6px}
+.card p{font-size:13px;color:var(--dm)}
+.alert{border-left:3px solid;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:12px}
+.alert-g{background:rgba(218,165,32,.06);border-color:var(--gd);color:var(--dm)}.alert-g strong{color:var(--gd)}
+.alert-b{background:rgba(97,150,245,.07);border-color:var(--bl);color:var(--dm)}.alert-b strong{color:var(--bl)}
+.alert-r{background:rgba(242,107,107,.07);border-color:var(--rd);color:var(--dm)}.alert-r strong{color:var(--rd)}
+.alert-gn{background:rgba(79,216,130,.07);border-color:var(--gn);color:var(--dm)}.alert-gn strong{color:var(--gn)}
+table.t{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0}
+table.t th{text-align:left;padding:7px 10px;background:var(--s2);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--dm);border-bottom:1px solid var(--bd)}
+table.t td{padding:7px 10px;border-bottom:1px solid var(--bd);background:var(--s1)}
+table.t tr:last-child td{border-bottom:none}
+.hi{color:var(--gd);font-weight:600}
+.tl{margin:12px 0}
+.tr{display:grid;grid-template-columns:80px 24px 1fr 80px 80px;align-items:start;padding:5px 0;font-size:12px}
+.tr-date{color:var(--dm);font-size:10px;text-align:right;padding-right:4px;padding-top:2px}
+.tr-dc{display:flex;flex-direction:column;align-items:center}
+.tr-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.tr-line{width:2px;min-height:16px;flex-grow:1;opacity:.3}
+.tr-body{padding-top:1px}.tr-body strong{font-weight:600}
+.tr-cost{font-size:10px;text-align:right;color:var(--gd);font-weight:600;padding-top:2px}
+.tr-run{font-size:10px;text-align:right;color:var(--dm);padding-top:2px}
+
+/* Decision Tree */
+.dt{background:var(--s1);border:2px solid var(--bl);border-radius:12px;padding:18px;margin:14px 0}
+.dt h3{color:var(--bl);font-size:16px;margin-bottom:10px;font-family:'Playfair Display',serif}
+.dt-q{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:12px 14px;margin:8px 0;font-size:13px}
+.dt-q .q{font-weight:600;color:var(--or);margin-bottom:6px}
+.dt-q .a{padding:4px 0;font-size:12px;display:flex;gap:6px}
+.dt-q .a .arrow{color:var(--gn);font-weight:700;flex-shrink:0}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;margin:12px 0}
+.tab{padding:8px 16px;border-radius:8px 8px 0 0;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--bd);border-bottom:none;background:var(--s2);color:var(--dm);transition:all .2s}
+.tab.active{background:var(--s1);color:var(--gd);border-color:var(--gd)}
+.tab-content{display:none;background:var(--s1);border:1px solid var(--bd);border-radius:0 8px 8px 8px;padding:16px}
+.tab-content.active{display:block}
+
+/* Cycle cards */
+.cycle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.cc{background:var(--s1);border:2px solid var(--bd);border-radius:10px;padding:14px;text-align:center}
+.cc.no{border-color:var(--rd);opacity:.7}
+.cc.yes{border-color:var(--gn)}
+.cc.maybe{border-color:var(--or)}
+.cc .month{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:4px}
+.cc .date{font-size:22px;font-weight:700;margin:4px 0}
+.cc .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:4px;display:inline-block;margin-top:4px}
+.cc .no-tag{background:rgba(242,107,107,.12);color:var(--rd)}
+.cc .yes-tag{background:rgba(79,216,130,.12);color:var(--gn)}
+.cc .maybe-tag{background:rgba(245,166,35,.12);color:var(--or)}
+
+.chk{margin:12px 0}
+.ci{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:12px;cursor:pointer}
+.cb{width:16px;height:16px;border:2px solid var(--bd);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cb.on{background:var(--gd);border-color:var(--gd)}
+.cb.on::after{content:'✓';color:var(--bg);font-size:10px;font-weight:700}
+.ci.done{text-decoration:line-through;color:var(--dm)}
+
+.footer{text-align:center;padding:30px 0;margin-top:40px;border-top:1px solid var(--bd);color:var(--dm);font-size:10px}
+@media(max-width:700px){
+  .tr{grid-template-columns:60px 20px 1fr 60px 60px;font-size:11px}
+  .cycle-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1 class="sf">Master Trip Planner v4</h1>
+  <div class="sub">Lufthansa 7IJIR9 · Route Change CONFIRMED · Turkish Airlines $290 Deal · Calendar Reminders Set</div>
+  <div class="pills">
+    <div class="pill"><div class="d" style="background:var(--pr)"></div>Zouk Oct 1–6</div>
+    <div class="pill"><div class="d" style="background:var(--or)"></div>LH Flight Oct 27</div>
+    <div class="pill"><div class="d" style="background:var(--rd)"></div>Period ~Nov 3</div>
+    <div class="pill"><div class="d" style="background:var(--bl)"></div>Retrieval ~Nov 16</div>
+  </div>
+</div>
+
+<div class="w">
+
+<!-- 1. YOUR TICKET -->
+<div class="sec">
+  <h2 class="sh"><span class="n">1</span>Your Lufthansa Ticket — The Facts</h2>
+  <div class="card">
+    <table class="t">
+      <tr><td style="width:140px;font-weight:600">Booking Code</td><td class="hi">7IJIR9</td></tr>
+      <tr><td style="font-weight:600">Ticket Number</td><td>2202237584608-09</td></tr>
+      <tr><td style="font-weight:600">Route (unused leg)</td><td class="hi">SNA → Denver → Munich → Dresden</td></tr>
+      <tr><td style="font-weight:600">Departure</td><td class="hi">Oct 27, 2026 · 1:20 PM from John Wayne Airport (SNA)</td></tr>
+      <tr><td style="font-weight:600">Arrival</td><td>Oct 28, 2026 · 12:30 PM in Dresden</td></tr>
+      <tr><td style="font-weight:600">Duration</td><td>15h 10m (2 stops: Denver + Munich)</td></tr>
+      <tr><td style="font-weight:600">Fare Class</td><td>Economy (1 free checked bag included)</td></tr>
+      <tr><td style="font-weight:600">Total Paid</td><td>€1,083.26 (round trip)</td></tr>
+      <tr><td style="font-weight:600">First Travel Date</td><td>Dec 17, 2025 (outbound DRS→SNA, already used)</td></tr>
+      <tr><td style="font-weight:600;color:var(--rd)">TICKET EXPIRES</td><td style="color:var(--rd);font-weight:700">December 17, 2026</td></tr>
+      <tr><td style="font-weight:600">Rebooking Fee</td><td>Max €150 + fare difference</td></tr>
+      <tr><td style="font-weight:600">Departs From</td><td><strong style="color:var(--gn)">SNA = John Wayne Airport, Santa Ana — 15 min from Laguna Beach!</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="alert alert-gn"><strong>✅ GOOD NEWS: You CAN change the origin city!</strong> Lufthansa policy confirms: "A change of travel class, departure or destination airport is possible. Additional payment may be required if the fare for the new flight is higher." You MUST call (can't do online) — use chat or phone. Fee: €150 + fare difference. So you could change SNA→DRS to <strong>HCMC→DRS</strong> or <strong>HAN→BER→DRS</strong>. This means you can fly directly from Vietnam to Germany without backtracking to California!</div>
+
+  <div class="alert alert-g"><strong>🔥 INSANE DEAL FOUND:</strong> Turkish Airlines Hanoi → Istanbul → Berlin on Oct 25 for <strong>$250-290 one-way</strong>. Then Berlin→Dresden is just 2h Uber (~€120) or €50 domestic flight. Total Vietnam→Dresden for under $400. <a href="https://www.google.com/travel/flights?q=flights%20from%20hanoi%20to%20berlin%20october%2025" style="color:var(--bl)">Search on Google Flights →</a></div>
+
+  <div class="card" style="border-color:var(--gn)">
+    <h3 class="sf" style="color:var(--gn)">✅ Calendar Reminders — CREATED</h3>
+    <p>Three dark green (Basil) all-day reminder events have been added to your Google Calendar:</p>
+    <p style="margin-top:8px"><strong style="color:var(--gd)">Oct 1:</strong> "TASK: Rebook Lufthansa BEFORE Oct 27 | 7IJIR9"</p>
+    <p><strong style="color:var(--or)">Oct 5:</strong> "TASK: Rebook Lufthansa — 22 DAYS LEFT | 7IJIR9"</p>
+    <p><strong style="color:var(--rd)">Oct 10:</strong> "URGENT: Rebook Lufthansa — 17 DAYS LEFT | 7IJIR9"</p>
+    <p style="margin-top:8px;font-size:11px">Each contains the full rebooking script, booking code, phone numbers, and instructions in the event description.</p>
+  </div>
+</div>
+
+<!-- 2. LUFTHANSA DECISION TREE -->
+<div class="sec">
+  <h2 class="sh"><span class="n">2</span>Lufthansa Decision Tree — Idiot-Proof Edition</h2>
+
+  <div class="dt">
+    <h3>🎫 Ticket Validity Rules (Plain English)</h3>
+    <div class="dt-q">
+      <div class="q">When does my ticket expire?</div>
+      <div class="a"><span class="arrow">→</span> <strong>December 17, 2026.</strong> This is 1 year from your first travel date (Dec 17, 2025). You must FLY before this date — not just rebook.</div>
+    </div>
+    <div class="dt-q">
+      <div class="q">If I bought the ticket on [date X], does it expire from purchase or from the flight?</div>
+      <div class="a"><span class="arrow">→</span> It's 1 year from your <strong>first travel date</strong> (the first leg you flew). You flew Dec 17, 2025, so it expires Dec 17, 2026. The purchase date doesn't matter for expiry.</div>
+    </div>
+    <div class="dt-q">
+      <div class="q">Can I rebook AFTER October 27 (the original flight date)?</div>
+      <div class="a"><span class="arrow">→</span> <strong>YES, BUT...</strong> You should rebook BEFORE Oct 27. Once the flight departs without you, the coupon becomes a "no-show" and most fare rules forfeit the value. Call BEFORE Oct 27 to be safe.</div>
+    </div>
+    <div class="dt-q">
+      <div class="q">If I rebook to, say, November 15 — do I need to rebook BEFORE Oct 27 or before Nov 15?</div>
+      <div class="a"><span class="arrow">→</span> <strong>Before Oct 27.</strong> You must change the booking before the ORIGINAL departure date. Once you rebook, the new date (Nov 15) becomes your departure and you're set.</div>
+    </div>
+    <div class="dt-q">
+      <div class="q">Can I change the origin from SNA to, say, Ho Chi Minh City or Hanoi?</div>
+      <div class="a"><span class="arrow">→</span> <strong style="color:var(--gn)">YES!</strong> Lufthansa policy confirms route changes are allowed. Fee: €150 rebooking + fare difference. Must call or chat — can't do it online. This is the best move if you're in Vietnam.</div>
+    </div>
+    <div class="dt-q">
+      <div class="q">Can I just cancel and get a credit/voucher instead?</div>
+      <div class="a"><span class="arrow">→</span> <strong>Ask when you call.</strong> Options: (1) Change route for €150+diff (best). (2) Cancel for voucher/credit (you'll lose some value — fare portion may be non-refundable, you'd get ~€200-300 taxes back). (3) The US DOT refund rule only applies if LUFTHANSA cancels your flight, not if you cancel. So don't count on a full refund for voluntary cancellation.</div>
+    </div>
+    <div class="dt-q">
+      <div class="q">What's the actual deadline to do something?</div>
+      <div class="a"><span class="arrow">→</span> <strong style="color:var(--rd)">You MUST either fly or rebook BEFORE October 27, 2026.</strong> If you do nothing, you no-show and likely lose the ticket value. Safest: rebook by mid-October at the latest.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="sf" style="color:var(--bl)">📞 How to Contact Lufthansa</h3>
+    <p>1. <strong>Chat "Elisa":</strong> <a href="https://www.lufthansa.com/digitalassistant/support/webchat.html" style="color:var(--bl)">lufthansa.com/digitalassistant</a> — FASTEST (10-30 min)</p>
+    <p>2. <strong>Phone:</strong> 1-800-645-3880 — Call 4-5 AM Pacific for shortest wait</p>
+    <p>3. <strong>Twitter/X DM:</strong> @lufthansa — 1-4 hour response</p>
+    <p>4. <strong>Internet Service:</strong> 1-866-953-2294</p>
+    <p style="color:var(--rd);margin-top:4px"><strong>⚠️ No WhatsApp.</strong> The +49 number I mentioned earlier was wrong — Lufthansa discontinued WhatsApp support.</p>
+    <p style="margin-top:8px"><strong style="color:var(--gd)">Have ready:</strong> Booking code <strong>7IJIR9</strong>, ticket number <strong>2202237584608-09</strong>, and your preferred new date.</p>
+  </div>
+</div>
+
+<!-- 3. THE BIG STRATEGIC DECISION -->
+<div class="sec">
+  <h2 class="sh"><span class="n">3</span>The Big Decision: Use Ticket or Buy Separate?</h2>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('opt1')">Option 1: USE the ticket</div>
+    <div class="tab" onclick="showTab('opt2')">Option 2: SAVE ticket, buy separate</div>
+  </div>
+
+  <div id="opt1" class="tab-content active">
+    <h3 class="sf" style="color:var(--gn);margin-bottom:8px">Use the Lufthansa Ticket (Fly Home from Asia → SNA → DRS)</h3>
+    <p style="font-size:13px;color:var(--dm);margin-bottom:12px">You'd do Asia, fly back to SNA, use the ticket on Oct 27 (or rebooked date), arrive Dresden.</p>
+
+    <div class="tl">
+      <div class="tr">
+        <div class="tr-date">Sep 27</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--or)"></div><div class="tr-line" style="background:var(--or)"></div></div>
+        <div class="tr-body">✈️ <strong>LAX → Bali</strong></div>
+        <div class="tr-cost">$540</div>
+        <div class="tr-run">$540</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Sep 28–Oct 8</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--pr)"></div><div class="tr-line" style="background:var(--pr)"></div></div>
+        <div class="tr-body"><strong>Bali</strong> — 11 days (2 buffer + Zouk Oct 1-6 + 2 buffer)</div>
+        <div class="tr-cost">$495</div>
+        <div class="tr-run">$1,035</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 9</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--or)"></div><div class="tr-line" style="background:var(--or)"></div></div>
+        <div class="tr-body">✈️ <strong>Bali → Hanoi</strong></div>
+        <div class="tr-cost">$115</div>
+        <div class="tr-run">$1,150</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 9–22</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--tl)"></div><div class="tr-line" style="background:var(--tl)"></div></div>
+        <div class="tr-body"><strong>Vietnam</strong> — 13 days (Hanoi 3 + Quy Nhon 5 + Nha Trang 5)</div>
+        <div class="tr-cost">$455</div>
+        <div class="tr-run">$1,605</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 23-24</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--or)"></div><div class="tr-line" style="background:var(--or)"></div></div>
+        <div class="tr-body">✈️ <strong style="color:var(--rd)">Nha Trang → HCMC → LAX</strong> (BACKTRACK)<br>One-way Vietnam → California ~$400-600</div>
+        <div class="tr-cost" style="color:var(--rd)">$500</div>
+        <div class="tr-run">$2,105</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 25-26</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--dm)"></div><div class="tr-line" style="background:var(--dm)"></div></div>
+        <div class="tr-body">Home in Laguna Beach. Recover from jet lag. Pack for Germany.</div>
+        <div class="tr-cost">$0</div>
+        <div class="tr-run">$2,105</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date" style="color:var(--gd);font-weight:600">Oct 27</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--gd);box-shadow:0 0 6px var(--gd)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body">✈️ <strong style="color:var(--gd)">SNA → DEN → MUC → DRS</strong> (Lufthansa ticket)<br>Arrives Oct 28, 12:30 PM</div>
+        <div class="tr-cost">$0*</div>
+        <div class="tr-run">$2,105</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 28–Nov 2</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--bl)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong>Germany buffer — 6 days</strong> ⚠️ (you wanted 7 — this is 1 day short)</div>
+        <div class="tr-cost">$240</div>
+        <div class="tr-run">$2,345</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date" style="color:var(--rd)">Nov 3</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--rd);box-shadow:0 0 6px var(--rd)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong style="color:var(--rd)">Period → Baseline → Start stim</strong></div>
+        <div class="tr-cost">—</div>
+        <div class="tr-run">$2,345</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Nov 4–17</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--bl)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong>Stim cycle → Trigger → Retrieval ~Nov 16-17</strong></div>
+        <div class="tr-cost">$560</div>
+        <div class="tr-run">$2,905</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Nov 18–24</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--bl)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong>Recovery buffer</strong> — 3-7 days. You decide when you feel ready.</div>
+        <div class="tr-cost">$200</div>
+        <div class="tr-run">$3,105</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date" style="color:var(--gn)">Nov 20–25</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--gn)"></div></div>
+        <div class="tr-body">✈️ <strong style="color:var(--gn)">DRS → FRA → SNA/LAX</strong> one-way home ~$400-500</div>
+        <div class="tr-cost">$450</div>
+        <div class="tr-run" style="color:var(--gd);font-weight:700">~$3,555</div>
+      </div>
+    </div>
+    <div class="alert alert-r"><strong>Problems with this option:</strong> (1) You pay ~$500 to fly Vietnam→California just to use the Lufthansa ticket — massive backtrack. (2) Only 6 buffer days before period (you wanted 7). (3) Jet lag from Vietnam→California→Germany in 3 days.</div>
+  </div>
+
+  <div id="opt2" class="tab-content">
+    <h3 class="sf" style="color:var(--gn);margin-bottom:8px">Save Lufthansa Ticket for Future Trip · Buy Separate Asia → Germany</h3>
+    <p style="font-size:13px;color:var(--dm);margin-bottom:12px">Rebook Lufthansa to December 2026 (another quick Germany trip). Fly directly from Vietnam to Germany. Same cost, no backtracking, AND you keep the ticket.</p>
+
+    <div class="tl">
+      <div class="tr">
+        <div class="tr-date">Sep 27</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--or)"></div><div class="tr-line" style="background:var(--or)"></div></div>
+        <div class="tr-body">✈️ <strong>LAX → Bali</strong></div>
+        <div class="tr-cost">$540</div>
+        <div class="tr-run">$540</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Sep 28–Oct 8</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--pr)"></div><div class="tr-line" style="background:var(--pr)"></div></div>
+        <div class="tr-body"><strong>Bali</strong> — 11 days (2 buffer + Zouk Oct 1-6 + 2 buffer)</div>
+        <div class="tr-cost">$495</div>
+        <div class="tr-run">$1,035</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 9</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--or)"></div><div class="tr-line" style="background:var(--or)"></div></div>
+        <div class="tr-body">✈️ <strong>Bali → Hanoi</strong></div>
+        <div class="tr-cost">$115</div>
+        <div class="tr-run">$1,150</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 9–24</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--tl)"></div><div class="tr-line" style="background:var(--tl)"></div></div>
+        <div class="tr-body"><strong>Vietnam</strong> — 15 days (Hanoi 3 + Quy Nhon 6 + Nha Trang 5 + travel 1)<br>Internal flights: $120 (Hanoi→Quy Nhon + car to Nha Trang)</div>
+        <div class="tr-cost">$645</div>
+        <div class="tr-run">$1,795</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 24–25</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--or)"></div><div class="tr-line" style="background:var(--or)"></div></div>
+        <div class="tr-body">✈️ <strong style="color:var(--gn)">Hanoi → Istanbul → Berlin</strong> 🔥 Turkish Airlines ~$250-290!<br><a href="https://www.google.com/travel/flights?q=flights+hanoi+to+berlin+october+25" style="color:var(--bl);font-size:11px">Google Flights deal →</a> OR reroute Lufthansa ticket (€150+diff)</div>
+        <div class="tr-cost" style="color:var(--gn)">$290</div>
+        <div class="tr-run">$2,085</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Oct 25</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--or)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body">🚗 Berlin → Dresden (Uber ~€120, 2h drive. No train.)</div>
+        <div class="tr-cost">$130</div>
+        <div class="tr-run">$2,215</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date" style="color:var(--gn);font-weight:600">Oct 26–Nov 2</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--gn);box-shadow:0 0 6px var(--gn)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong style="color:var(--gn)">Germany buffer — 8 days ✓</strong> Exceeds your 7-day minimum!</div>
+        <div class="tr-cost">$320</div>
+        <div class="tr-run">$2,535</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date" style="color:var(--rd)">Nov 3</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--rd);box-shadow:0 0 6px var(--rd)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong style="color:var(--rd)">Period → Baseline → Start stim</strong></div>
+        <div class="tr-cost">—</div>
+        <div class="tr-run">$2,535</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Nov 4–17</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--bl)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong>Stim → Trigger → Retrieval ~Nov 16-17</strong></div>
+        <div class="tr-cost">$560</div>
+        <div class="tr-run">$3,095</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date">Nov 18–24</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--bl)"></div><div class="tr-line" style="background:var(--bl)"></div></div>
+        <div class="tr-body"><strong>Recovery</strong> — 3-7 days. Stay as long as you need.</div>
+        <div class="tr-cost">$200</div>
+        <div class="tr-run">$3,295</div>
+      </div>
+      <div class="tr">
+        <div class="tr-date" style="color:var(--gn)">Nov 20–25</div>
+        <div class="tr-dc"><div class="tr-dot" style="background:var(--gn)"></div></div>
+        <div class="tr-body">✈️ <strong style="color:var(--gn)">DRS → FRA → LAX/SNA</strong> one-way home ~$450</div>
+        <div class="tr-cost">$450</div>
+        <div class="tr-run" style="color:var(--gd);font-weight:700">~$3,745</div>
+      </div>
+    </div>
+
+    <div class="alert alert-g"><strong>+ BONUS: Lufthansa ticket options!</strong> Either (A) reroute SNA→DRS to HCMC→DRS for €150+diff — fly directly from Vietnam using your existing ticket. Or (B) rebook to Dec 2026 for €150, preserve the ticket for a future Germany trip, and buy the $290 Turkish Airlines deal instead. Or (C) cancel for credit/voucher.</div>
+    <div class="alert alert-gn"><strong>Why this wins:</strong> ✓ No backtracking. ✓ 8 buffer days (exceeds 7-day min). ✓ No jet lag before procedure. ✓ 2 extra Vietnam days. ✓ Turkish Airlines HAN→BER deal = $290 vs $475+ for HCMC→FRA. ✓ Multiple Lufthansa options available.</div>
+  </div>
+</div>
+
+<!-- 4. CYCLE SCENARIOS -->
+<div class="sec">
+  <h2 class="sh"><span class="n">4</span>Cycle Scenario Comparison</h2>
+  <div class="cycle-grid">
+    <div class="cc no">
+      <div class="month sf">September</div>
+      <div class="date" style="color:var(--rd)">Sep 14</div>
+      <p style="font-size:11px;color:var(--dm)">Period Day 1</p>
+      <span class="tag no-tag">❌ IMPOSSIBLE</span>
+      <p style="font-size:11px;color:var(--dm);margin-top:6px">Would need to be in Germany by Sep 7 (7-day buffer). That's BEFORE the Singapore MedTech (Sep 9-12) and way before Zouk (Oct 1-6). Would skip all of Asia.</p>
+      <p style="font-size:11px;color:var(--dm);margin-top:4px"><strong>Weather:</strong> Great for Asia but you'd miss it entirely.</p>
+      <p style="font-size:11px;color:var(--dm);margin-top:4px"><strong>Cost:</strong> ~$1,500 (just LAX→DRS round trip + living)</p>
+    </div>
+    <div class="cc no">
+      <div class="month sf">October</div>
+      <div class="date" style="color:var(--rd)">~Oct 9-10</div>
+      <p style="font-size:11px;color:var(--dm)">Period Day 1</p>
+      <span class="tag no-tag">❌ CONFLICTS WITH ZOUK</span>
+      <p style="font-size:11px;color:var(--dm);margin-top:6px">Need to be in Germany by Oct 2-3 (7-day buffer). Zouk is Oct 1-6. Direct conflict — can't do both.</p>
+      <p style="font-size:11px;color:var(--dm);margin-top:4px"><strong>Weather:</strong> N/A — you can't be in two places.</p>
+      <p style="font-size:11px;color:var(--dm);margin-top:4px"><strong>Cost:</strong> N/A</p>
+    </div>
+    <div class="cc yes">
+      <div class="month sf">November</div>
+      <div class="date" style="color:var(--gn)">Nov 3</div>
+      <p style="font-size:11px;color:var(--dm)">Period Day 1</p>
+      <span class="tag yes-tag">✅ OPTIMAL — USE THIS</span>
+      <p style="font-size:11px;color:var(--dm);margin-top:6px">Maximum Asia time: Bali (11d) + Vietnam (15d). Arrive Germany Oct 25-26. 8 buffer days. Retrieval ~Nov 16. Home by Nov 20-25.</p>
+      <p style="font-size:11px;color:var(--dm);margin-top:4px"><strong>Weather:</strong> Bali = dry season ☀️. Hanoi Oct = best month 🌤. Germany = autumn 🍂</p>
+      <p style="font-size:11px;color:var(--dm);margin-top:4px"><strong>Cost:</strong> ~$3,910 (Option 2) or ~$3,555 (Option 1)</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. PARALLEL BYRON BAY -->
+<div class="sec">
+  <h2 class="sh"><span class="n">5</span>Byron Bay Parallel Option (adds ~$400-550)</h2>
+  <p style="font-size:12px;color:var(--dm);margin-bottom:8px">Insert between Bali and Vietnam. Vietnam shrinks from 15 to 11 days.</p>
+  <table class="t">
+    <thead><tr><th>Date</th><th>What</th><th>Cost</th><th>Running Total</th></tr></thead>
+    <tbody>
+      <tr><td>Oct 8</td><td>✈️ Bali → Sydney (Jetstar ~$150-250, 6.5h)</td><td>$200</td><td>$1,235</td></tr>
+      <tr><td>Oct 8</td><td>✈️ Sydney → Ballina/Byron (Jetstar ~$37-80, 1h15m)</td><td>$50</td><td>$1,285</td></tr>
+      <tr><td>Oct 8-11</td><td>🏖 Byron Bay — 3 days (beach, surf, lighthouse, The Farm)</td><td>$350</td><td>$1,635</td></tr>
+      <tr><td>Oct 12</td><td>✈️ Ballina → Sydney → Hanoi ($37 + $200-350)</td><td>$300</td><td>$1,935</td></tr>
+      <tr><td colspan="2" style="text-align:right;font-weight:600">Byron Bay addition</td><td class="hi">+$550</td><td class="hi">vs $1,150 without</td></tr>
+    </tbody>
+  </table>
+  <div class="alert alert-b"><strong>Byron Latin Fiesta 2026: Oct 29 – Nov 1.</strong> You'll be in Germany by then. Can't attend. Byron is purely beach vibes on this trip. Spring weather (18-24°C), great surf, incredible food scene. But it costs you 4 days of Vietnam time.</div>
+</div>
+
+<!-- 6. RECOVERY BUFFER OPTIONS -->
+<div class="sec">
+  <h2 class="sh"><span class="n">6</span>Post-Retrieval Recovery Options</h2>
+  <p style="font-size:12px;color:var(--dm);margin-bottom:8px">After retrieval (~Nov 16-17), most women feel OK within 1-3 days. Some have bloating/cramping for up to a week. You decide when to fly.</p>
+  <table class="t">
+    <thead><tr><th>Fly Home</th><th>Recovery Days</th><th>Feeling</th><th>Extra Germany Cost</th></tr></thead>
+    <tbody>
+      <tr><td class="hi">Nov 19 (2 days)</td><td>2 days</td><td style="color:var(--or)">Minimal recovery. Doable if you feel fine. May still be bloated.</td><td>$0 base</td></tr>
+      <tr><td class="hi">Nov 21 (4 days)</td><td>4 days</td><td style="color:var(--gn)">Comfortable. Most symptoms resolved. Recommended minimum.</td><td>+$80 (2 nights)</td></tr>
+      <tr><td class="hi">Nov 24 (7 days)</td><td>7 days</td><td style="color:var(--gn)">Full recovery. Zero rush. Enjoy Dresden before heading home.</td><td>+$200 (5 nights)</td></tr>
+      <tr><td>Nov 28 (11 days)</td><td>11 days</td><td style="color:var(--gn)">Ultra-conservative. Only if complications arise.</td><td>+$360 (9 nights)</td></tr>
+    </tbody>
+  </table>
+  <div class="alert alert-g"><strong>Recommendation:</strong> Don't book the return flight until AFTER retrieval. Book 2-3 days out once you know how you feel. One-way DRS→FRA→SNA/LAX flights are available same-week for $400-600. You have until Dec 17 on the Lufthansa ticket if you decide to use it for the return instead of buying separate.</div>
+</div>
+
+<!-- 7. FLIGHT BOOKING CALENDAR -->
+<div class="sec">
+  <h2 class="sh"><span class="n">7</span>When to Book Each Flight</h2>
+  <table class="t">
+    <thead><tr><th>Flight</th><th>Est. Cost</th><th>Book By</th><th>Best Window</th><th>Best Day</th></tr></thead>
+    <tbody>
+      <tr><td class="hi">LAX → Bali (Sep 27)</td><td>$480-600</td><td style="color:var(--rd)">Jul 15</td><td>Jun–Jul 2026</td><td>Tue/Wed</td></tr>
+      <tr><td>Bali → Hanoi (Oct 9)</td><td>$104-130</td><td>Aug 15</td><td>Jul–Aug</td><td>Tue/Wed/Sat</td></tr>
+      <tr><td>Hanoi → Quy Nhon (Oct 12)</td><td>$40-60</td><td>Sep 1</td><td>Aug–Sep (VietJet)</td><td>Mon/Wed</td></tr>
+      <tr><td>Quy Nhon → Nha Trang (car)</td><td>$80-120</td><td>—</td><td>Day-of Grab</td><td>—</td></tr>
+      <tr><td>Nha Trang → HCMC (Oct 24)</td><td>$30-50</td><td>Sep 15</td><td>Sep (VietJet)</td><td>Any</td></tr>
+      <tr><td class="hi">HAN → IST → BER Turkish Airlines (Oct 25)</td><td style="color:var(--gn)">$250-290!</td><td style="color:var(--rd)">Aug 30</td><td>Jul–Aug</td><td>Tue/Wed</td></tr>
+      <tr><td>BER → DRS (Uber or domestic)</td><td>€50-120</td><td>—</td><td>Day-of</td><td>—</td></tr>
+      <tr><td style="color:var(--gd)">Rebook Lufthansa SNA→DRS</td><td>€150 fee</td><td style="color:var(--rd)">Before Oct 27!</td><td>Aug ideal</td><td>—</td></tr>
+      <tr><td>DRS → SNA/LAX home (flex)</td><td>$400-500</td><td>After retrieval</td><td>Book 2-3 days out</td><td>—</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8. TOTAL COST COMPARISON -->
+<div class="sec">
+  <h2 class="sh"><span class="n">8</span>Total Cost Comparison</h2>
+  <table class="t">
+    <thead><tr><th></th><th>Opt 1: Use LH (backtrack)</th><th>Opt 2A: TK deal + save LH</th><th style="background:rgba(218,165,32,.1)">Opt 2B: Reroute LH ★</th><th>+ Byron Bay</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:600">Vietnam → Germany</td><td>$500 VN→SNA + $0 LH</td><td style="color:var(--gn)">$290 TK + $130 Uber</td><td style="background:rgba(218,165,32,.04)">€150 reroute fee + diff</td><td>$290 + $130</td></tr>
+      <tr><td style="font-weight:600">Other flights</td><td>$1,180</td><td>$1,180</td><td style="background:rgba(218,165,32,.04)">$1,180</td><td>$1,730</td></tr>
+      <tr><td style="font-weight:600">Accom+Food</td><td>$1,875</td><td>$2,025</td><td style="background:rgba(218,165,32,.04)">$2,025</td><td>$2,375</td></tr>
+      <tr><td style="font-weight:600">Home flight</td><td>$0 (LH used)</td><td>$450</td><td style="background:rgba(218,165,32,.04)">$450</td><td>$450</td></tr>
+      <tr><td style="font-weight:700;font-size:14px">TOTAL</td><td style="font-weight:700;font-size:14px">~$3,555</td><td style="font-weight:700;font-size:14px;color:var(--gn)">~$3,745</td><td style="background:rgba(218,165,32,.04);font-weight:700;font-size:14px;color:var(--gd)">~$3,500-3,800*</td><td style="font-weight:700;font-size:14px">~$4,500</td></tr>
+      <tr><td style="font-weight:600">LH ticket</td><td style="color:var(--rd)">❌ Used up</td><td style="color:var(--gn)">✅ Saved (~$500 value)</td><td style="background:rgba(218,165,32,.04);color:var(--gn)">✅ Used smartly</td><td style="color:var(--gn)">✅ Saved</td></tr>
+      <tr><td style="font-weight:600">Buffer days</td><td style="color:var(--or)">6 days ⚠️</td><td style="color:var(--gn)">8 days ✓</td><td style="background:rgba(218,165,32,.04);color:var(--gn)">8 days ✓</td><td style="color:var(--gn)">8 days ✓</td></tr>
+      <tr><td style="font-weight:600">Backtracking?</td><td style="color:var(--rd)">Yes (VN→SNA→DRS)</td><td style="color:var(--gn)">No ✓</td><td style="background:rgba(218,165,32,.04);color:var(--gn)">No ✓</td><td style="color:var(--gn)">No ✓</td></tr>
+      <tr><td style="font-weight:600">Vietnam days</td><td>13</td><td><strong>15</strong></td><td style="background:rgba(218,165,32,.04)"><strong>15</strong></td><td>11</td></tr>
+      <tr><td style="font-weight:600">Net effective cost</td><td>$3,555</td><td style="background:rgba(218,165,32,.04);color:var(--gn)"><strong>~$3,575</strong> (after LH credit)</td><td>$4,475</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 9. CHECKLIST -->
+<div class="sec">
+  <h2 class="sh"><span class="n">9</span>Master Action Checklist</h2>
+  <div class="chk">
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>NOW:</strong> Decide Option 1 or 2 (Recommended: Option 2 — save LH ticket)</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>NOW:</strong> Confirm ZoukMira registration for Oct 1-6</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>NOW:</strong> Contact Frauenärztin in Dresden — confirm Nov cycle availability</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>NOW:</strong> Set Google Flights price alerts: LAX→DPS (Sep 27) and SGN→FRA (Oct 24)</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>NOW:</strong> Apply for Vietnam e-visa ($25, 3 business days)</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>JUN:</strong> Book LAX → Bali ($480-540, Korean/EVA/Singapore Airlines)</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>JUN-JUL:</strong> Book Hanoi → Berlin Turkish Airlines (~$250-290 DEAL!) or reroute Lufthansa ticket</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>JUL-AUG:</strong> Book Bali → Hanoi (VietJet/Scoot ~$104-130)</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb on"></div><div><strong>DONE:</strong> Calendar reminders set for Oct 1, 5, and 10 — Lufthansa rebook deadline warnings</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>AUG:</strong> Call Lufthansa to either (A) change origin SNA→HCMC/HAN for €150+diff, or (B) rebook date to Dec 2026, or (C) cancel for credit. Booking: <strong>7IJIR9</strong>. Use chat at lufthansa.com/digitalassistant or call 1-800-645-3880 at 4-5AM Pacific. <strong style="color:var(--rd)">MUST ACT BEFORE OCT 27.</strong></div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>AUG-SEP:</strong> Book Vietnam internal flights (VietJet: Hanoi→Quy Nhon $50, Nha Trang→HCMC $40)</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>AUG-SEP:</strong> Book BER→DRS Uber (~€120) or domestic flight (~€50) — no train</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>SEP:</strong> Book Quy Nhon accommodation (Anantara luxury or Life's a Beach budget)</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>SEP:</strong> Download Grab app + VietJet app</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>ONGOING:</strong> Track cycle — Nov 3 is key. If shifts, adjust Germany arrival accordingly.</div></div>
+    <div class="ci" onclick="tog(this)"><div class="cb"></div><div><strong>POST-RETRIEVAL:</strong> Book return DRS→SNA/LAX 2-3 days after retrieval based on how you feel.</div></div>
+  </div>
+</div>
+
+<div class="footer">
+  Built for Lena Frenzel · v4 Updated March 19, 2026 · Lufthansa Booking 7IJIR9<br>
+  Route change CONFIRMED possible · Turkish Airlines $290 deal found · 3 Calendar reminders set<br>
+  All prices are estimates · Ticket expires December 17, 2026 — REBOOK BEFORE OCT 27
+</div>
+
+</div>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+function tog(el){
+  el.querySelector('.cb').classList.toggle('on');
+  el.classList.toggle('done');
+}
+</script>
+</body>
+</html>
