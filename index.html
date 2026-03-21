@@ -26,9 +26,9 @@ main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
 .sec-title.cal{border-bottom-color:#8e44ad}
 .camp-header{font-size:13px;font-weight:700;color:#d4ac0d;margin:14px 0 8px;padding:8px 12px;background:#fef9e7;border-radius:6px;border-left:3px solid #d4ac0d;display:flex;justify-content:space-between;align-items:center}
 .camp-status{font-size:10px;padding:3px 8px;border-radius:3px;font-weight:600}
-.camp-status.active{:background:#d5f4e6;color:#27ae60}
+.camp-status.active{background:#d5f4e6;color:#27ae60}
 .camp-status.review{background:#fef5e7;color:#e67e22}
-.camp-status.blocked{background:#fadbd8;color:#c0392b}
+.camp-status.blocked{background:#fadbdd8;color:#c0392b}
 .ti{display:flex;gap:10px;padding:10px 12px;border-radius:6px;background:#fafafa;margin-bottom:6px;align-items:flex-start;transition:all .2s}
 .ti:hover{background:#f0f0f0}
 .ti.d{opacity:.5}
@@ -39,35 +39,18 @@ main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
 .ttime{font-size:10px;color:#7f8c8d;font-weight:600}
 .tt{font-size:12px;font-weight:500;color:#2c3e50;margin-top:1px}
 .tag{display:inline-block;font-size:9px;padding:2px 6px;border-radius:3px;margin-top:3px;margin-right:3px}
-.tag.u{background:#fadbd8;color:#c0392b}
-.tag.biz{background:#fef5e7;color:#d4ac0d}
-.tag.per{background:#eaf2f8;color:#3498db}
-.tag.inv{background:#d5f4e6;color:#27ae60}
-.tag.done{background:#ecf0f1;color:#95a5a6}
-.al{display:inline-block;font-size:10px;padding:3px 8px;border-radius:3px;margin-top:4px;margin-right:3px;background:#ecf0f1;color:#3498db;text-decoration:none;cursor:pointer;transition:all .2s}
-.al:hover{buackground:#d5dbdb;text-decoration:none}
-.al.hs{background:#f5eef8;color:#7f8c8d}
-.al.doc{background:#e8f5e9;color:#2e7d32}
-.al.folder{background:#fff3ea;color:#e65100}
-.al.review{background:#fce4ec;color:#c62828;font-weight:600;border:1px solid #ef9a9a}
-/* Calendar */
-.cw{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,.05);margin-bottom:16px}
-.ws{display:grid;grid-template-columns:repeat(9,3fr);gap:4px;margin-bottom:12px}
-.wd{text-align:center;padding:8px 4px;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;color:#7f8c8d}
+.tag.u{background:#fa2s;color:#7f8c8d}
 .wd.tod{background:#d4ac0d;color:#fff;font-weight:700}
-.md:hover{background:#f0f0f0}
-.dot{width:4px;height:4px;border-radius:50%;margin:2g�pz auto 0}
-.dot.t{background:#f39c12}
-.dot.e{background:#c0392b}
-.dot.b{background:#3498db}
+.wd:hover{background:#f0f0f0}
+.dot{width:4px;height:4px;border-radius:50%;margin:2px auto 0}
+.dot.t{background:#f39c12}.dot.e{background:#c0392b}.dot.b{background:#3498db}
 .de{font-size:11px;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0}
 .de-e{padding:3px 0;display:flex;gap:6px;align-items:baseline}
-.de-t{color:#7c8c8d;font-weight:600;white-space:nowrap;font-size:10px}
-.de-x {color:#2c3e50;font-size:11px}
+.de-t{color:#7f8c8d;font-weight:600;white-space:nowrap;font-size:10px}
+.de-x{color:#2c3e50;font-size:11px}
 /* People */
 .pc{padding:10px 12px;border-radius:6px;background:#fafafa;margin-bottom:8px;border-left:3px solid #d4ac0d}
-.pn{font-weight:600;font-size:12px}
-.pr{font-size:10px;color:#7f8c8d;margin-top:1px}
+.pn{font-weight:600;font-size:12px}.pr{font-size:10px;color:#7f8c8d;margin-top:1px}
 .pd{font-size:10px;color:#7f8c8d;margin-top:4px;line-height:1.4}
 /* Collapsible */
 .cs{background:#fff;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.05);overflow:hidden;margin-bottom:16px}
@@ -75,14 +58,14 @@ main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
 .ch:hover{background:#f0f1f2}
 .ch.o{background:#f0f1f2}
 .cv{font-size:12px;transition:transform .3s;display:inline-block}
-.ch.o$�.cv{transform:rotate(90deg)}
-.cj{padding:12px 16px;display:none}
-.ch.o+.tc{display:block}
+.ch.o .cv{transform:rotate(90deg)}
+.cc{padding:12px 16px;display:none}
+.ch.o+.cc{display:block}
 /* Quick links */
 .ql{display:block;padding:14px;border-radius:8px;text-align:center;text-decoration:none;margin-bottom:8px;color:#fff;font-weight:600;font-size:13px;transition:all .2s;box-shadow:0 2px 4px rgba(0,0,0,.1)}
 .ql:hover{transform:translateY(-1px);box-shadow:0 4px 8px rgba(0,0,0,.15);text-decoration:none;color:#fff}
-.ql.green{background:linear-gradient(135deg,#27ae60,#2ecc71)
-.ql.purple{background:linear-gradient(135deg,#667eea,"764ba2)}
+.ql.green{background:linear-gradient(135deg,#27ae60,#2ecc71)}
+.ql.purple{background:linear-gradient(135deg,#667eea,#764ba2)}
 .ql.gold{background:linear-gradient(135deg,#d4ac0d,#f1c40f)}
 /* Note */
 .qm{padding:12px;background:#ecf0f1;border-radius:6px;margin-top:12px}
@@ -90,16 +73,13 @@ main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
 .mb{background:#d4ac0d;color:#fff;border:none;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .2s}
 .mb:hover{background:#b8860b}
 /* Nav */
-.mn{display:none;position:fixed;bottom:0;width:100%;background:#fff;border-top:1px solid #e0e0ea;z-index:200}
+.mn{display:none;position:fixed;bottom:0;width:100%;background:#fff;border-top:1px solid #e0e0e0;z-index:200}
 .nb{display:grid;grid-template-columns:repeat(4,1fr)}
 .nb-btn{padding:12px;text-align:center;cursor:pointer;font-size:11px;color:#7f8c8d;border:none;background:none;transition:all .2s;user-select:none}
 .nb-btn.a{color:#d4ac0d;border-top:2px solid #d4ac0d}
-@media(max-width:768px){.mn{display:block}
-.hide-mobile{display:none}}
-footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:#7f8c8d;border-top:1px solid #e0e0ea;margin-top:16px}
-.p0{display:inline-block;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;background:#fadbd8;color:#c0392b;margin-right:2px%=
-
-/* Tracker */
+@media(max-width:768px){.mn{display:block}.hide-mobile{display:none}}
+footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:#7f8c8d;border-top:1px solid #e0e0e0;margin-top:16px}
+.p0{display:inline-block;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;background:#fadbd8;color:#c0392b;margin-right:2px}
 .gene-track{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 12px;margin-bottom:8px}
 .gene-track .gt-title{font-size:12px;font-weight:700;color:#856404;margin-bottom:6px}
 .later-btn{background:none;border:1px solid #bdc3c7;color:#95a5a6;font-size:9px;padding:2px 6px;border-radius:3px;cursor:pointer;transition:all .2s;margin-top:4px;margin-left:4px;font-weight:600}
@@ -122,97 +102,7 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 
 <div class="st">
 <div class="s"><div class="sn" id="statToday">5</div><div class="sl">Today</div></div>
-<div class="s"><div c#'67',
-'Isabel Deibel':'1249301','Guy Omacias':''
-};
-
-const CD={
-'Fri Mar 20':[
-{time:'5:00 PM',text:'Respond to Thomas (Isabel referral)',type:'task'},
-{time:'6:00 PM',text:'Sell GDX',type:'task'},
-{time:'7:15 PM',text:'Zouk Social -- Aneska Birthday',type:'event'},
-{time:'10:00 PM',text:'Grant Nick QB access',type:'urgent'},
-{time:'11:00 PM',text:'Verify Wealthfront',type:'urgent'}
-],
-'Sat Mar 21':[
-{time:'4:30 AM',text:'Car pickup',type:'task'},
-{time:'8:30 AM',text:'Flight LAX to Maui (Hawaiian Airlines)',type:'event'},
-{time:'9:15 AM',text:'ATLAS data tasks (do from Maui)',type:'task'}
-],
-'Sun Mar 22':[
-{time:'2:00 PM',text:'Interactive Brokers setup',type:'task'},
-{time:'3:00 PM',text:'Daniel: Claude discounts',type:'task'}
-],
-'Mon Mar 23':[
-{time:'8:00 AM',text:'Brazilian Booty (Fernanda)',type:'event'},
-{time:'EOD',text:'DEADLINE: Personal Tax Return (Gene Heo)',type:'urgent'},
-{time:'6:00 PM',text:'6th Month Team Eval #1',type:'event'}
-],
-'Tue Mar 24':[
-{time:'11:00 AM',text:'Payroll transfer',type:'task'},
-{time:'5:00 PM',text:'Sell GDX > SGOV',type:'task'},
-{time:'5:30 PM',text:'Boot Camp (Christiana)',type:'event'}
-],
-'Wed Mar 25':[
-{time:'9:15 AM',text:'Boot Camp (Jill)',type:'event'},
-{time:'6:00 PM',text:'6th Month Team Eval #2',type:'event'}
-],
-'Thu Mar 26':[
-{time:'1:00 PM',text:'Michael Friedman -- Nighthawk Onboarding',type:'event'},
-{time:'2:30 PM',text:'Guy Omacias -- LA Coaching',type:'event'}
-],
-'Fri Mar 27':[
-{time:'9:00 AM',text:'Piyush Sheth call (NEW)',type:'event'},
-{time:'9:15 AM',text:'Boot Camp (Megan)',type:'event'},
-{time:'6:00 PM',text:'6th Month Team Eval #3',type:'event'}
-],
-'Sat Mar 28':[
-{time:'3:10 PM',text:'Flight Maui to LAX',type:'event'}
-]
-};
-
-function init(){
-renderCalendar();
-// Add Later buttons to all non-disabled task items
-document.querySelectorAll('.ti').forEach(ti=>{
-const cb=ti.querySelector('.tc');
-if(cb&&cb.disabled)return;// skip completed items
-if(!ti.id)return;// skip items without IDs
-const tct=ti.querySelector('.tct');
-if(tct){
-const btn=document.createElement('button');
-btn.className='later-btn';
-btn.textContent='Later';
-btn.onclick=function(e){e.stopPropagation();doLater(this);};
-tct.appendChild(btn);
-}
-});
-loadState();
-attachEventListeners();
-updateStats();
-}
-
-function renderCalendar(){
-const start=new Date(2026,2,20);
-const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-let html='';
-for(let i=0;i<9;i++){
-const d=new Date(start);d.setDate(start.getDate()+i);
-const key=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-const evts=CD[key]||[];
-let dots='';
-evts.forEach(e=>{
-if(e.type==='urgent')dots+='<div class="dot e"></div>';
-else if(e.type==='event')dots+='<div class="dot b"></div>';
-else dots+='<div class="dot t"></div>';
-});
-html+=`<div class="wd ${i===0?'tod':''}" onclick="showDay('${key}')">${dn[d.getDay()]}<br><b>${d.getDate()}</b>${dots}</div>`;
-}
-document.getElementById('weekStrip').innerHTML=html;
-showDay('Fri Mar 20');
-}
-
-lass="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
+<div class="s"><div class="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
 <div class="s"><div class="sn" id="statUrgent">3</div><div class="sl">Urgent</div></div>
 <div class="s"><div class="sn" id="statDone">0</div><div class="sl">Done</div></div>
 </div>
@@ -262,7 +152,7 @@ lass="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
 </div></div>
 </div>
 
-<!-- ============ BUSINESS / LUCID STRATEGIES =============== -->
+<!-- =============== BUSINESS / LUCID STRATQGIES =============== -->
 <div class="ps">
 <div class="sec-title biz">BUSINESS -- Lucid Strategies (Campaigns)</div>
 
@@ -296,7 +186,10 @@ lass="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
 <div style="font-size:10px;margin-top:4px;color:#2e7d32">Playbooks to review:</div>
 <a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/MedDevice_B2C_PE_Campaign_Playbook_v2.docx">MedDevice_B2C_PE v2</a>
 <a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/RIA_Campaign_Playbook_v2.docx">RIA Playbook v2</a>
-<a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/LS_VC_PE_RIA_Campaign_Master_Playbook.docx">Master VC/PE/RIA</a="tct">
+<a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/LS_VC_PE_RIA_Campaign_Master_Playbook.docx">Master VC/PE/RIA</a>
+</div></div>
+
+<div class="ti sub" id="t-pe-sunshine"><input type="checkbox" class="tc"><div class="tct">
 <div class="tt">Sunshine: Merge targeting + prep materials</div>
 <span class="tag biz">Ops Team -- after Lena review</span>
 </div></div>
@@ -312,19 +205,6 @@ lass="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
 <span class="camp-status review">Lena Review Needed</span>
 </div>
 
-<div class="ti sub" id="t-clips-msg"><input type="checkbox" class="tc" checked disabled><div class="tct">
-<div class="tt">Messaging: Complete (outreach messaging doc)</div>
-<span class="tag done">DONE</span>
-<div class="ti sub" id="t-pe-deploy"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Deploy to outreach (post-review + post-prep)</div>
-<span class="tag biz">Blocked on above</span>
-</div></div>
-
-<!-- ===== Campaign 2: 30 Free Clips / Video Sales Excel ===== -->
-<div class="camp-header">
-2. 30 Free Clips / Video Sales Excel
-<span class="camp-status review">Lena Review Needed</span>
-</div>
 <div class="ti sub" id="t-clips-msg"><input type="checkbox" class="tc" checked disabled><div class="tct">
 <div class="tt">Messaging: Complete (outreach messaging doc)</div>
 <span class="tag done">DONE</span>
@@ -362,9 +242,7 @@ lass="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
 <div class="ti sub" id="t-clips-assets"><input type="checkbox" class="tc"><div class="tct">
 <div class="tt">Link all assets (messaging, script, posts, Excel)</div>
 <span class="tag biz">After reviews complete</span>
-<a class="al doc" href="https://docs.google.com/document/d/1DarUxsVAj0TPiFugCmh9ZkRryDZL5M6m36XMMw-dSUs/edit" target="_blank">Messaging Templates</a>
-<a class="al doc" href="https://docs.google.com/document/d/1yGHqkLMr53mV6IIX1bvTswY7hY3-L30puaoXRWn4_Jg/edit" target="_blank">Caller Script</a>
-<a class="al" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit" target="_blank">Content Calendar</a>
+it" target="_blank">Content Calendar</a>
 <a class="al folder" href="https://drive.google.com/drive/folders/1sX6AbA5fioaQrcuV90vtWyrrGNN3PsGQ" target="_blank">Video Clips</a>
 </div></div>
 
@@ -382,335 +260,11 @@ lass="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
 
 <div class="ti sub" id="t-sh-cases"><input type="checkbox" class="tc"><div class="tct">
 <div class="tt">Case studies from Francis — REVIEWED, 4 rework items</div>
-<span class="tag review">Rework Needed</span>
-<a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/fitness-coach/Francisco_Case_Studies_ALL.pdf" target="_blank">All 17 PDFs (merged)</a>
-<a class="al review" href="computer:///sessions/friendly-keen-fermat/mnt/fitness-coach/Francisco_Case_Study_Assessment.pdf" target="_blank">Assessment &amp; Rework Brief</a>
-</div></div>
-
-<div class="ti sub" id="t-sh-video"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Testimonial video</div>
-<span class="tag u">In Progress</span>
-<a class="al doc" href="https://docs.google.com/document/d/1qWXPEDfaDPRSQoVg3-CzI5DZQnEhbsycDZIqgW9HcMc/edit" target="_blank">Testimonial Questions</a>
-<a class="al folder" href="https://drive.google.com/drive/folders/1sX6AbA5fioaQrcuV90vtWyrrGNN3PsGQ" target="_blank">Opus Clips 2026</a>
-</div></div>
-
-<div class="ti sub" id="t-sh-assets"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Compile &amp; link all Show Hall assets</div>
-<span class="tag biz">Blocked on above</span>
-</div></div>
-
-<!-- ===== PLAYBOOK REVIEW HUB ===== -->
-<div style="margin-top:14px;padding:12px;background:#fce4ec;border-radius:6px;border-left:3px solid #c0392b">
+t:3px solid #c0392b">
 <div style="font-size:12px;font-weight:700;color:#c0392b;margin-bottom:8px">PLAYBOOK REVIEW HUB -- Approve Before Launch</div>
-<div style="font-size:11px;color:#5d4037;margin-bottom:6px">All playbooks are in your local folder: <strong>Making Money / Lucid Strategies /</strong></div>
-
-<div class="ti" id="t-review-meddev"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">MedDevice + B2C/PE ATC���XZYۗ�^X����݌��]����[��\��H�Y�H���YY�\�ݘ[��[���H�\��H�[�]�Y]Ȉ�Y�H���\]\������\��[ۜ�ٜ�Y[�KZ�Y[�Y�\�X]�[��\��ۘ[Y�H[�H�]YK�XZ�[��[ۙ^K�X�Y��]Y�Y\��YY]�X�WЌ���W��[\ZYۗ�^X����݌�������[�^X�����O��H�\��H�[�Ȉ�Y�H�΋����˙����K���K���[Y[���Uޑ]�
-���ڌ�ٕ
-�P��ݜUZ�ܚ����LLK�Y]�\��]H�؛[�ȏ�U��[\ZYۈ�\ܝ�O��H�\��H�[�Ȉ�Y�H�΋����˙����K���K���[Y[���QPQZQ�YPڑҚ�P͔S��YZ�ޜ�N���Z�[��Y]�\��]H�؛[�ȏ��[\ZY SOP</a>
-</div></div>
-
-<div class="ti" id="t-review-ria"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">RIA Campaign Playbook v2</div>
-<span class="tag u">Needs Approval</span>
-<a class="al review" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/RIA_Campaign_Playbook_v2.docx">Open Playbook</a>
-</div></div>
-
-<div class="ti" id="t-review-clips-pb"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">30 Free Clips Outreach Playbook v2</div>
-<span class="tag u">Needs Approval</span>
-<a class="al review" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/30_Free_Clips_Outreach_Playbook_v2.docx">Open Playbook</a>
-</div></div>
-
-<div class="ti" id="t-review-master"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">LS VC/PE/RIA Master Playbook (all-in-one)</div>
-<span class="tag u">Needs Approval</span>
-<a class="al review" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/LS_VC_PE_RIA_Campaign_Master_Playbook.docx">Open Playbook</a>
-<a class="al doc" href="https://docs.google.com/document/d/1VaEsZRhiALYA0J2_HaZ-rcgpqPKxHkTuvs-mmzQCOuw/edit" target="_blank">LS Masterdoc SOP</a>
-</div></div>
-
-<div class="ti" id="t-review-video-pb"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Video Sales Accelerator Master Playbook</div>
-<span class="tag u">Needs Approval</span>
-<a class="al review" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/Video_Sales_Accelerator_Master_Playbook.docx">Open Playbook</a>
-<a class="al folder" href="https://drive.google.com/drive/folders/1sX6AbA5fioaQrcuV90vtWyrrGNN3PsGQ" target="_blank">Opus Clips 2026</a>
-</div></div>
-</div>
-
-<!-- ===== PIPELINE & PROSPECTS (by date, soonest first) ===== -->
-<div style="margin-top:14px;padding-top:10px;border-top:1px solid #f0f0f0">
-<div style="font-size:12px;font-weight:700;color:#7f8c8d;margin-bottom:8px">PIPELINE &amp; PROSPECTS (by date)</div>
-</div>
-
-<div class="ti" id="t-team-eval"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 23, 6:00 PM (first of 6)</div>
-<div class="tt">6th Month Team Evaluation (6 sessions thru Apr 3)</div>
-<span class="tag biz">Management</span>
-</div></div>
-
-<div class="ti" id="t-friedman"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Thu Mar 26, 1:00 PM</div>
-<div class="tt">Michael Friedman -- Onboarding Call (Nighthawk Tech)</div>
-<span class="tag biz">Client Onboarding</span>
-<div style="font-size:10px;color:#27ae60;margin-top:2px">Upgraded to onboarding -- deal progressing!</div>
-<a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c136a3311390" target="_blank">Open Draft</a>
-<a class="al hs" onclick="openHubSpot('Michael Friedman')">HubSpot</a>
-</div></div>
-
-<div class="ti" id="t-guy"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Thu Mar 26, 2:30 PM</div>
-<div class="tt">Guy Omacias -- LA Coaching Discovery (NEW)</div>
-<span class="tag biz">New Prospect</span>
-<div style="font-size:10px;color:#e67e22;margin-top:2px">Guy emailed: wants Mon Mar 23 instead (starts Capital One Mar 30)</div>
-</div></div>
-
-<div class="ti" id="t-piyush"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Fri Mar 27, 9:00 AM</div>
-<div class="tt">Piyush Sheth call (NEW PROSPECT) -- Briefing needed</div>
-<span class="tag biz">New Prospect</span>
-<a class="al hs" onclick="openHubSpot('Piyush Sheth')">HubSpot</a>
-</div></div>
-
-<div class="ti" id="t-review-pb"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mar 29, 10:00 AM</div>
-<div class="tt">Review 3 campaign playbooks -- final sign-off</div>
-<span class="tag biz">Post-Hawaii</span>
-</div></div>
-
-<div class="ti" id="t-camp-review"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 30, 2:00 PM</div>
-<div class="tt">Milestone: Campaign Progress Reviews</div>
-<span class="tag biz">Post-Hawaii</span>
-</div></div>
-
-<div class="ti" id="t-andosca"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 31, 1:00 PM</div>
-<div class="tt">INVIZA check-in -- Robert Andosca, Ph.D.</div>
-<span class="tag biz">Deal</span>
-<a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c13862eae88d" target="_blank">Open Draft</a>
-<a class="al hs" onclick="openHubSpot('Robert Andosca')">HubSpot</a>
-</div></div>
-
-<div class="ti" id="t-nick-call"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 31, 2:00 PM</div>
-<div class="tt">Nick Scarrozzo &amp; LS call + FMLCPAs Intro</div>
-<span class="tag biz">New Prospect + CPA</span>
-<a class="al hs" onclick="openHubSpot('Nick Scarrozzo')">HubSpot</a>
-</div></div>
-
-<!-- WAITING ON -->
-<div style="margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0">
-<div style="font-size:12px;font-weight:700;color:#7f8c8d;margin-bottom:8px">WAITING ON</div>
-</div>
-
-<div class="ti" id="t-gil"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Gil Jimenez (Medical Murray) -- traveling, back next week IL</div>
-<span class="tag biz">Proposal sent</span>
-<a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c137935f85e7" target="_blank">Open Draft</a>
-<a class="al hs" onclick="openHubSpot('Gil Jimeney�')">HubSpot</a>
-</div></div>
-
-\�]��\��H�H�YH�Z�\�Y��[�]\OH��X�؛���\��H�ȏ�]��\��H�����]��\��H����\�Y]\�
-\�Y]\�YYX�[
-HKH����]\�H�S��̌�]����[��\��H�Y��^���]�Z][���\O��[����]���]����]��\��H�H�YH�]�X�܈��[�]\OH��X�؛���\��H�ȏ�]��\��H�����]��\��H����X�܈�]\�[ (Aliform Surgical) -- 48hr, no reply</div>
-<span class="tag biz">Follow-up drafted</span>
-</div></div>
-
-<div class="ti" id="t-rapa"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">RAPA/Langfeldt -- rescheduled Apr 21</div>
-<span class="tag done">Parked</span>
-</div></div>
-
-</div><!-- end Business section -->
-
-<!-- =============== PERSONAL =============== -->
-<div class="ps">
-<div class="sec-title per">PERSONAL (by urgency)</div>
-
-<!-- Gene Heo CPA Tracker -->
-<div class="gene-track">
-<div class="gt-title">Gene Heo / CPA -- Remaining Items (DEADLINE Mon 3/23)</div>
-
-<div class="ti" id="t-gene-personal" style="background:#fff3cd"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">DUE: Mon Mar 23 EOD</div>
-<div class="tt"><span class="p0">DEADLINE</span> Personal Tax Return from Gene Heo</div>
-<span class="tag u">Waiting on CPA</span>
-</div></div>
-
-<div class="ti" id="t-gene-payroll" style="background:#fff3cd"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Amy Yoon: Provide payroll journal + Form 941, 940, DE 9 (all Q1-4Q 2025)</div>
-<span class="tag u">Reconciliation Request</span>
-</div></div>
-
-<div class="ti" id="t-gene-corp" style="background:#fff3cd"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Revised corporate return -- expected Sat 3/21 PM</div>
-<span class="tag per">Waiting on CPA</span>
-</div></div>
-</div>
-
-<div class="ti" id="t-flight-out"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Sat Mar 21, 8:30 AM (car pickup 4:30 AM)</div>
-<div class="tt">Flight LAX to Maui -- Hawaiian Airlines (MNIUDZ)</div>
-<span class="tag per">Tomorrow</span>
-</div></div>
-
-<div class="ti" id="t-atlas"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Sat Mar 21 (conflicts with flight)</div>
-<div class="tt">ATLAS data: Chase Roth IRA, Schwab screenshots, year-end statements</div>
-<span class="tag inv">Do from Maui if possible</span>
-</div></div>
-
-<div class="ti" id="t-payroll-xfer"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Tue Mar 24, 11:00 AM</div>
-<div class="tt">Payroll: Transfer to PayPal + 20% buffer</div>
-<span class="tag per">All invoices confirmed</span>
-</div></div>
-
-<div class="ti" id="t-tax-filings"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Apr 1 task blocks</div>
-<div class="tt">Tax filings: Personal Fed + CA Annual, Q1 Estimated, IRA max contribution</div>
-<span class="tag per">Apr 15 deadline</span>
-</div></div>
-
-<div class="ti" id="t-flight-back"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Sat Mar 28, 3:10 PM</div>
-<div class="tt">Flight Maui to LAX</div>
-<span class="tag per">Return</span>
-</div></div>
-</div>
-
-<!-- =============== INVESTING =============== -->
-<div class="ps">
-<div class="sec-title inv">INVESTING (by date)</div>
-
-<div class="ti" id="t-ib"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Sat Mar 22, 2:00 PM</div>
-<div class="tt">Set up Interactive Brokers account</div>
-<span class="tag inv">From Hawaii</span>
-</div></div>
-
-<div class="ti" id="t-gdx2"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Tue Mar 24, 5:00 PM</div>
-<div class="tt">Sell GDX &gt; SGOV (second attempt if needed)</div>
-<span class="tag inv">Trading</span>
-</div></div>
-
-<div class="ti" id="t-ira"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Apr 1 (deadline Apr 15)</div>
-<div class="tt">IRA: Pay yearly maximum contribution</div>
-<span class="tag inv">Deadline</span>
-</div></div>
-
-<div class="ti" id="t-svrn"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Set up SVRN Ventures pipeline tracking</div>
-<span class="tag inv">When ready</span>
-</div></div>
-</div>
-
-</div><!-- end LEFT column -->
-
-<!-- RIGHT COLUMN -->
-<div>
-
-<!-- CALENDAR PREVIEW -->
-<div class="sw" id="weekStrip"></div>
-<div class="de" id="dayEvents"></div>
-</div>
-
-<!-- KEY PEOPLEL -->
-<div class="ps">
-<div class="sec-title" style="border-bottom-color:#d4ac0d">KEY PEOPLE</div>
-<div class="pc">
-<div class="pn">Gene Heo <span style="font-size:10px;color:#c0392b">DEADLINE</span></div>
-<div class="pr">CPA -- Tax Urgency</div>
-<div class="pd">Personal return due Mon 3/23. Amy Yoon requesting payroll docs for reconciliation. Manager had emergency -- corporate draft expected Sat 3/21.</div>
-</div>
-
-<div class="pc">
-<div class="pn">Michael Friedman</div>
-<div class="pr">Nighthawk Tech -- Onboarding Client</div>
-<div class="pd">Onboarding call Thu Mar 26 1 PM. Cole Matson declined. Alexandra Corredor confirmed.</div>
-<a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c136a3311390" target="_blank">Open Draft</a>
-<a class="al hs" onclick="openHubSpot('Michael Friedman')">HubSpot</a>
-</div>
-
-<div class="pc">
-<div class="pn">Guy Omacias <span style="font-size:10px;color:#e67e22">NEW</span></div>
-<div class="pr">LA Coaching -- Discovery</div>
-<div class="pd">Calendly booking Thu Mar 26 2:30 PM. Guy requested Mon Mar 23 instead (starts Capital One Mar 30).</div>
-</div>
-
-<div class="pc">
-<div class="pn">Nick Scarrozzo <span style="font-size:10px;color:#c0392b">TONIGHT</span></div>
-<div class="pr">FMLCPAs -- QB Access Needed</div>
-<div class="pd">Grant QB access + upload prior year returns before Hawaii. Call Mon Mar 31 2 PM.</div>
-<a class="al hs" onclick="openHubSpot('Nick Scarrozzo')">HubSpot</a>
-</div>
-
-<div class="pc">
-<div class="pn">Piyush Sheth <span style="font-size:10px;color:#e67e22">NEW</span></div>
-<div class="pr">New Prospect</div>
-<div class="pd">LS call Fri Mar 27 9 AM. Briefing needed before call.</div>
-<a class="al hs" onclick="openHubSpot('Piyush Sheth')">HubSpot</a>
-</div>
-
-<div class="pc">
-<div class="pn">Gil Jimenez</div>
-<div class="pr">Medical Murray -- Traveling</div>
-<div class="pd">Responded 3/20: out of office, will provide info next week from IL.</div>
-<a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c137935f85e7" target="_blank">Open Draft</a>
-<a class="al hs" onclick="openHubSpot('Gil Jimenez')">HubSpot</a>
-</div>
-
-<div class="pc">
-<div class="pn">Robert Andosca</div>
-<div class="pr">INVIZA -- Check-in Mar 31</div>
-<div class="pd">Proposal sent. Call confirmed Mon Mar 31 1 PM.</div>
-<a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c13862eae88d" target="_blank">Open Draft</a>
-<a class="al hs" onclick="openHubSpot('Robert Andosca')">HubSpot</a>
-</div>
-
-<div class="pc">
-<div class="pn">Jared Hutar</div>
-<div class="pr">Piraeus Medical (via Maxim)</div>
-<div class="pd">Follow-up #1 SENT 3/20 10:42 AM. Proposed call week of 3/30.</div>
-</div>
-
-<div class="pc">
-<div class="pn">Sunshine</div>
-<div class="pr">LS Operations Manager</div>
-<div class="pd">Targeting APPROVED. Needs to merge + prep materials. Content Calendar updated daily.</div>
-<a class="al" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit" target="_blank">Content Calendar &amp; KBI</a>
-</div>
-
-<!-- QUICK LINKS -->
-<a class="ql green" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit" target="_blank" rel="noopener noreferrer">Content Calendar &amp; KBI Sheet</a>
-
-<a class="ql gold" href="https://www.calendly.com/lucidstrategies/ls" target="_blank" rel="noopener noreferrer">Calendly Booking Link</a>
-
-<a class="ql purple" href="trip-planner.html" target="_blank" rel="noopener noreferrer">Hawaii Trip Planner</a>
-<!-- LOCAL FOLDERS -->
-<div class="ps" style="padding:12px">
-<div class="sec-title" style="border-bottom-color:#e67e22;font-size:12px;margin-bottom:8px;padding-bottom:6px">LOCAL FOLDERS</div>
-<a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/George" style="display:block;margin-bottom:4px">George (Dashboard, Tasks, Memory)</a>
-<a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies" style="display:block;margin-bottom:4px">Lucid Strategies (Playbooks, SOPs)</a>
-<a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/Clients" style="display:block;margin-bottom:4px">LS Clients</a>
-<a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/Proposals" style="display:block;margin-bottom:4px">LS Proposals</a>
-<a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/Contracts" style="display:block;margin-bottom:4px">LS Contracts</a>
-
-
+ss="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/Contracts" style="display:block;margin-bottom:4px">LS Contracts</a>
 <a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/George/briefings" style="display:block;margin-bottom:4px">George Briefings</a>
-<a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/George/memory" style="display:block;margin-bottom:4px">George Memory</a>
-<a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/George/TASKS.md" style="display:block;margin-bottom:4px">TASKS.md</a>
-<a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/George/CLANDMM/md" style="display:block;margin-bottom:4px">CLAUDE.md (George Brain)</a>
-</div>
-
-<!-- QUICK NOTE -->
-<div class="qm">
-<div style="font-size:12px;font-weight:600;margin-bottom:6px">Quick Note to George</div>
-<textarea class="mi" id="messageInput" placeholder="Type a note..."></textarea>
-<button class="mb" onclick="saveMessage()">Save Note</button>
-</div>
+</</div>
 
 </div><!-- end RIGHT column -->
 </main>
@@ -718,7 +272,25 @@ HKH����]\�H�S��̌�]����[��\��H
 <footer>
 <div>George v6.3 | Chief of Staff Command Center | No sensitive data linked</div>
 <div style="margin-top:4px">
-<ad�&Vc�&�GG3���G&7�6���r�v�F�V"���vV�&vR�F6�&�&B�"7G��S�&6���#�33C��F"#�ƗfRF6�&�&C�����F�c���f��FW#���F�cࠣ�����$��R�b����F�b6�73�&��#��F�b6�73�&�"#��'WGF��6�73�&�"�'F�"��6Ɩ6��&�eF�wF�F�r�#�F�F���'WGF����'WGF��6�73�&�"�'F�"��6Ɩ6��&�eF�v6�V�F"r�#�6���'WGF����'WGF��6�73�&�"�'F�"��6Ɩ6��&�eF�wV��Rr�#�V��S��'WGF����'WGF��6�73�&�"�'F�"��6Ɩ6��&�eF�w6WGF��w2r�#���&S��'WGF�����F�c���F�cࠣ�67&�C�6��7B4��vvV�&vU�F6�&�&E�cbs��6��7B�#�v�GG3����V'7�B�6���6��F7G2�c#�3C�&V6�&B���s��6��7B��Cװ�uB�v�rs�s#S33��S33rr�t֖6�V�g&�VF��s�scC�3��CRr��t�6�66'&����s�s#�c�c�br�tv�����V�W�s�s�s�r��u&�&W'B�F�66s�s#��3C3�#r�t�&VB�WF"s�s#S�c3Br��uf�7F�"7WGW&��s�s#�cscs"r�u��W6�6�WF�s�sCccCSs�67',
+<a href="https://tracychapman7.github.io/george-dashboard/" style="color:#3498db">Live Dashboard</a>
+</div>
+</footer>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mn"><div class="nb">
+<button class="nb-btn a" onclick="navTo('today')">Today</button>
+<button class="nb-btn" onclick="navTo('calendar')">Cal</button>
+<button class="nb-btn" onclick="navTo('people')">People</button>
+<button class="nb-btn" onclick="navTo('settings')">More</button>
+</div></div>
+
+<script>
+const SK='george_dashboard_v6';
+const HB='https://app.hubspot.com/contacts/6283041/record/0-1/';
+const HID={
+'Pat Hwang':'205338915337','Michael Friedman':'64083088415',
+'Nick Scarrozzo':'210191618686','Gil Jimenez':'1878067',
 'Isabel Deibel':'1249301','Guy Omacias':''
 };
 
@@ -808,59 +380,101 @@ document.getElementById('weekStrip').innerHTML=html;
 showDay('Fri Mar 20');
 }
 
-function showDay(key) {
+function showDay(key){
 const evts=CD[key]||[];
-const c=etts.length>0?evts[0].type:'';
-let html='<strong style="'+'{color:#3498db;font-size:12px}'+6''>'+key+'</strong>';
+let html='<strong style="color:#d4ac0d;font-size:12px">'+key+'</strong>';
 if(!evts.length){html+='<div style="font-size:11px;color:#95a5a6;margin-top:6px">No events</div>';}
-else {evts.forEach(e=>{
-const c=e.type==='urgent'?'#c0392b':e.type==='event'?'#3498db':'�ן�w�';
-html+=`<div style="margin:16px 0 8px 0   font-size:11px" ><span style="color:#c0392b; font-weight:600">${e.time}</span> -  <span style="color:${c}">${e.text}</span></div>`;
+else{evts.forEach(e=>{
+const c=e.type==='urgent'?'color:#c0392b;font-weight:600':e.type==='event'?'color:#3498db':'';
+html+=`<div class="de-e"><span class="de-t">${e.time}</span><span class="de-x" style="${c}">${e.text}</span></div>`;
 });}
 document.getElementById('dayEvents').innerHTML=html;
 }
 
-function updateStats() {
-const state=JSON.parse(localStorage.getItem(SK) || '{}');
-const done=Object.values(state).filter(v => v).length;
+function updateStats(){
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
+const done=Object.values(state).filter(v=>v).length;
 document.getElementById('statDone').textContent=done;
 }
 
-function doLater(btn) {
+function doLater(btn){
 const ti=btn.closest('.ti');
 const tid=ti.id;
-const later=JSON.parse(localStorage.getItem(SK+''_later') || '"{[]}');
+const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}');
 if(ti.classList.contains('later')){
 ti.classList.remove('later');
 delete later[tid];
 btn.textContent='Later';
-} else {
+}else{
 ti.classList.add('later');
 later[tid]=true;
 btn.textContent='Undo';
 }
-localStorage.setItem(SK+''_later', JSON.stringify(later));
+localStorage.setItem(SK+'_later',JSON.stringify(later));
 // Move later items to bottom of parent
 const parent=ti.parentElement;
-parent.querySelectorAll('.ti.later').forEach(el=> parent.appendChild(el));
+parent.querySelectorAll('.ti.later').forEach(el=>{parent.appendChild(el);});
 }
 
-function loadState() {
-const state=JSON.parse(localStorage.getItem(SK) || '{}');
-Object.keys(state).forEach(id => {
+function loadState(){
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
+Object.keys(state).forEach(id=>{
 const el=document.getElementById(id);
-if(el) {
+if(el){
 const cb=el.querySelector('.tc');
-if(cb&&(cb.disabled===undefined || cb.disabled===false) && state[id]) {
-cb.checked=true;
-el.classList.add('d');
-}
+if(cb&&!cb.disabled&&state[id]){cb.checked=true;el.classList.add('d');}
 }
 });
 const msg=localStorage.getItem(SK+'_msg');
-if(msg) document.getElementById('messageInput').value=msg;
+if(msg)document.getElementById('messageInput').value=msg;
 // Restore later state
-const later=JSON.parse(localStorage.getItem(SK+'_later') || '{}');
-Object.keys(later).forEach(id => { const el=document.getElementById(id); if(el && later[id]) { el.classList.add('later'); const btn=el.querySelector('.later-btn'); if(btn) btn.textContent='Undo'; const parent=el.parentElement; parent.appendChild(el); } }); }
+const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}');
+Object.keys(later).forEach(id=>{
+const el=document.getElementById(id);
+if(el&&later[id]){
+el.classList.add('later');
+const btn=el.querySelector('.later-btn');
+if(btn)btn.textContent='Undo';
+const parent=el.parentElement;
+parent.appendChild(el);
+}
+});
+}
 
-/const c=mvistitabRE
+function attachEventListeners(){
+document.querySelectorAll('.tc').forEach(ch=>{
+if(ch.disabled)return;
+ch.addEventListener('change',function(){
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
+const tid=this.closest('.ti').id;
+if(this.checked){this.closest('.ti').classList.add('d');state[tid]=true;}
+else{this.closest('.ti').classList.remove('d');state[tid]=false;}
+localStorage.setItem(SK,JSON.stringify(state));
+updateStats();
+});
+});
+document.querySelectorAll('.ch').forEach(h=>{
+h.addEventListener('click',function(){this.classList.toggle('o');});
+});
+}
+
+function saveMessage(){
+const msg=document.getElementById('messageInput').value;
+localStorage.setItem(SK+'_msg',msg);
+alert('Note saved');
+}
+
+function openHubSpot(name){
+const id=HID[name];
+if(id)window.open(HB+id,'_blank','noopener,noreferrer');
+}
+
+function navTo(s){
+document.querySelectorAll('.nb-btn').forEach(b=>b.classList.remove('a'));
+event.target.classList.add('a');
+}
+
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+</script>
+</body>
+</html>
