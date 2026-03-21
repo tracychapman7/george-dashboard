@@ -108,17 +108,17 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 <div class="h">
 <div>
 <div class="ht">George -- Command Center</div>
-<div class="hd">Friday, March 20, 2026 | v6.3</div>
+<div class="hd">Saturday, March 21, 2026 | v6.4</div>
 </div>
-<div class="sb">Synced 10:07 PM</div>
+<div class="sb">Synced 10:00 AM Sat</div>
 </div>
 </header>
 
 <div class="st">
-<div class="s"><div class="sn" id="statToday">5</div><div class="sl">Today</div></div>
-<div class="s"><div class="sn" id="statWeek">15</div><div class="sl">This Week</div></div>
-<div class="s"><div class="sn" id="statUrgent">3</div><div class="sl">Urgent</div></div>
-<div class="s"><div class="sn" id="statDone">0</div><div class="sl">Done</div></div>
+<div class="s"><div class="sn" id="statToday">6</div><div class="sl">Today</div></div>
+<div class="s"><div class="sn" id="statWeek">14</div><div class="sl">This Week</div></div>
+<div class="s"><div class="sn" id="statUrgent">2</div><div class="sl">Urgent</div></div>
+<div class="s"><div class="sn" id="statDone">2</div><div class="sl">Done</div></div>
 </div>
 
 <main>
@@ -127,40 +127,52 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 
 <!-- =============== TODAY =============== -->
 <div class="ps">
-<div class="sec-title u">TODAY -- Fri Mar 20 (by knock-out order)</div>
+<div class="sec-title u">TODAY -- Sat Mar 21 (Hawaii Day 1)</div>
 
-<div class="ti" id="t-thomas"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">5:00 PM</div>
-<div class="tt"><span class="p0">P0</span> Respond to Thomas (Isabel referral)</div>
-<span class="tag biz">Business</span>
+<div class="ti d" id="t-car"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="ttime">4:30 AM</div>
+<div class="tt">Car pickup to LAX</div>
+<span class="tag done">DONE</span>
 </div></div>
 
-<div class="ti" id="t-gdx"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">6:00 PM</div>
-<div class="tt">Sell GDX (at least partially)</div>
-<span class="tag inv">Investing</span>
+<div class="ti d" id="t-flight-dep"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="ttime">8:30 AM</div>
+<div class="tt">Flight LAX to Maui -- Hawaiian Airlines</div>
+<span class="tag done">DONE -- Departed</span>
+</div></div>
+
+<div class="ti" id="t-atlas-today"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">When settled in Maui</div>
+<div class="tt">ATLAS data: Chase Roth IRA, Schwab screenshots, year-end statements</div>
+<span class="tag inv">Do from hotel</span>
 </div></div>
 
 <div class="ti" id="t-qb"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">10:00 PM</div>
+<div class="ttime">ASAP</div>
 <div class="tt"><span class="p0">P0</span> Grant Nick Scarrozzo QB access (FMLCPAs)</div>
-<span class="tag u">URGENT -- Before Trip</span>
+<span class="tag u">OVERDUE -- Was due before trip</span>
 </div></div>
 
 <div class="ti" id="t-wf"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">11:00 PM</div>
+<div class="ttime">ASAP</div>
 <div class="tt"><span class="p0">P0</span> Verify Wealthfront $50K + $119K withdrawal</div>
-<span class="tag u">URGENT -- Before Trip</span>
+<span class="tag u">OVERDUE -- Was due before trip</span>
 </div></div>
 
-<div class="ti" id="t-amy"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Tonight</div>
-<div class="tt">Reply to Amy Yoon -- payroll journal Q1-4Q 2025 for reconciliation</div>
-<span class="tag per">Gene Heo / CPA</span>
+<div class="ti" id="t-thomas"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Open</div>
+<div class="tt">Respond to Thomas (Isabel referral)</div>
+<span class="tag biz">Carried from Fri</span>
+</div></div>
+
+<div class="ti" id="t-gdx"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Open</div>
+<div class="tt">Sell GDX (at least partially)</div>
+<span class="tag inv">Markets closed -- Mon earliest</span>
 </div></div>
 
 <div class="ti" id="t-sig"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Tonight (2 min)</div>
+<div class="ttime">2 min</div>
 <div class="tt">Update Gmail signature phone: 949 to 714-391-3771</div>
 <span class="tag per">Quick fix</span>
 </div></div>
@@ -368,7 +380,7 @@ FRANCIS — Case Studies (6 Total)
 </div>
 
 <div class="ti" id="t-team-eval"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 23, 6:00 PM (first of 6)</div>
+<div class="ttime">Mon Mar 23, 6:00 PM (first of 6)
 <div class="tt">6th Month Team Evaluation (6 sessions thru Apr 3)</div>
 <span class="tag biz">Management</span>
 </div></div>
@@ -477,16 +489,16 @@ FRANCIS — Case Studies (6 Total)
 </div></div>
 </div>
 
-<div class="ti" id="t-flight-out"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Sat Mar 21, 8:30 AM (car pickup 4:30 AM)</div>
+<div class="ti d" id="t-flight-out"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="ttime">Sat Mar 21, 8:30 AM</div>
 <div class="tt">Flight LAX to Maui -- Hawaiian Airlines (MNIUDZ)</div>
-<span class="tag per">Tomorrow</span>
+<span class="tag done">DONE -- Departed</span>
 </div></div>
 
 <div class="ti" id="t-atlas"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Sat Mar 21 (conflicts with flight)</div>
+<div class="ttime">Do from Maui</div>
 <div class="tt">ATLAS data: Chase Roth IRA, Schwab screenshots, year-end statements</div>
-<span class="tag inv">Do from Maui if possible</span>
+<span class="tag inv">When settled at Koa resort</span>
 </div></div>
 
 <div class="ti" id="t-payroll-xfer"><input type="checkbox" class="tc"><div class="tct">
@@ -497,8 +509,20 @@ FRANCIS — Case Studies (6 Total)
 
 <div class="ti" id="t-tax-filings"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Apr 1 task blocks</div>
-<div class="tt">Tax filings: Personal Fed + CA Annual, Q1 Estimated, IRA max contribution</div>
+<div class="tt">Tax filings: Personal Fed + CA Annual, Q1 Estimated, IRA max contribution
 <span class="tag per">Apr 15 deadline</span>
+</div></div>
+
+<div class="ti" id="t-passport"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Mon Mar 31, 4:00 PM</div>
+<div class="tt">Find passport (lost &amp; found) or apply for new ones</div>
+<span class="tag per">NEW -- from calendar</span>
+</div></div>
+
+<div class="ti" id="t-toyota"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">Wed Apr 1, 9:00 AM</div>
+<div class="tt">Irvine Toyota AutoNation appointment</div>
+<span class="tag per">NEW -- from calendar</span>
 </div></div>
 
 <div class="ti" id="t-flight-back"><input type="checkbox" class="tc"><div class="tct">
@@ -573,9 +597,9 @@ FRANCIS — Case Studies (6 Total)
 </div>
 
 <div class="pc">
-<div class="pn">Nick Scarrozzo <span style="font-size:10px;color:#c0392b">TONIGHT</span></div>
+<div class="pn">Nick Scarrozzo <span style="font-size:10px;color:#c0392b">OVERDUE</span></div>
 <div class="pr">FMLCPAs -- QB Access Needed</div>
-<div class="pd">Grant QB access + upload prior year returns before Hawaii. Call Mon Mar 31 2 PM.</div>
+<div class="pd">Grant QB access + upload prior year returns. Was due before Hawaii -- do ASAP. Call Mon Mar 31 2 PM.</div>
 <a class="al hs" onclick="openHubSpot('Nick Scarrozzo')">HubSpot</a>
 </div>
 
@@ -648,7 +672,7 @@ FRANCIS — Case Studies (6 Total)
 </main>
 
 <footer>
-<div>George v6.3 | Chief of Staff Command Center | No sensitive data linked</div>
+<div>George v6.4 | Chief of Staff Command Center | No sensitive data linked</div>
 <div style="margin-top:4px">
 <a href="https://tracychapman7.github.io/george-dashboard/" style="color:#3498db">Live Dashboard</a>
 </div>
@@ -675,17 +699,10 @@ const HID={
 };
 
 const CD={
-'Fri Mar 20':[
-{time:'5:00 PM',text:'Respond to Thomas (Isabel referral)',type:'task'},
-{time:'6:00 PM',text:'Sell GDX',type:'task'},
-{time:'7:15 PM',text:'Zouk Social -- Aneska Birthday',type:'event'},
-{time:'10:00 PM',text:'Grant Nick QB access',type:'urgent'},
-{time:'11:00 PM',text:'Verify Wealthfront',type:'urgent'}
-],
 'Sat Mar 21':[
-{time:'4:30 AM',text:'Car pickup',type:'task'},
-{time:'8:30 AM',text:'Flight LAX to Maui (Hawaiian Airlines)',type:'event'},
-{time:'9:15 AM',text:'ATLAS data tasks (do from Maui)',type:'task'}
+{time:'4:30 AM',text:'Car pickup (DONE)',type:'task'},
+{time:'8:30 AM',text:'Flight LAX to Maui (DONE)',type:'event'},
+{time:'TBD',text:'ATLAS data tasks (do from Maui)',type:'task'}
 ],
 'Sun Mar 22':[
 {time:'2:00 PM',text:'Interactive Brokers setup',type:'task'},
@@ -698,7 +715,6 @@ const CD={
 ],
 'Tue Mar 24':[
 {time:'11:00 AM',text:'Payroll transfer',type:'task'},
-{time:'5:00 PM',text:'Sell GDX > SGOV',type:'task'},
 {time:'5:30 PM',text:'Boot Camp (Christiana)',type:'event'}
 ],
 'Wed Mar 25':[
@@ -715,7 +731,30 @@ const CD={
 {time:'6:00 PM',text:'6th Month Team Eval #3',type:'event'}
 ],
 'Sat Mar 28':[
-{time:'3:10 PM',text:'Flight Maui to LAX',type:'event'}
+{time:'2:00 PM',text:'Zouk Vibes (conflicts w/ flight)',type:'event'},
+{time:'3:10 PM',text:'Flight Maui to LAX',type:'event'},
+{time:'4:00 PM',text:'CASA del MAR (post-landing only)',type:'event'}
+],
+'Sun Mar 29':[
+{time:'10:00 AM',text:'Review 3 campaign playbooks',type:'task'},
+{time:'11:00 AM',text:'Coffee & Chill Santa Monica',type:'event'},
+{time:'1:00 PM',text:'Launch 30 Free Clips',type:'task'}
+],
+'Mon Mar 30':[
+{time:'8:00 AM',text:'Brazilian Booty (Fernanda)',type:'event'},
+{time:'2:00 PM',text:'Campaign Progress Reviews',type:'event'},
+{time:'6:00 PM',text:'6th Month Team Eval #4',type:'event'}
+],
+'Mon Mar 31':[
+{time:'1:00 PM',text:'INVIZA — Robert Andosca',type:'event'},
+{time:'2:00 PM',text:'Nick Scarrozzo + FMLCPAs Intro',type:'event'},
+{time:'4:00 PM',text:'Find passport (lost & found)',type:'task'},
+{time:'5:30 PM',text:'Boot Camp (Christiana)',type:'event'}
+],
+'Wed Apr 1':[
+{time:'9:00 AM',text:'Irvine Toyota AutoNation',type:'task'},
+{time:'9:15 AM',text:'Boot Camp (Jill)',type:'event'},
+{time:'6:00 PM',text:'6th Month Team Eval #5',type:'event'}
 ]
 };
 
@@ -741,7 +780,7 @@ updateStats();
 }
 
 function renderCalendar(){
-const start=new Date(2026,2,20);
+const start=new Date(2026,2,21);
 const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 let html='';
 for(let i=0;i<9;i++){
@@ -757,7 +796,7 @@ else dots+='<div class="dot t"></div>';
 html+=`<div class="wd ${i===0?'tod':''}" onclick="showDay('${key}')">${dn[d.getDay()]}<br><b>${d.getDate()}</b>${dots}</div>`;
 }
 document.getElementById('weekStrip').innerHTML=html;
-showDay('Fri Mar 20');
+showDay('Sat Mar 21');
 }
 
 function showDay(key){
@@ -846,7 +885,7 @@ alert('Note saved');
 
 function openHubSpot(name){
 const id=HID[name];
-if(id)window.open(HB+id,'_blank','noopener,nohreferrer');
+if(id)window.open(HB+id,'_blank','noopener,noreferrer');
 }
 
 function navTo(s){
@@ -858,3 +897,4 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 </script>
 </body>
 </html>
+
