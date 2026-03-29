@@ -48,7 +48,43 @@ main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
 .al:hover{background:#d5dbdb;text-decoration:none}
 .al.hs{background:#f5eef8;color:#7f8c8d}
 .al.doc{background:#e8f5e9;color:#2e7d32}
-adius:4px;font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .2s}
+.al.folder{background:#fff3e0;color:#e65100}
+.al.review{background:#fce4ec;color:#c62828;font-weight:600;border:1px solid #ef9a9a}
+/* Calendar */
+.cw{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 4px rgba(0,0,0,.05);margin-bottom:16px}
+.ws{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-bottom:12px}
+.wd{text-align:center;padding:8px 4px;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;color:#7f8c8d}
+.wd.tod{background:#d4ac0d;color:#fff;font-weight:700}
+.wd:hover{background:#f0f0f0}
+.dot{width:4px;height:4px;border-radius:50%;margin:2px auto 0}
+.dot.t{background:#f39c12}.dot.e{background:#c0392b}.dot.b{background:#3498db}
+.de{font-size:11px;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0}
+.de-e{padding:3px 0;display:flex;gap:6px;align-items:baseline}
+.de-t{color:#7f8c8d;font-weight:600;white-space:nowrap;font-size:10px}
+.de-x{color:#2c3e50;font-size:11px}
+/* People */
+.pc{padding:10px 12px;border-radius:6px;background:#fafafa;margin-bottom:8px;border-left:3px solid #d4ac0d}
+.pn{font-weight:600;font-size:12px}.pr{font-size:10px;color:#7f8c8d;margin-top:1px}
+.pd{font-size:10px;color:#7f8c8d;margin-top:4px;line-height:1.4}
+/* Collapsible */
+.cs{background:#fff;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.05);overflow:hidden;margin-bottom:16px}
+.ch{padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#f8f9fa;border-bottom:1px solid #e0e0e0;user-select:none;transition:all .2s;font-size:13px;font-weight:600}
+.ch:hover{background:#f0f1f2}
+.ch.o{background:#f0f1f2}
+.cv{font-size:12px;transition:transform .3s;display:inline-block}
+.ch.o .cv{transform:rotate(90deg)}
+.cc{padding:12px 16px;display:none}
+.ch.o+.cc{display:block}
+/* Quick links */
+.ql{display:block;padding:14px;border-radius:8px;text-align:center;text-decoration:none;margin-bottom:8px;color:#fff;font-weight:600;font-size:13px;transition:all .2s;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.ql:hover{transform:translateY(-1px);box-shadow:0 4px 8px rgba(0,0,0,.15);text-decoration:none;color:#fff}
+.ql.green{background:linear-gradient(135deg,#27ae60,#2ecc71)}
+.ql.purple{background:linear-gradient(135deg,#667eea,#764ba2)}
+.ql.gold{background:linear-gradient(135deg,#d4ac0d,#f1c40f)}
+/* Note */
+.qm{padding:12px;background:#ecf0f1;border-radius:6px;margin-top:12px}
+.mi{width:100%;padding:8px;border:1px solid #bdc3c7;border-radius:4px;font-size:12px;resize:vertical}
+.mb;background:#d4ac0d;color:#fff;border:none;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .2s}
 .mb:hover{background:#b8860b}
 /* Nav */
 .mn{display:none;position:fixed;bottom:0;width:100%;background:#fff;border-top:1px solid #e0e0e0;z-index:200}
@@ -72,17 +108,17 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 <div class="h">
 <div>
 <div class="ht">George -- Command Center</div>
-<div class="hd">Saturday, March 28, 2026 | v6.29</div>
+<div class="hd">Sunday, March 29, 2026 | v6.30</div>
 </div>
-<div class="sbSynced 12:07 PM Satri</div>
+<div class="sb">Synced 2:30 PM Sun</div>
 </div>
 </header>
 
 <div class="st">
-<div class="s"><div class="snid="statToday">7<7</div><div class="sl">Today</div></div>
-<div class="s"><div class="sn" id="statWeek">20</div><div class="sl">This Week</div></div>
+<div class="s"><div class="sn" id="statToday">3</div><div class="sl">Today</div></div>
+<div class="s"><div class="sn" id="statWeek">22</div><div class="sl">This Week</div></div>
 <div class="s"><div class="sn" id="statUrgent">2</div><div class="sl">Urgent</div></div>
-<div class="s"><div class="sn" id="statDone">16</div><div class="sl">Done</div></div>
+<div class="s"><div class="sn" id="statDone">26</div><div class="sl">Done</div></div>
 </div>
 
 <main>
@@ -91,55 +127,71 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 
 <!-- =============== TODAY =============== -->
 <div class="ps">
-<div class="sec-title u">TODAY -- Sat Mar 28 (Return Day!)</div>
+<div class="sec-title u">TODAY -- Sun Mar 29 (Post-Hawaii Day 1)</div>
 
-<div class="ti d" id="t-atlas-sat"t-atlas-sat"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="ti d" id="t-atlas-sun"><input type="checkbox" class="tc" checked disabled><div class="tct">
 <div class="ttime">6:00 AM</div>
-<div class="tt">ÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂ UPDATE ATLAS: Log SLV & PSLV sells from 3/24</div>
-<span class="tag done">Auto-completed 7:07 AM</span>
+<div class="tt">ð UPDATE ATLAS: Log SLV & PSLV sells from 3/24</div>
+<span class="tag done">Auto-completed 2:30 PM</span>
 </div></div>
 
-<div class="ti" id="t-zouk-sat"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">2:00ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ7:00 PM</div>
-<div class="tt">[OC Social] Zouk Vibes</div>
-<span class="tag u">ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ CONFLICTS with return flight (3:10 PM departure)</span>
+<div class="ti d" id="t-coffee-sun"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="ttime">11:00 AMâ1:00 PM</div>
+<div class="tt">Coffee & Chill @ Santa Monica</div>
+<span class="tag done">Auto-completed 2:30 PM</span>
 </div></div>
 
-<div class="ti" id="t-flight-sat" style="border-left:3px solid #c0392b"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">3:10 PM ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ</div>
-<div class="tt">Flight Maui ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ LAX</div>
-<span class="tag per">Return flight ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ pack + check out before</span>
-</div></div>
-
-<div class="ti" id="t-casa-sat"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">4:00ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ9:00 PM</div>
-<div class="tt">CASA del MAR ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ KASSABI/LIKEWISE/MATLO/JESZ</div>
-<span class="tag u">ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ CONFLICTS with flight. Post-landing ~11 PM possible</span>
-</div></div>
-
-<div class="ti" id="t-salon-sat"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">6:00ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ9:00 PM</div>
-<div class="tt">"SATURDAY SALON" ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Newport Speakeasy</div>
-<span class="tag u">ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ CONFLICTS with flight</span>
-</div></div>
-
-<div class="ti" id="t-payroll-csv-sat"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">10:00 PM</div>
-<div class="tt">Task: Review March Payroll CSV</div>
-<span class="tag biz">Recurring</span>
-</div></div>
-
-<div class="ti" id="t-lufthansa-sat"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">11:00 PM</div>
-<div class="tt">Go to Lufthansa Ticket Counter ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Rebook Dresden Ticket</div>
-<span class="tag per">After landing</span>
+<div class="ti d" id="t-payroll-team-sun"><input type="checkbox" class="tc" checked disabled><div class="tct">
+<div class="ttime">1:15 PM</div>
+<div class="tt">PAYROLL TEAM â ALL INVOICES CONFIRMED</div>
+<span class="tag done">Auto-completed 2:30 PM â moved from Mon 8PM</span>
 </div></div>
 
 <div class="ti" id="t-qb"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">ASAP</div>
 <div class="tt"><span class="p0">P0</span> Grant Nick Scarrozzo QB access (FMLCPAs)</div>
-<span class="tag u">OVERDUE -- Was due before trip</span>
+<span class="tag u">OVERDUE -- Was due before trip. Call Tue 3/31 2PM.</span>
 </div></div>
+
+<!-- TOMORROW PREVIEW: Mon Mar 30 (Stacking Day!) -->
+<div style="margin-top:12px;padding:10px 12px;background:#fef9e7;border-radius:6px;border-left:3px solid #d4ac0d">
+<div style="font-size:12px;font-weight:700;color:#d4ac0d;margin-bottom:6px">TOMORROW â Mon Mar 30 (Stacking Day!)</div>
+<div class="ti" id="t-bb-mon"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">8:00 AM</div>
+<div class="tt">Brazilian Booty (Fernanda) â RED workout</div>
+<span class="tag per">Fitness</span>
+</div></div>
+<div class="ti" id="t-bc-jill-mon"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">9:15 AM</div>
+<div class="tt">Boot Camp (Jill) â RED workout</div>
+<span class="tag per" style="color:#c0392b">NEW â now RED/colorId 11</span>
+</div></div>
+<div class="ti" id="t-marlon-mon" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">11:30 AM</div>
+<div class="tt">Marlon MJ Johnson & LS</div>
+<span class="tag biz">New Prospect</span>
+</div></div>
+<div class="ti" id="t-victor-mon" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">1:00 PM</div>
+<div class="tt">Victor Suturin & Lucid â Aliform Surgical</div>
+<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED â Prep call</span>
+</div></div>
+<div class="ti" id="t-taxes-mon"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">2:00 PM</div>
+<div class="tt">Taxes Complete, $69k mega backdoor roth ira</div>
+<span class="tag inv">NEW â replaces Campaign Reviews</span>
+</div></div>
+<div class="ti" id="t-shoney-mon"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">6:15 PM</div>
+<div class="tt">Shoney black list archive + new messaging</div>
+<span class="tag biz">NEW task</span>
+</div></div>
+<div class="ti" id="t-bank-mon"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">7:30 PM</div>
+<div class="tt">Bank account diversification</div>
+<span class="tag inv">NEW task</span>
+</div></div>
+</div>
 </div>
 
 <!-- =============== BUSINESS / LUCID STRATEGIES =============== -->
@@ -250,10 +302,10 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 <span class="camp-status blocked">Assets Pending</span>
 </div>
 
-<!-- FRANCIS CASE STUDIES ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Organized Review Section -->
+<!-- FRANCIS CASE STUDIES â Organized Review Section -->
 <div style="margin:8px 0 4px 20px;padding:10px 14px;background:#fff8e1;border-radius:8px;border-left:3px solid #f59e0b">
 <div style="font-size:12px;font-weight:700;color:#92400e;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center">
-FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Case Studies (6 Total)
+FRANCIS â Case Studies (6 Total)
 <span style="font-size:9px;padding:3px 8px;border-radius:10px;background:#fce4ec;color:#c62828;font-weight:700">4 REWORK ITEMS</span>
 </div>
 <div style="font-size:10px;color:#78350f;margin-bottom:8px">George reviewed all 17 PDFs (6 originals + 6 desktop + 5 mobile). Conditionally approved at ~85%.</div>
@@ -344,38 +396,37 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 </div>
 
 <div class="ti" id="t-team-eval"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 30, 6:00 PM (next of 7)</div>
-<div class="tt">6th Month Team Evaluation (7 sessions thru Apr 3)</div>
-<span class="tag biz">Sessions 1-3 DONE ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Next: Mon 3/30 6PM, then Mon 3/31 7:15PM</span>
+<div class="ttime">Wed Apr 1, 6:00 PM (next remaining)</div>
+<div class="tt">6th Month Team Evaluation (sessions thru Apr 3)</div>
+<span class="tag biz">Sessions 1>3 DONE â â Mon 3/30 + Mon 3/31 sessions REMOVED. Next: Wed Apr 1 6PM, Fri Apr 3 6PM.</span>
 </div></div>
 
 <div class="ti" id="t-friedman"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 31, 11:00 AM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ RESCHEDULED</div>
+<div class="ttime">Mon Mar 31, 11:00 AM â ï¸ RESCHEDULED</div>
 <div class="tt">Michael Friedman -- Onboarding Call (Nighthawk Tech)</div>
 <span class="tag biz">Client Onboarding</span>
-<div style="font-size:10px;color:#e67e22;margin-top:2px">MOVED from Thu 3/26 1 PM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Mon 3/31 11 AM</div>
+<div style="font-size:10px;color:#e67e22;margin-top:2px">MOVED from Thu 3/26 1 PM â Mon 3/31 11 AM</div>
 <a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c136a3311390" target="_blank">Open Draft</a>
 <a class="al hs" onclick="openHubSpot('Michael Friedman')">HubSpot</a>
 </div></div>
 
 <div class="ti d" id="t-guy"><input type="checkbox" class="tc" checked disabled><div class="tct">
-<div class="ttime">Thu Mar 26, 2:30 PM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ</div>
-<div class="tt"><s>Guy Omacias -- LA Coaching Onboarding Call (TENTATIVE) ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ¬ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ</s></div>
-<span class="tag done">Time block passed ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Auto-completed 6:27 PM</span>
+<div class="ttime">Thu Mar 26, 2:30 PM â</div>
+<div class="tt"><s>Guy Omacias -- LA Coaching Onboarding Call (TENTATIVE) â¬ï¸</s></div>
+<span class="tag done">Time block passed â Auto-completed 6:27 PM</span>
 </div></div>
 
 <div class="ti d" id="t-piyush"><input type="checkbox" class="tc" disabled><div class="tct">
-<div class="ttime">Fri Mar 27, 9:00 AM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ DELETED</div>
-<div class="tt"><s>Piyush Sheth call</s> -- Removed from calendar by Lena</div>
+<div class="ttime">Fri Mar 27, 9:00 AM â DELETED</div>
+<div class="tt"><s>Piyush Sheth call</st> -- Removed from calendar by Lena</div>
 <span class="tag done">Deleted 3/25</span>
 </div></div>
 
 <div class="ti d" id="t-review-pb"><input type="checkbox" class="tc" disabled><div class="tct">
-<div class="ttime">Mar 29, 10:00 AM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ DELETED</div>
+<div class="ttime">Mar 29, 10:00 AM â DELETED</div>
 <div class="tt"><s>Review 3 campaign playbooks</s> -- Removed from calendar by Lena</div>
 <span class="tag done">Deleted 3/25</span> <span class="tag u">Action item remains open</span>
 </div></div>
-
 <div class="ti" id="t-marlon" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Mon Mar 30, 11:30 AM <span style="color:#c0392b">NEW</span></div>
 <div class="tt">Marlon MJ Johnson &amp; Lucid Strategies</div>
@@ -385,15 +436,15 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 
 <div class="ti" id="t-victor-call" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Mon Mar 30, 1:00 PM <span style="color:#c0392b">NEW</span></div>
-<div class="tt">Victor Suturin &amp; Lucid ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Aliform Surgical</div>
-<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Prep call</span>
+<div class="tt">Victor Suturin &amp; Lucid â Aliform Surgical</div>
+<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED â Prep call</span>
 <a class="al hs" onclick="openHubSpot('Victor Suturin')">HubSpot</a>
 </div></div>
 
-<div class="ti" id="t-camp-review"><input type="checkbox" class="tc"><div class="tct">
+<div class="ti" id="t-taxes-task"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Mon Mar 30, 2:00 PM</div>
-<div class="tt">Milestone: Campaign Progress Reviews</div>
-<span class="tag biz">Post-Hawaii</span>
+<div class="tt">Taxes Complete, $69k mega backdoor roth ira</div>
+<span class="tag inv">NEW â replaces Campaign Reviews</span>
 </div></div>
 
 <div class="ti" id="t-andosca"><input type="checkbox" class="tc"><div class="tct">
@@ -412,10 +463,9 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 </div></div>
 
 <div class="ti" id="t-woodruff" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 31, 3:00 PM <span style="color:#c0392b">NEW</span></div>
+<div class="ttime">Mon Mar 31, 3:00 PM</div>
 <div class="tt">Jennifer Woodruff &amp; Lucid Strategies</div>
 <span class="tag biz">New Prospect</span>
-<span class="tag u">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ CONFLICTS with passport task</span>
 <a class="al hs" onclick="openHubSpot('Jennifer Woodruff')">HubSpot</a>
 </div></div>
 
@@ -435,13 +485,13 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 
 <div class="ti" id="t-mts" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Sat Apr 11, 10:00 AM <span style="color:#c0392b">NEW</span></div>
-<div class="tt">MTS: Retainer Month Begins ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Fee should have been received</div>
+<div class="tt">MTS: Retainer Month Begins — Fee should have been received</div>
 <span class="tag biz" style="background:#d5f4e6;color:#27ae60">Revenue Check</span>
 </div></div>
 
 <div class="ti" id="t-erdogan" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Mon Apr 14, 8:00 AM <span style="color:#c0392b">NEW</span></div>
-<div class="tt">Alpar Erdogan &amp; Lucid Strategies ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Strategy Session</div>
+<div class="tt">Alpar Erdogan &amp; Lucid Strategies — Strategy Session</div>
 <span class="tag biz">New Prospect</span>
 <a class="al hs" onclick="openHubSpot('Alpar Erdogan')">HubSpot</a>
 </div></div>
@@ -459,18 +509,18 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 </div></div>
 
 <div class="ti" id="t-jared"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Jared Hutar (Piraeus Medical) -- follow-up #2 DRAFT ready, reminder PASSED ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ</div>
+<div class="tt">Jared Hutar (Piraeus Medical) -- follow-up #2 DRAFT ready, reminder PASSED ⚠️</div>
 <span class="tag biz">Awaiting reply</span>
 </div></div>
 
 <div class="ti" id="t-victor"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Victor Suturin (Aliform Surgical) ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ CALL BOOKED Mon 3/30 1:00 PM PT</div>
-<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Prep for call</span>
+<div class="tt">Victor Suturin (Aliform Surgical) — ✅ CALL BOOKED Mon 3/30 1:00 PM PT</div>
+<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED — Prep for call</span>
 </div></div>
 
 <div class="ti" id="t-rapa"><input type="checkbox" class="tc"><div class="tct">
 <div class="tt">RAPA/Langfeldt -- rescheduled Apr 29-30 (team in Germany week of Apr 21)</div>
-<span class="tag done">Parked ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ needs date confirmation</span>
+<span class="tag done">Parked — needs date confirmation</span>
 </div></div>
 
 </div><!-- end Business section -->
@@ -484,7 +534,7 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 <div class="gt-title">Gene Heo / CPA -- Remaining Items (DEADLINE Mon 3/23)</div>
 
 <div class="ti" id="t-gene-personal" style="background:#fff3cd"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">DUE: Mon Mar 23 EOD ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ 6:07 PM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ still unsigned</div>
+<div class="ttime">DUE: Mon Mar 23 EOD ⚠️ 6:07 PM — still unsigned</div>
 <div class="tt"><span class="p0">DEADLINE</span> Personal Tax Return from Gene Heo</div>
 <span class="tag u">Adobe Sign (8879 fed + CA) needs signing</span>
 </div></div>
@@ -515,7 +565,7 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 <div class="ti" id="t-payroll-xfer"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Wed Mar 25, 1:00 PM (rescheduled from Tue 11 AM)</div>
 <div class="tt">Payroll: Transfer to PayPal + 20% buffer</div>
-<span class="tag per">All invoices confirmed ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ new calendar block</span>
+<span class="tag per">All invoices confirmed — new calendar block</span>
 </div></div>
 
 <div class="ti" id="t-tax-filings"><input type="checkbox" class="tc"><div class="tct">
@@ -524,10 +574,10 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 <span class="tag per">Apr 15 deadline</span>
 </div></div>
 
-<div class="ti" id="t-passport"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 31, 3:00 PM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ MOVED</div>
-<div class="tt">Find passport (lost &amp; found) or apply for new ones</div>
-<span class="tag per">RESCHEDULED 4 PM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ 3 PM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ conflicts with Woodruff call</span>
+<div class="ti d" id="t-passport"><input type="checkbox" class="tc" disabled><div class="tct">
+<div class="ttime">Mon Mar 31 ❌ DELETED</div>
+<div class="tt"><s>Find passport (lost &amp; found) or apply for new ones</s></div>
+<span class="tag done">Deleted from calendar 3/29 — action item remains open</span>
 </div></div>
 
 <div class="ti" id="t-toyota"><input type="checkbox" class="tc"><div class="tct">
@@ -537,8 +587,8 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 </div></div>
 
 <div class="ti" id="t-freetrial" style="border-left:3px solid #c0392b"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Sun Apr 13 ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ <span style="color:#c0392b">NEW</span></div>
-<div class="tt">Premium Free Trial expires Wed Apr 15 ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ next payment $19.99</div>
+<div class="ttime">Sun Apr 13 ⚠️ <span style="color:#c0392b">NEW</span></div>
+<div class="tt">Premium Free Trial expires Wed Apr 15 — next payment $19.99</div>
 <span class="tag per" style="background:#fadbd8;color:#c0392b">Cancel or accept charge</span>
 </div></div>
 
@@ -548,16 +598,16 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 <span class="tag biz">Monthly deadline</span>
 </div></div>
 
-<div class="ti" id="t-flight-back"><input type="checkbox" class="tc"><div class="tct">
+<div class="ti d" id="t-flight-back"><input type="checkbox" class="tc" checked disabled><div class="tct">
 <div class="ttime">Sat Mar 28, 3:10 PM</div>
 <div class="tt">Flight Maui to LAX</div>
-<span class="tag per">Return</span>
+<span class="tag done">Auto-completed 2:30 PM Sun</span>
 </div></div>
 
-<div class="ti" id="t-lufthansa"><input type="checkbox" class="tc"><div class="tct">
+<div class="ti d" id="t-lufthansa"><input type="checkbox" class="tc" checked disabled><div class="tct">
 <div class="ttime">Sat Mar 28, 11:00 PM</div>
 <div class="tt">Go to Lufthansa Ticket Counter -- Rebook Dresden Ticket</div>
-<span class="tag per">NEW -- from calendar (after landing)</span>
+<span class="tag done">Auto-completed 2:30 PM Sun</span>
 </div></div>
 </div>
 
@@ -573,7 +623,7 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 
 <div class="ti" id="t-gdx2"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Tue Mar 24, 5:00 PM</div>
-<div class="tt">Sell GDX &gt; SGOV (second attempt if needed)</div>
+<div class="tt">Sell GDX > SGOV (second attempt if needed)</div>
 <span class="tag inv">Trading</span>
 </div></div>
 
@@ -612,7 +662,7 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 </div>
 
 <div class="pc">
-<div class="pn">Michael Friedman <span style="font-size:10px;color:#27ae60">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ LOE ANSWERED</span></div>
+<div class="pn">Michael Friedman <span style="font-size:10px;color:#27ae60">✅ LOE ANSWERED</span></div>
 <div class="pr">Nighthawk Tech -- Onboarding Client</div>
 <div class="pd">LOE questions answered 3/22. Onboarding Mon 3/31 11 AM.</div>
 <a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c136a3311390" target="_blank">Open Draft</a>
@@ -635,7 +685,7 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 <div class="pc">
 <div class="pn">Piyush Sheth <span style="font-size:10px;color:#95a5a6">DELETED</span></div>
 <div class="pr"><s>New Prospect</s></div>
-<div class="pd">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Calendar event deleted by Lena (detected 2:04 PM sync).</div>
+<div class="pd">❌ Calendar event deleted by Lena (detected 2:04 PM sync).</div>
 <a class="al hs" onclick="openHubSpot('Piyush Sheth')">HubSpot</a>
 </div>
 
@@ -672,9 +722,9 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 <!-- QUICK LINKS -->
 <a class="ql green" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit" target="_blank" rel="noopener noreferrer">Content Calendar &amp; KBI Sheet</a>
 
-<a class="ql gold" href="https://www.calendly.com/lucidstrategies/ls" target="_blank" rel="noopener noreferrer">Calendly Booking Link ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ FREE PLAN ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Renew?</a>
+<a class="ql gold" href="https://www.calendly.com/lucidstrategies/ls" target="_blank" rel="noopener noreferrer">Calendly Booking Link ⚠️ FREE PLAN — Renew?</a>
 
-<a class="ql purple" href="trip-planner.html" target="_blank" rel="noopener noreferrer">Hawaii Trip Planner</a>
+<a class="ql purple" href="trip-planner.html" target="_blank" rel="noopener noreferrer">Hawaii Trip Planner (Completed ✅)</a>
 
 <!-- LOCAL FOLDERS -->
 <div class="ps" style="padding:12px">
@@ -701,7 +751,7 @@ FRANCIS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂ
 </main>
 
 <footer>
-<div>George v6.29 | Chief of Staff Command Center | No sensitive data linked</div>
+<div>George v6.30 | Chief of Staff Command Center | No sensitive data linked</div>
 <div style="margin-top:4px">
 <a href="https://tracychapman7.github.io/george-dashboard/" style="color:#3498db">Live Dashboard</a>
 </div>
@@ -753,7 +803,7 @@ const CD={
 {time:'6:00 PM',text:'6th Month Team Eval #2',type:'event'}
 ],
 'Thu Mar 26':[
-{time:'2:30 PM',text:'Guy Omacias -- LA Coaching Onboarding (DONE ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ)',type:'done'}
+{time:'2:30 PM',text:'Guy Omacias -- LA Coaching Onboarding (DONE ✅)',type:'done'}
 ],
 'Fri Mar 27':[
 {time:'9:00 AM',text:'Piyush Sheth (DELETED)',type:'done'},
@@ -762,36 +812,37 @@ const CD={
 {time:'6:00 PM',text:'6th Month Team Eval #3',type:'event'}
 ],
 'Sat Mar 28':[
-{time:'2:00 PM',text:'Zouk Vibes (conflicts w/ flight)',type:'event'},
-{time:'3:10 PM',text:'Flight Maui to LAX',type:'event'},
-{time:'4:00 PM',text:'CASA del MAR (post-landing only)',type:'event'},
-{time:'11:00 PM',text:'Lufthansa counter ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ rebook Dresden',type:'task'}
+{time:'2:00 PM',text:'Zouk Vibes (DONE)',type:'done'},
+{time:'3:10 PM',text:'Flight Maui to LAX (DONE)',type:'done'},
+{time:'4:00 PM',text:'CASA del MAR (DONE)',type:'done'},
+{time:'10:00 PM',text:'Review March Payroll CSV (DONE)',type:'done'},
+{time:'11:00 PM',text:'Lufthansa counter (DONE)',type:'done'}
 ],
 'Sun Mar 29':[
-{time:'10:00 AM',text:'Review 3 playbooks (DELETED from cal)',type:'done'},
-{time:'11:00 AM',text:'Coffee & Chill Santa Monica',type:'event'},
-{time:'1:00 PM',text:'Launch 30 Free Clips (DELETED from cal)',type:'done'}
+{time:'6:00 AM',text:'ATLAS update (DONE)',type:'done'},
+{time:'11:00 AM',text:'Coffee & Chill Santa Monica (DONE)',type:'done'},
+{time:'1:15 PM',text:'PAYROLL TEAM — Invoices (DONE, moved from Mon)',type:'done'}
 ],
 'Mon Mar 30':[
-{time:'8:00 AM',text:'Brazilian Booty (Fernanda)',type:'event'},
-{time:'11:30 AM',text:'Marlon MJ Johnson & LS (NEW)',type:'event'},
-{time:'1:00 PM',text:'Victor Suturin & Lucid (NEW BOOKING)',type:'event'},
-{time:'2:00 PM',text:'Campaign Progress Reviews',type:'event'},
-{time:'6:00 PM',text:'6th Month Team Eval #4',type:'event'},
-{time:'8:00 PM',text:'PAYROLL TEAM ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Invoices confirmed',type:'task'}
+{time:'8:00 AM',text:'Brazilian Booty (Fernanda) — RED',type:'event'},
+{time:'9:15 AM',text:'Boot Camp (Jill) — RED (NEW)',type:'event'},
+{time:'11:30 AM',text:'Marlon MJ Johnson & LS (PROSPECT)',type:'event'},
+{time:'1:00 PM',text:'Victor Suturin & Lucid (BOOKED)',type:'event'},
+{time:'2:00 PM',text:'Taxes Complete, $69k mega backdoor roth (NEW)',type:'task'},
+{time:'6:15 PM',text:'Shoney black list archive + messaging (NEW)',type:'task'},
+{time:'7:30 PM',text:'Bank account diversification (NEW)',type:'task'}
 ],
 'Mon Mar 31':[
-{time:'11:00 AM',text:'Michael Friedman ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Nighthawk Onboarding (MOVED)',type:'event'},
-{time:'1:00 PM',text:'INVIZA ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Robert Andosca',type:'event'},
-{time:'2:00 PM',text:'Nick Scarrozzo call (FMLCPAs Intro declined)',type:'event'},
-{time:'3:00 PM',text:'Jennifer Woodruff & LS (NEW)',type:'event'},
-{time:'3:00 PM',text:'Find passport (MOVED from 4 PM)',type:'task'},
-{time:'5:30 PM',text:'Boot Camp (Christiana)',type:'event'},
-{time:'7:15 PM',text:'6th Month Team Eval (NEW session)',type:'event'}
+{time:'11:00 AM',text:'Michael Friedman — Nighthawk Onboarding',type:'event'},
+{time:'1:00 PM',text:'INVIZA — Robert Andosca',type:'event'},
+{time:'2:00 PM',text:'Nick Scarrozzo call',type:'event'},
+{time:'3:00 PM',text:'Jennifer Woodruff & LS',type:'event'},
+{time:'5:30 PM',text:'Boot Camp (Christiana) — RED',type:'event'},
+{time:'6:15 PM',text:'Replan Europe/Asia trip (NEW)',type:'task'}
 ],
 'Wed Apr 1':[
 {time:'9:00 AM',text:'Irvine Toyota AutoNation',type:'task'},
-{time:'9:15 AM',text:'Boot Camp (Jill)',type:'event'},
+{time:'9:15 AM',text:'Boot Camp (Jill) — RED',type:'event'},
 {time:'6:00 PM',text:'6th Month Team Eval #5',type:'event'}
 ],
 'Thu Apr 2':[
@@ -802,7 +853,7 @@ const CD={
 {time:'6:00 PM',text:'6th Month Team Eval #7 (Final)',type:'event'}
 ],
 'Sat Apr 4':[
-{time:'9:00 AM',text:'Monthly Venmo ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ verify received',type:'task'},
+{time:'9:00 AM',text:'Monthly Venmo — verify received',type:'task'},
 {time:'12:00 PM',text:'Monthly Charge VA Retainer Fee Isabel Deibel (NEW)',type:'task'},
 {time:'4:00 PM',text:'Oil Change Car',type:'task'}
 ],
@@ -815,13 +866,13 @@ const CD={
 {time:'All Day',text:'Master\'s Tournament (Apr 9-13)',type:'event'}
 ],
 'Sat Apr 11':[
-{time:'10:00 AM',text:'MTS: Retainer Month Begins ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Fee check (NEW)',type:'task'}
+{time:'10:00 AM',text:'MTS: Retainer Month Begins — Fee check (NEW)',type:'task'}
 ],
 'Sun Apr 13':[
 {time:'1:00 PM',text:'Premium Free Trial expires Apr 15 (NEW)',type:'urgent'}
 ],
 'Mon Apr 14':[
-{time:'8:00 AM',text:'Alpar Erdogan & LS ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Strategy Session (NEW)',type:'event'},
+{time:'8:00 AM',text:'Alpar Erdogan & LS — Strategy Session (NEW)',type:'event'},
 {time:'5:30 PM',text:'Boot Camp (Christiana)',type:'event'}
 ],
 'Wed Apr 15':[
@@ -852,7 +903,7 @@ updateStats();
 }
 
 function renderCalendar(){
-const start=new Date(2026,2,28);
+const start=new Date(2026,2,29);
 const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 let html='';
 for(let i=0;i<9;i++){
@@ -868,22 +919,22 @@ else dots+='<div class="dot t"></div>';
 html+=`<div class="wd ${i===0?'tod':''}" onclick="showDay('${key}')">${dn[d.getDay()]}<br><b>${d.getDate()}</b>${dots}</div>`;
 }
 document.getElementById('weekStrip').innerHTML=html;
-showDay('Sat Mar 28');
+showDay('Sun Mar 29');
 }
 
 function showDay(key){
 const evts=CD[key]||[];
-let html='<strong style="color:#d4ac0d;font-size:12px">'+key+'</strong>';
+let html='<strong style="color:#d4ac0d;font-size:12px">'+ key +'</strong>';
 if(!evts.length){html+='<div style="font-size:11px;color:#95a5a6;margin-top:6px">No events</div>';}
 else{evts.forEach(e=>{
-const c=e.type==='urgent'?'color:#c0392b;font-weight:600':e.type==='event'?'color:#3498db':'';
+const c=e.type==='urgent'?'color:#c0392b;font-weight:600':e.type==='event'?'color:#3498db':'' ;
 html+=`<div class="de-e"><span class="de-t">${e.time}</span><span class="de-x" style="${c}">${e.text}</span></div>`;
 });}
 document.getElementById('dayEvents').innerHTML=html;
 }
 
 function updateStats(){
-const state=JSON.parse(localStorage.getItem(SK)||'{}');
+const state=JSON.parse(localStorage.getItem(SK)||'{}'​);
 const done=Object.values(state).filter(v=>v).length;
 document.getElementById('statDone').textContent=done;
 }
@@ -891,7 +942,7 @@ document.getElementById('statDone').textContent=done;
 function doLater(btn){
 const ti=btn.closest('.ti');
 const tid=ti.id;
-const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}');
+const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}'​);
 if(ti.classList.contains('later')){
 ti.classList.remove('later');
 delete later[tid];
@@ -908,7 +959,7 @@ parent.querySelectorAll('.ti.later').forEach(el=>{parent.appendChild(el);});
 }
 
 function loadState(){
-const state=JSON.parse(localStorage.getItem(SK)||'{}');
+const state=JSON.parse(localStorage.getItem(SK)||'{}'​);
 Object.keys(state).forEach(id=>{
 const el=document.getElementById(id);
 if(el){
@@ -919,7 +970,7 @@ if(cb&&!cb.disabled&&state[id]){cb.checked=true;el.classList.add('d');}
 const msg=localStorage.getItem(SK+'_msg');
 if(msg)document.getElementById('messageInput').value=msg;
 // Restore later state
-const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}');
+const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}'​);
 Object.keys(later).forEach(id=>{
 const el=document.getElementById(id);
 if(el&&later[id]){
@@ -936,7 +987,7 @@ function attachEventListeners(){
 document.querySelectorAll('.tc').forEach(cb=>{
 if(cb.disabled)return;
 cb.addEventListener('change',function(){
-const state=JSON.parse(localStorage.getItem(SK)||'{}');
+const state=JSON.parse(localStorage.getItem(SK)||'{}'​);
 const tid=this.closest('.ti').id;
 if(this.checked){this.closest('.ti').classList.add('d');state[tid]=true;}
 else{this.closest('.ti').classList.remove('d');state[tid]=false;}
@@ -969,4 +1020,3 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 </script>
 </body>
 </html>
-
