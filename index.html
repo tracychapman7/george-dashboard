@@ -3,216 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>George Dashboard â Lucid Strategies</title>
+<title>George Dashboard â Lena Frenzel</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;padding:20px}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #1e293b}
-.header h1{font-size:1.4rem;color:#f8fafc;letter-spacing:-.5px}
-.header .meta{font-size:.8rem;color:#64748b;text-align:right}
-.header .meta .live{color:#22c55e;font-weight:600}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.card{background:#1e293b;border-radius:12px;padding:16px;border:1px solid #334155}
-.card.full{grid-column:1/-1}
-.card h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;color:#94a3b8;margin-bottom:12px;display:flex;align-items:center;gap:6px}
-.card h2 .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
-.dot.red{background:#ef4444}.dot.yellow{background:#eab308}.dot.green{background:#22c55e}.dot.blue{background:#3b82f6}
-.item{padding:8px 0;border-bottom:1px solid #1e293b;font-size:.85rem;line-height:1.5}
-.item:last-child{border-bottom:none}
-.time{color:#60a5fa;font-weight:600;font-size:.8rem;margin-right:4px}
-.tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.7rem;font-weight:600;margin-left:4px}
-.tag.urgent{background:#7f1d1d;color:#fca5a5}.tag.meeting{background:#1e3a5f;color:#93c5fd}.tag.task{background:#422006;color:#fbbf24}.tag.personal{background:#052e16;color:#86efac}
-.tag.alert{background:#78350f;color:#fde68a}
-.hubspot-link{color:#f97316;text-decoration:none;font-size:.75rem}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0f1117;color:#e4e4e7;min-height:100vh;padding:20px}
+.header{text-align:center;margin-bottom:24px;padding:16px;background:linear-gradient(135deg,#1a1d2e,#252840);border-radius:12px;border:1px solid #2d3154}
+.header h1{font-size:1.5rem;color:#a5b4fc;margin-bottom:4px}
+.header .subtitle{color:#9ca3af;font-size:0.85rem}
+.header .timestamp{color:#6b7280;font-size:0.75rem;margin-top:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1100px;margin:0 auto}
+@media(max-width:768px){.grid{grid-template-columns:1fr}}
+.card{background:#1a1d2e;border-radius:10px;padding:16px;border:1px solid #2d3154;transition:border-color 0.2s}
+.card:hover{border-color:#4f46e5}
+.card-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;color:#9ca3af}
+.card-header .icon{font-size:1.1rem}
+.full-width{grid-column:1/-1}
+.item{display:flex;align-items:flex-start;gap:10px;padding:10px;margin-bottom:6px;background:#252840;border-radius:8px;border-left:3px solid #4f46e5;font-size:0.85rem;line-height:1.4}
+.item.urgent{border-left-color:#ef4444;background:#1f1215}
+.item.meeting{border-left-color:#10b981;background:#0f1f1a}
+.item.task{border-left-color:#f59e0b;background:#1f1a0f}
+.item.tomorrow{border-left-color:#6366f1;background:#16162a}
+.item.followup{border-left-color:#8b5cf6;background:#1a1530}
+.item .time{color:#a5b4fc;font-weight:600;white-space:nowrap;min-width:70px}
+.item .details{flex:1}
+.item .details .title{font-weight:600;color:#e4e4e7}
+.item .details .meta{color:#9ca3af;font-size:0.75rem;margin-top:2px}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em}
+.badge-live{background:#dc2626;color:#fff}
+.badge-soon{background:#d97706;color:#fff}
+.badge-tmrw{background:#4f46e5;color:#fff}
+.badge-done{background:#059669;color:#fff}
+.badge-waiting{background:#7c3aed;color:#fff}
+.section-collapsed{margin-top:6px}
+.section-collapsed summary{color:#9ca3af;font-size:0.75rem;cursor:pointer;padding:4px 0}
+.section-collapsed summary:hover{color:#e4e4e7}
+.section-collapsed .item{margin-top:6px}
+.status-bar{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.status-pill{display:flex;align-items:center;gap:6px;padding:6px 14px;background:#1a1d2e;border-radius:20px;font-size:0.75rem;border:1px solid #2d3154}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.dot-green{background:#10b981}
+.dot-yellow{background:#f59e0b}
+.dot-red{background:#ef4444}
+.dot-blue{background:#6366f1}
+.hubspot-link{color:#f97316;text-decoration:none;font-size:0.7rem}
 .hubspot-link:hover{text-decoration:underline}
-.flag{background:#7f1d1d;border:1px solid #ef4444;border-radius:8px;padding:10px 14px;margin-bottom:8px;font-size:.82rem}
-.flag strong{color:#fca5a5}
-.collapsible-header{cursor:pointer;user-select:none;display:flex;justify-content:space-between;align-items:center}
-.collapsible-header:after{content:'â¼';font-size:.6rem;color:#64748b;transition:transform .2s}
-.collapsed .collapsible-header:after{transform:rotate(-90deg)}
-.collapsed .collapsible-body{display:none}
-.kpi-row{display:flex;gap:12px;margin-bottom:16px}
-.kpi{flex:1;background:#1e293b;border-radius:10px;padding:12px;text-align:center;border:1px solid #334155}
-.kpi .num{font-size:1.6rem;font-weight:700;color:#f8fafc}
-.kpi .label{font-size:.7rem;color:#94a3b8;margin-top:2px}
-.workout{color:#86efac;font-size:.8rem;padding:4px 0}
-a{color:#60a5fa;text-decoration:none}a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>ðï¸ George â Chief of Staff Dashboard</h1>
-  <div class="meta">
-    <div class="live">â LIVE</div>
-    <div>Mon Mar 30, 2026 Â· 8:30 AM PDT</div>
-    <div>Next sync: 12:00 PM</div>
-  </div>
+<h1>ð¤ George Dashboard</h1>
+<div class="subtitle">Chief of Staff â Lena Frenzel | Lucid Strategies LLC</div>
+<div class="timestamp">Last updated: Mon Mar 30, 2026 @ 9:03 AM PT</div>
 </div>
 
-<!-- ALERTS -->
-<div class="flag">
-  <strong>â ï¸ Nick Scarrozzo NOT in HubSpot</strong> â Meeting tomorrow 2:00 PM (Fiondella, Milone &amp; LaSaracina LLP, CPA firm). Needs CRM entry before call.
-</div>
-<div class="flag">
-  <strong>â ï¸ PipelinePRO Shutting Down</strong> â Migration to HighLevel offered (free guided transition). Review email and decide on migration timeline.
-</div>
-
-<!-- KPIs -->
-<div class="kpi-row">
-  <div class="kpi"><div class="num">2</div><div class="label">Meetings Today</div></div>
-  <div class="kpi"><div class="num">4</div><div class="label">Meetings Tomorrow</div></div>
-  <div class="kpi"><div class="num">3</div><div class="label">Urgent Tasks</div></div>
-  <div class="kpi"><div class="num">0</div><div class="label">Key Contact Replies</div></div>
+<div class="status-bar">
+<div class="status-pill"><span class="status-dot dot-green"></span> Calendar Synced</div>
+<div class="status-pill"><span class="status-dot dot-green"></span> Inbox Checked</div>
+<div class="status-pill"><span class="status-dot dot-yellow"></span> Autoresponder: No sends today (Sun quiet)</div>
+<div class="status-pill"><span class="status-dot dot-blue"></span> HubSpot Connected</div>
 </div>
 
 <div class="grid">
 
-  <!-- TODAY'S SCHEDULE -->
-  <div class="card full">
-    <h2><span class="dot blue"></span> Today â Monday March 30</h2>
+<!-- TODAY'S MEETINGS -->
+<div class="card">
+<div class="card-header"><span class="icon">ð</span> Today's Meetings â Mon 3/30</div>
 
-    <div class="workout">ðï¸ 8:00 AM â Brazilian Booty (Fernanda) â past | 9:15 AM â Boot Camp (Jill) â NOW</div>
+<div class="item meeting">
+<div class="time">11:30a</div>
+<div class="details">
+<div class="title">LS â Marlon MJ Johnson <span class="badge badge-soon">2.5 HRS</span></div>
+<div class="meta">Sigma Engineered Solutions Â· Stamping/Manufacturing Â· Zoom<br>
+<a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/199309208167" target="_blank">HubSpot â</a> Â· Status: Needs Reschedule â meeting IS today, update status post-call</div>
+</div>
+</div>
 
-    <div class="item">
-      <span class="time">11:30 AM</span> <strong>Marlon MJ Johnson</strong> â Sigma Engineered Solutions <span class="tag meeting">MEETING</span>
-      <br><small style="color:#94a3b8">Zoom Â· Calendly rebook (was "Needs Reschedule") Â· Services: Other (stamping)</small>
-      <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/199309208167" target="_blank">â HubSpot</a>
-    </div>
-
-    <div class="item">
-      <span class="time">1:00 PM</span> <strong>Victor Suturin</strong> â Aliform (surgical) <span class="tag meeting">MEETING</span>
-      <br><small style="color:#94a3b8">Zoom Â· LENA TO TOUCH ONLY Â· Wants: Sales Coaching, FB Ads, Social, Influencer, Web, Photo/Video, VA, Lead Gen</small>
-      <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/210191676702" target="_blank">â HubSpot</a>
-    </div>
-
-    <div class="item">
-      <span class="time">2:00 PM</span> <strong>TASK // URGENT: Taxes â Jean Hale review &amp; approval</strong> <span class="tag urgent">URGENT</span>
-      <br><small style="color:#94a3b8">2:00â4:00 PM Â· Send approved confirmation to Elena</small>
-    </div>
-
-    <div class="item">
-      <span class="time">2:00 PM</span> <strong>Task: Taxes Complete + $69K Mega Backdoor Roth IRA</strong> <span class="tag urgent">URGENT</span>
-      <br><small style="color:#94a3b8">2:00â6:00 PM Â· Tax deadline-related financial action</small>
-    </div>
-
-    <div class="item">
-      <span class="time">6:15 PM</span> <strong>Task: Shoney black list archive &amp; new messaging</strong> <span class="tag task">TASK</span>
-      <br><small style="color:#94a3b8">Business task Â· ~1 hour</small>
-    </div>
-
-    <div class="item">
-      <span class="time">7:30 PM</span> <strong>Task: Bank account diversification</strong> <span class="tag personal">PERSONAL</span>
-      <br><small style="color:#94a3b8">7:30â9:35 PM Â· Research &amp; action</small>
-    </div>
-  </div>
-
-  <!-- TOMORROW'S SCHEDULE -->
-  <div class="card full">
-    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('collapsed')">
-      <h2><span class="dot yellow"></span> Tomorrow â Tuesday March 31 (PACKED: 4 client meetings)</h2>
-    </div>
-    <div class="collapsible-body">
-
-    <div class="workout">ðï¸ 9:15 AM â Barre (Jenny) | 5:30 PM â Boot Camp (Christiana)</div>
-    <div class="workout" style="color:#64748b">ð¤ 10:30 AM â Mat Pilates (Stephanie) â blue/optional, ignore</div>
-
-    <div class="item">
-      <span class="time">11:00 AM</span> <strong>Michael Friedman â ONBOARDING CALL</strong> â Nighthawk Tech <span class="tag meeting">ONBOARD</span>
-      <br><small style="color:#94a3b8">Wants: LinkedIn Ads, Sales Accelerator, Lead Gen Â· Status: Appointment Scheduled</small>
-      <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/64083088415" target="_blank">â HubSpot</a>
-    </div>
-
-    <div class="item">
-      <span class="time">12:00 PM</span> <strong>Task // Case studies finished &amp; approved by Francis</strong> <span class="tag task">TASK</span>
-      <br><small style="color:#94a3b8">30 min Â· Follow up with Francis if not done</small>
-    </div>
-
-    <div class="item">
-      <span class="time">1:00 PM</span> <strong>Robert Andosca, Ph.D.</strong> â INVIZA Health <span class="tag meeting">MEETING</span>
-      <br><small style="color:#94a3b8">Calendly rebook! Was "Connected LinkedIn | No Response" Â· Full-service interest Â· inviza.com</small>
-      <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/209183430921" target="_blank">â HubSpot</a>
-    </div>
-
-    <div class="item">
-      <span class="time">2:00 PM</span> <strong>Nick Scarrozzo</strong> â Fiondella, Milone &amp; LaSaracina LLP <span class="tag alert">â ï¸ NOT IN CRM</span>
-      <br><small style="color:#94a3b8">CPA firm Â· fmlcpas.com Â· Services: Other Â· Needs HubSpot entry ASAP</small>
-    </div>
-
-    <div class="item">
-      <span class="time">2:00 PM</span> <strong>Task // Approve LS social media video clips (Sunshine)</strong> <span class="tag task">TASK</span>
-    </div>
-
-    <div class="item">
-      <span class="time">3:00 PM</span> <strong>Jennifer Woodruff</strong> â Patient BetterÂ® <span class="tag meeting">MEETING</span>
-      <br><small style="color:#94a3b8">LENA TO TOUCH ONLY Â· patientbetter.com Â· Returning prospect (2020 + 2026)</small>
-      <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/211122298225" target="_blank">â HubSpot</a>
-    </div>
-
-    <div class="item">
-      <span class="time">4:00 PM</span> <strong>Task // URGENT: Onboarding &amp; cross-trainings by Joy â verify</strong> <span class="tag urgent">URGENT</span>
-      <br><small style="color:#94a3b8">4:00â5:30 PM Â· Review all checklists Joy completed</small>
-    </div>
-
-    <div class="item">
-      <span class="time">6:15 PM</span> <strong>Task: Replan Europe/Asia trip (Oct end-date)</strong> <span class="tag personal">PERSONAL</span>
-      <br><small style="color:#94a3b8">6:15â10:15 PM Â· Major planning block</small>
-    </div>
-
-    </div>
-  </div>
-
-  <!-- RECURRING / REMINDERS -->
-  <div class="card">
-    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('collapsed')">
-      <h2><span class="dot red"></span> Action Items</h2>
-    </div>
-    <div class="collapsible-body">
-      <div class="item">ð <strong>Log SLV &amp; PSLV sells from 3/24</strong> in Atlas trading journal (recurring daily until done)</div>
-      <div class="item">ð <strong>Toyota service appt Apr 1, 9:00 AM</strong> â AutoNation Toyota Irvine</div>
-      <div class="item">ð³ <strong>PayPal invoices due</strong> â 6 pending reminders totaling ~$300</div>
-      <div class="item">ð <strong>PipelinePRO â HighLevel migration</strong> â review offer &amp; decide</div>
-    </div>
-  </div>
-
-  <!-- PIPELINE SNAPSHOT -->
-  <div class="card">
-    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('collapsed')">
-      <h2><span class="dot green"></span> Pipeline â This Week</h2>
-    </div>
-    <div class="collapsible-body">
-      <div class="item"><strong>Marlon MJ Johnson</strong> Â· Sigma Eng. Â· Rescheduled â Meeting TODAY
-        <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/199309208167" target="_blank">â HubSpot</a></div>
-      <div class="item"><strong>Victor Suturin</strong> Â· Aliform Â· Meeting TODAY
-        <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/210191676702" target="_blank">â HubSpot</a></div>
-      <div class="item"><strong>Michael Friedman</strong> Â· Nighthawk Tech Â· ONBOARDING Tue
-        <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/64083088415" target="_blank">â HubSpot</a></div>
-      <div class="item"><strong>Robert Andosca</strong> Â· INVIZA Health Â· Calendly rebook Tue
-        <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/209183430921" target="_blank">â HubSpot</a></div>
-      <div class="item"><strong>Nick Scarrozzo</strong> Â· FML CPAs Â· â ï¸ NOT IN CRM Â· Meeting Tue</div>
-      <div class="item"><strong>Jennifer Woodruff</strong> Â· Patient Better Â· Meeting Tue
-        <br><a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/211122298225" target="_blank">â HubSpot</a></div>
-    </div>
-  </div>
+<div class="item meeting">
+<div class="time">1:00p</div>
+<div class="details">
+<div class="title">LS â Victor Suturin <span class="badge badge-soon">4 HRS</span></div>
+<div class="meta">Aliform Surgical Â· CC: Alisa Suturin (COO) Â· Zoom<br>
+Sent deck + materials Â· Victor confirmed 3/26<br>
+<a class="hubspot-link" href="https://app.hubspot.com/contacts/6283041/record/0-1/210191676702" target="_blank">HubSpot â</a> Â· Status: LENA TO TOUCH ONLY</div>
+</div>
+</div>
 
 </div>
 
-<!-- TRACKING -->
-<div class="card full" style="background:#1e293b;border-radius:12px;padding:16px;border:1px solid #334155;margin-top:0">
-  <div class="collapsible-header" onclick="this.parentElement.classList.toggle('collapsed')">
-    <h2><span class="dot blue"></span> Automated Systems Status</h2>
-  </div>
-  <div class="collapsible-body">
-    <div class="item">â <strong>George Comprehensive</strong> â Running (this session)</div>
-    <div class="item">â <strong>Daily Job Responder</strong> â Active (new-jo-auto-responded-thread-2)</div>
-    <div class="item">â <strong>Daily Outreach QA</strong> â Last run Mar 29</div>
-    <div class="item">â <strong>Daily Task Check</strong> â Last run Mar 29</div>
-    <div class="item">ð <strong>World Vaccine Congress</strong> â Mar 30âApr 2 (tracking, Washington DC)</div>
-  </div>
+<!-- TODAY'S URGENT TASKS -->
+<div class="card">
+<div class="card-header"><span class="icon">ð´</span> Urgent Tasks â Today</div>
+
+<div class="item urgent">
+<div class="time">2:00p</div>
+<div class="details">
+<div class="title">TAXES: Review Jean Hale's work + send approved confirmation</div>
+<div class="meta">Owner: Elena Â· HIGH PRIORITY Â· Est. 2 hrs</div>
+</div>
 </div>
 
-<div style="text-align:center;color:#475569;font-size:.7rem;margin-top:16px">
-  George v3 Â· Comprehensive Â· Last updated Mon Mar 30, 2026 8:30 AM PDT
+<div class="item urgent">
+<div class="time">2:00p</div>
+<div class="details">
+<div class="title">$69K Mega Backdoor Roth IRA â execute</div>
+<div class="meta">4-hour block Â· Tax deadline approaching</div>
+</div>
+</div>
+
+<div class="item task">
+<div class="time">6:15p</div>
+<div class="details">
+<div class="title">Shoney blacklist archive + new messaging</div>
+<div class="meta">Business task Â· 1 hr block</div>
+</div>
+</div>
+
+<div class="item task">
+<div class="time">7:30p</div>
+<div class="details">
+<div class="title">Bank account diversification</div>
+<div class="meta">Personal Â· 2 hr block</div>
+</div>
+</div>
+
+</div>
+
+<!-- TOMORROW'S SCHEDULE -->
+<div class="card">
+<div class="card-header"><span class="icon">ð</span> Tomorrow â Tue 3/31 (4 Meetings!)</div>
+
+<div class="item tomorrow">
+<div class="time">11:00a</div>
+<div class="details">
+<div class="title">Michael Friedman â Onboarding Call <span class="badge badge-tmrw">ONBOARD</span></div>
+<div class="meta">Nighthawk Tech Â· LinkedIn Ads, Sales Accelerator, Lead Gen Â· Calendly booking</div>
+</div>
+</div>
+
+<div class="item tomorrow">
+<div class="time">1:00p</div>
+<div class="details">
+<div class="title">Robert Andosca, Ph.D. â Strategy Session</div>
+<div class="meta">INVIZA Health Â· Full service interest Â· Calendly booking</div>
+</div>
+</div>
+
+<div class="item tomorrow">
+<div class="time">2:00p</div>
+<div class="details">
+<div class="title">Nick Scarrozzo â Strategy Session</div>
+<div class="meta">Fiondella, Milone & LaSaracina LLP (CPA firm) Â· Other services</div>
+</div>
+</div>
+
+<div class="item tomorrow">
+<div class="time">3:00p</div>
+<div class="details">
+<div class="title">Jennifer Woodruff â Strategy Session</div>
+<div class="meta">PatientBetter.com Â· Patient navigation toolkit</div>
+</div>
+</div>
+
+<details class="section-collapsed">
+<summary>+ 3 tasks tomorrow</summary>
+<div class="item task">
+<div class="time">12:00p</div>
+<div class="details">
+<div class="title">Case studies finished & approved by Francis</div>
+<div class="meta">Medium urgency Â· 30 min</div>
+</div>
+</div>
+<div class="item task">
+<div class="time">2:00p</div>
+<div class="details">
+<div class="title">Approve LS social media clips (Sunshine)</div>
+<div class="meta">Medium priority Â· 45 min</div>
+</div>
+</div>
+<div class="item task">
+<div class="time">4:00p</div>
+<div class="details">
+<div class="title">URGENT: Onboarding & cross-training (Joy) â verify</div>
+<div class="meta">High priority Â· 1.5 hrs</div>
+</div>
+</div>
+</details>
+
+</div>
+
+<!-- PIPELINE & FOLLOW-UPS -->
+<div class="card">
+<div class="card-header"><span class="icon">ð</span> Pipeline & Follow-Ups</div>
+
+<div class="item followup">
+<div class="time"><span class="badge badge-waiting">SENT</span></div>
+<div class="details">
+<div class="title">Jared Hutar â Piraeus Medical</div>
+<div class="meta">2nd follow-up sent Sun 3/29 Â· Marketing Demo Lead Gen Â· Awaiting reply</div>
+</div>
+</div>
+
+<div class="item followup">
+<div class="time"><span class="badge badge-waiting">SENT</span></div>
+<div class="details">
+<div class="title">Gil Jimenez â Medical Murray</div>
+<div class="meta">2nd follow-up sent Sun 3/29 Â· Proposal follow-up Â· Awaiting reply</div>
+</div>
+</div>
+
+<div class="item followup">
+<div class="time"><span class="badge badge-waiting">SENT</span></div>
+<div class="details">
+<div class="title">Garrett Guidroz â RAPA</div>
+<div class="meta">Rescheduled to Apr 29/30 Â· CC: Dirk Lewke, Martin Langfeldt Â· Awaiting confirmation</div>
+</div>
+</div>
+
+<details class="section-collapsed">
+<summary>+ Active tracking notes</summary>
+<div class="item">
+<div class="details">
+<div class="meta">
+â¢ World Vaccine Congress tracking (Mar 30 â Apr 2)<br>
+â¢ ð Atlas reminder: Log SLV & PSLV sells from 3/24 (recurring until logged)<br>
+â¢ Autoresponder: no job sends detected today (expected â Sunday quiet period)<br>
+â¢ No new Calendly bookings in last 3 days
+</div>
+</div>
+</div>
+</details>
+
+</div>
+
 </div>
 
 </body>
