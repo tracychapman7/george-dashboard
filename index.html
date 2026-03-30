@@ -84,7 +84,7 @@ main{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
 /* Note */
 .qm{padding:12px;background:#ecf0f1;border-radius:6px;margin-top:12px}
 .mi{width:100%;padding:8px;border:1px solid #bdc3c7;border-radius:4px;font-size:12px;resize:vertical}
-.mb;background:#d4ac0d;color:#fff;border:none;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .2s}
+.mb{background:#d4ac0d;color:#fff;border:none;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .2s}
 .mb:hover{background:#b8860b}
 /* Nav */
 .mn{display:none;position:fixed;bottom:0;width:100%;background:#fff;border-top:1px solid #e0e0e0;z-index:200}
@@ -108,15 +108,15 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 <div class="h">
 <div>
 <div class="ht">George -- Command Center</div>
-<div class="hd">Sunday, March 29, 2026 | v6.30</div>
+<div class="hd">Sunday, March 29, 2026 | v6.33</div>
 </div>
-<div class="sb">Synced 2:30 PM Sun</div>
+<div class="sb">Synced 5:07 PM Sun</div>
 </div>
 </header>
 
 <div class="st">
-<div class="s"><div class="sn" id="statToday">3</div><div class="sl">Today</div></div>
-<div class="s"><div class="sn" id="statWeek">22</div><div class="sl">This Week</div></div>
+<div class="s"><div class="sn" id="statToday">4</div><div class="sl">Today</div></div>
+<div class="s"><div class="sn" id="statWeek">34</div><div class="sl">This Week</div></div>
 <div class="s"><div class="sn" id="statUrgent">2</div><div class="sl">Urgent</div></div>
 <div class="s"><div class="sn" id="statDone">26</div><div class="sl">Done</div></div>
 </div>
@@ -131,20 +131,26 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 
 <div class="ti d" id="t-atlas-sun"><input type="checkbox" class="tc" checked disabled><div class="tct">
 <div class="ttime">6:00 AM</div>
-<div class="tt">ð UPDATE ATLAS: Log SLV & PSLV sells from 3/24</div>
+<div class="tt">📊 UPDATE ATLAS: Log SLV & PSLV sells from 3/24</div>
 <span class="tag done">Auto-completed 2:30 PM</span>
 </div></div>
 
 <div class="ti d" id="t-coffee-sun"><input type="checkbox" class="tc" checked disabled><div class="tct">
-<div class="ttime">11:00 AMâ1:00 PM</div>
+<div class="ttime">11:00 AM–1:00 PM</div>
 <div class="tt">Coffee & Chill @ Santa Monica</div>
 <span class="tag done">Auto-completed 2:30 PM</span>
 </div></div>
 
 <div class="ti d" id="t-payroll-team-sun"><input type="checkbox" class="tc" checked disabled><div class="tct">
 <div class="ttime">1:15 PM</div>
-<div class="tt">PAYROLL TEAM â ALL INVOICES CONFIRMED</div>
-<span class="tag done">Auto-completed 2:30 PM â moved from Mon 8PM</span>
+<div class="tt">PAYROLL TEAM — ALL INVOICES CONFIRMED</div>
+<span class="tag done">Auto-completed 2:30 PM — moved from Mon 8PM</span>
+</div></div>
+
+<div class="ti" id="t-taxes-today" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">2:30–6:30 PM ⚠️ IN PROGRESS</div>
+<div class="tt">Taxes Complete, $69k mega backdoor roth ira</div>
+<span class="tag inv">RESCHEDULED from Mon 3/30 → Today</span>
 </div></div>
 
 <div class="ti" id="t-qb"><input type="checkbox" class="tc"><div class="tct">
@@ -155,16 +161,16 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 
 <!-- TOMORROW PREVIEW: Mon Mar 30 (Stacking Day!) -->
 <div style="margin-top:12px;padding:10px 12px;background:#fef9e7;border-radius:6px;border-left:3px solid #d4ac0d">
-<div style="font-size:12px;font-weight:700;color:#d4ac0d;margin-bottom:6px">TOMORROW â Mon Mar 30 (Stacking Day!)</div>
+<div style="font-size:12px;font-weight:700;color:#d4ac0d;margin-bottom:6px">TOMORROW — Mon Mar 30 (Stacking Day!)</div>
 <div class="ti" id="t-bb-mon"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">8:00 AM</div>
-<div class="tt">Brazilian Booty (Fernanda) â RED workout</div>
+<div class="tt">Brazilian Booty (Fernanda) — RED workout</div>
 <span class="tag per">Fitness</span>
 </div></div>
 <div class="ti" id="t-bc-jill-mon"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">9:15 AM</div>
-<div class="tt">Boot Camp (Jill) â RED workout</div>
-<span class="tag per" style="color:#c0392b">NEW â now RED/colorId 11</span>
+<div class="tt">Boot Camp (Jill) — RED workout</div>
+<span class="tag per" style="color:#c0392b">NEW — now RED/colorId 11</span>
 </div></div>
 <div class="ti" id="t-marlon-mon" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">11:30 AM</div>
@@ -173,23 +179,28 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 </div></div>
 <div class="ti" id="t-victor-mon" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">1:00 PM</div>
-<div class="tt">Victor Suturin & Lucid â Aliform Surgical</div>
-<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED â Prep call</span>
+<div class="tt">Victor Suturin & Lucid — Aliform Surgical</div>
+<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED — Prep call</span>
 </div></div>
-<div class="ti" id="t-taxes-mon"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">2:00 PM</div>
-<div class="tt">Taxes Complete, $69k mega backdoor roth ira</div>
-<span class="tag inv">NEW â replaces Campaign Reviews</span>
+<div class="ti" id="t-jeanhale-mon" style="border-left:3px solid #c0392b"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">2:00 PM ⚠️ URGENT</div>
+<div class="tt">Taxes finished by Jean Hale — review &amp; confirm (Elena)</div>
+<span class="tag u">NEW — Tax-related</span>
+</div></div>
+<div class="ti" id="t-joy-mon"><input type="checkbox" class="tc"><div class="tct">
+<div class="ttime">3:00 PM ⚠️ URGENT</div>
+<div class="tt">Onboarding &amp; cross-trainings completed by Joy — verify</div>
+<span class="tag biz">NEW — Team task</span>
 </div></div>
 <div class="ti" id="t-shoney-mon"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">6:15 PM</div>
 <div class="tt">Shoney black list archive + new messaging</div>
-<span class="tag biz">NEW task</span>
+<span class="tag biz">task</span>
 </div></div>
 <div class="ti" id="t-bank-mon"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">7:30 PM</div>
 <div class="tt">Bank account diversification</div>
-<span class="tag inv">NEW task</span>
+<span class="tag inv">task — color changed 7→10</span>
 </div></div>
 </div>
 </div>
@@ -302,10 +313,10 @@ footer{background:#fff;padding:12px 16px;text-align:center;font-size:11px;color:
 <span class="camp-status blocked">Assets Pending</span>
 </div>
 
-<!-- FRANCIS CASE STUDIES â Organized Review Section -->
+<!-- FRANCIS CASE STUDIES — Organized Review Section -->
 <div style="margin:8px 0 4px 20px;padding:10px 14px;background:#fff8e1;border-radius:8px;border-left:3px solid #f59e0b">
 <div style="font-size:12px;font-weight:700;color:#92400e;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center">
-FRANCIS â Case Studies (6 Total)
+FRANCIS — Case Studies (6 Total)
 <span style="font-size:9px;padding:3px 8px;border-radius:10px;background:#fce4ec;color:#c62828;font-weight:700">4 REWORK ITEMS</span>
 </div>
 <div style="font-size:10px;color:#78350f;margin-bottom:8px">George reviewed all 17 PDFs (6 originals + 6 desktop + 5 mobile). Conditionally approved at ~85%.</div>
@@ -332,9 +343,9 @@ FRANCIS â Case Studies (6 Total)
 
 <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">
 <a class="al doc" href="computer:///sessions/friendly-keen-fermat/mnt/fitness-coach/Francisco_Case_Studies_ALL.pdf" target="_blank">All 17 PDFs (merged)</a>
-<a class="al review" href="computer:///sessions/friendly-keen-fermat/mnt/fitness-coach/Francisco_Case_Study_Assessment.pdf" target="_blank">Assessment &amp; Rework Brief</a>
+<a class="al review" href="computer:///sessions/friendly-keen-fermat/mnt/fitness-coach/Francisco_Case_Study_Assessment.pdf" target="_blank">Assessment & Rework Brief</a>
 </div>
-<div style="font-size:9px;color:#92400e;margin-top:6px">Target: Francis resubmits by Wed Mar 25 &rarr; Lena final review Mar 28-29 &rarr; Live by Mon Mar 31</div>
+<div style="font-size:9px;color:#92400e;margin-top:6px">Target: Francis resubmits by Wed Mar 25 → Lena final review Mar 28-29 → Live by Mon Mar 31</div>
 </div>
 
 <!-- Other Show Hall items -->
@@ -346,7 +357,7 @@ FRANCIS â Case Studies (6 Total)
 </div></div>
 
 <div class="ti sub" id="t-sh-assets"><input type="checkbox" class="tc"><div class="tct">
-<div class="tt">Compile &amp; link all Show Hall assets</div>
+<div class="tt">Compile & link all Show Hall assets</div>
 <span class="tag biz">Blocked on above</span>
 </div></div>
 
@@ -392,41 +403,42 @@ FRANCIS â Case Studies (6 Total)
 
 <!-- ===== PIPELINE & PROSPECTS (by date, soonest first) ===== -->
 <div style="margin-top:14px;padding-top:10px;border-top:1px solid #f0f0f0">
-<div style="font-size:12px;font-weight:700;color:#7f8c8d;margin-bottom:8px">PIPELINE &amp; PROSPECTS (by date)</div>
+<div style="font-size:12px;font-weight:700;color:#7f8c8d;margin-bottom:8px">PIPELINE & PROSPECTS (by date)</div>
 </div>
 
-<div class="ti" id="t-team-eval"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Wed Apr 1, 6:00 PM (next remaining)</div>
-<div class="tt">6th Month Team Evaluation (sessions thru Apr 3)</div>
-<span class="tag biz">Sessions 1>3 DONE â â Mon 3/30 + Mon 3/31 sessions REMOVED. Next: Wed Apr 1 6PM, Fri Apr 3 6PM.</span>
+<div class="ti d" id="t-team-eval"><input type="checkbox" class="tc" disabled><div class="tct">
+<div class="ttime">ALL remaining sessions REMOVED</div>
+<div class="tt"><s>6th Month Team Evaluation</s> — Series concluded or restructured</div>
+<span class="tag done">Sessions 1-3 DONE ✅ — Wed 4/1 + Fri 4/3 REMOVED (detected 5:07 PM sync). No future sessions remain.</span>
 </div></div>
 
 <div class="ti" id="t-friedman"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 31, 11:00 AM â ï¸ RESCHEDULED</div>
+<div class="ttime">Mon Mar 31, 11:00 AM ⚠️ RESCHEDULED</div>
 <div class="tt">Michael Friedman -- Onboarding Call (Nighthawk Tech)</div>
 <span class="tag biz">Client Onboarding</span>
-<div style="font-size:10px;color:#e67e22;margin-top:2px">MOVED from Thu 3/26 1 PM â Mon 3/31 11 AM</div>
+<div style="font-size:10px;color:#e67e22;margin-top:2px">MOVED from Thu 3/26 1 PM → Mon 3/31 11 AM</div>
 <a class="al" href="https://mail.google.com/mail/u/0/#drafts?compose=19d0c136a3311390" target="_blank">Open Draft</a>
 <a class="al hs" onclick="openHubSpot('Michael Friedman')">HubSpot</a>
 </div></div>
 
 <div class="ti d" id="t-guy"><input type="checkbox" class="tc" checked disabled><div class="tct">
-<div class="ttime">Thu Mar 26, 2:30 PM â</div>
-<div class="tt"><s>Guy Omacias -- LA Coaching Onboarding Call (TENTATIVE) â¬ï¸</s></div>
-<span class="tag done">Time block passed â Auto-completed 6:27 PM</span>
+<div class="ttime">Thu Mar 26, 2:30 PM ✅</div>
+<div class="tt"><s>Guy Omacias -- LA Coaching Onboarding Call (TENTATIVE) ⬆️</s></div>
+<span class="tag done">Time block passed — Auto-completed 6:27 PM</span>
 </div></div>
 
 <div class="ti d" id="t-piyush"><input type="checkbox" class="tc" disabled><div class="tct">
-<div class="ttime">Fri Mar 27, 9:00 AM â DELETED</div>
-<div class="tt"><s>Piyush Sheth call</st> -- Removed from calendar by Lena</div>
+<div class="ttime">Fri Mar 27, 9:00 AM ✘ DELETED</div>
+<div class="tt"><s>Piyush Sheth call</s> -- Removed from calendar by Lena</div>
 <span class="tag done">Deleted 3/25</span>
 </div></div>
 
 <div class="ti d" id="t-review-pb"><input type="checkbox" class="tc" disabled><div class="tct">
-<div class="ttime">Mar 29, 10:00 AM â DELETED</div>
+<div class="ttime">Mar 29, 10:00 AM ✘ DELETED</div>
 <div class="tt"><s>Review 3 campaign playbooks</s> -- Removed from calendar by Lena</div>
 <span class="tag done">Deleted 3/25</span> <span class="tag u">Action item remains open</span>
 </div></div>
+
 <div class="ti" id="t-marlon" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Mon Mar 30, 11:30 AM <span style="color:#c0392b">NEW</span></div>
 <div class="tt">Marlon MJ Johnson &amp; Lucid Strategies</div>
@@ -436,15 +448,15 @@ FRANCIS â Case Studies (6 Total)
 
 <div class="ti" id="t-victor-call" style="border-left:3px solid #27ae60"><input type="checkbox" class="tc"><div class="tct">
 <div class="ttime">Mon Mar 30, 1:00 PM <span style="color:#c0392b">NEW</span></div>
-<div class="tt">Victor Suturin &amp; Lucid â Aliform Surgical</div>
-<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED â Prep call</span>
+<div class="tt">Victor Suturin &amp; Lucid — Aliform Surgical</div>
+<span class="tag biz" style="background:#d5f4e6;color:#27ae60">BOOKED — Prep call</span>
 <a class="al hs" onclick="openHubSpot('Victor Suturin')">HubSpot</a>
 </div></div>
 
 <div class="ti" id="t-taxes-task"><input type="checkbox" class="tc"><div class="tct">
-<div class="ttime">Mon Mar 30, 2:00 PM</div>
+<div class="ttime">Sun Mar 29, 2:30 PM ⚠️ RESCHEDULED</div>
 <div class="tt">Taxes Complete, $69k mega backdoor roth ira</div>
-<span class="tag inv">NEW â replaces Campaign Reviews</span>
+<span class="tag inv">MOVED from Mon 3/30 → Today 2:30 PM</span>
 </div></div>
 
 <div class="ti" id="t-andosca"><input type="checkbox" class="tc"><div class="tct">
@@ -568,15 +580,15 @@ FRANCIS â Case Studies (6 Total)
 <span class="tag per">All invoices confirmed — new calendar block</span>
 </div></div>
 
-<div class="ti" id="t-tax-filings"><input type="checkbox" class="tc"><div class="tct">
+<div class="ti" id="t-tax-filings"><input class="tct">
 <div class="ttime">Apr 1 task blocks</div>
 <div class="tt">Tax filings: Personal Fed + CA Annual, Q1 Estimated, IRA max contribution</div>
 <span class="tag per">Apr 15 deadline</span>
 </div></div>
 
 <div class="ti d" id="t-passport"><input type="checkbox" class="tc" disabled><div class="tct">
-<div class="ttime">Mon Mar 31 ❌ DELETED</div>
-<div class="tt"><s>Find passport (lost &amp; found) or apply for new ones</s></div>
+<div class="ttime">Mon Mar 31 ✘ DELETED</div>
+<div class="tt"><s>Find passport (lost & found) or apply for new ones</s></div>
 <span class="tag done">Deleted from calendar 3/29 — action item remains open</span>
 </div></div>
 
@@ -685,7 +697,7 @@ FRANCIS â Case Studies (6 Total)
 <div class="pc">
 <div class="pn">Piyush Sheth <span style="font-size:10px;color:#95a5a6">DELETED</span></div>
 <div class="pr"><s>New Prospect</s></div>
-<div class="pd">❌ Calendar event deleted by Lena (detected 2:04 PM sync).</div>
+<div class="pd">✘ Calendar event deleted by Lena (detected 2:04 PM sync).</div>
 <a class="al hs" onclick="openHubSpot('Piyush Sheth')">HubSpot</a>
 </div>
 
@@ -720,7 +732,7 @@ FRANCIS â Case Studies (6 Total)
 </div>
 
 <!-- QUICK LINKS -->
-<a class="ql green" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit" target="_blank" rel="noopener noreferrer">Content Calendar &amp; KBI Sheet</a>
+<a class="ql green" href="https://docs.google.com/spreadsheets/d/11T5cuIxfs9QuD0G_hI5EftzVudB241xbRWq2LUDoYRM/edit" target="_blank" rel="noopener noreferrer">📋 LS Ops Sheet — Tasks, Statuses, Links & Content Calendar</a>
 
 <a class="ql gold" href="https://www.calendly.com/lucidstrategies/ls" target="_blank" rel="noopener noreferrer">Calendly Booking Link ⚠️ FREE PLAN — Renew?</a>
 
@@ -728,7 +740,7 @@ FRANCIS â Case Studies (6 Total)
 
 <!-- LOCAL FOLDERS -->
 <div class="ps" style="padding:12px">
-<div class="sec-title" style="border-bottom-color:#e67e22;font-size:12px;margin-bottom:8px;padding-bottom:6px">LOCAL FOLDERS</div>
+<div class="sec-title" style=""border-bottom-color:#e67e22;font-size:12px;margin-bottom:8px;padding-bottom:6px">LOCAL FOLDERS</div>
 <a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/George" style="display:block;margin-bottom:4px">George (Dashboard, Tasks, Memory)</a>
 <a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies" style="display:block;margin-bottom:4px">Lucid Strategies (Playbooks, SOPs)</a>
 <a class="al folder" href="computer:///sessions/friendly-keen-fermat/mnt/Personal Life Lena Claude/Making Money/Lucid Strategies/Clients" style="display:block;margin-bottom:4px">LS Clients</a>
@@ -751,7 +763,7 @@ FRANCIS â Case Studies (6 Total)
 </main>
 
 <footer>
-<div>George v6.30 | Chief of Staff Command Center | No sensitive data linked</div>
+<div>George v6.33 | Chief of Staff Command Center | No sensitive data linked</div>
 <div style="margin-top:4px">
 <a href="https://tracychapman7.github.io/george-dashboard/" style="color:#3498db">Live Dashboard</a>
 </div>
@@ -821,41 +833,52 @@ const CD={
 'Sun Mar 29':[
 {time:'6:00 AM',text:'ATLAS update (DONE)',type:'done'},
 {time:'11:00 AM',text:'Coffee & Chill Santa Monica (DONE)',type:'done'},
-{time:'1:15 PM',text:'PAYROLL TEAM — Invoices (DONE, moved from Mon)',type:'done'}
+{time:'1:15 PM',text:'PAYROLL TEAM — Invoices (DONE, moved from Mon)',type:'done'},
+{time:'2:30 PM',text:'Taxes Complete, $69k mega backdoor roth (moved from Mon)',type:'task'}
 ],
 'Mon Mar 30':[
 {time:'8:00 AM',text:'Brazilian Booty (Fernanda) — RED',type:'event'},
-{time:'9:15 AM',text:'Boot Camp (Jill) — RED (NEW)',type:'event'},
+{time:'9:15 AM',text:'Boot Camp (Jill) — RED',type:'event'},
 {time:'11:30 AM',text:'Marlon MJ Johnson & LS (PROSPECT)',type:'event'},
 {time:'1:00 PM',text:'Victor Suturin & Lucid (BOOKED)',type:'event'},
-{time:'2:00 PM',text:'Taxes Complete, $69k mega backdoor roth (NEW)',type:'task'},
-{time:'6:15 PM',text:'Shoney black list archive + messaging (NEW)',type:'task'},
-{time:'7:30 PM',text:'Bank account diversification (NEW)',type:'task'}
+{time:'2:00 PM',text:'⚠️ URGENT: Taxes by Jean Hale — review (NEW)',type:'urgent'},
+{time:'3:00 PM',text:'⚠️ URGENT: Joy onboarding verify (NEW)',type:'urgent'},
+{time:'6:15 PM',text:'Shoney black list archive + messaging',type:'task'},
+{time:'7:30 PM',text:'Bank account diversification',type:'task'}
 ],
 'Mon Mar 31':[
 {time:'11:00 AM',text:'Michael Friedman — Nighthawk Onboarding',type:'event'},
+{time:'12:00 PM',text:'Case studies finished & approved (Francis) (NEW)',type:'task'},
 {time:'1:00 PM',text:'INVIZA — Robert Andosca',type:'event'},
 {time:'2:00 PM',text:'Nick Scarrozzo call',type:'event'},
 {time:'3:00 PM',text:'Jennifer Woodruff & LS',type:'event'},
 {time:'5:30 PM',text:'Boot Camp (Christiana) — RED',type:'event'},
-{time:'6:15 PM',text:'Replan Europe/Asia trip (NEW)',type:'task'}
+{time:'6:15 PM',text:'Replan Europe/Asia trip',type:'task'}
 ],
 'Wed Apr 1':[
 {time:'9:00 AM',text:'Irvine Toyota AutoNation',type:'task'},
-{time:'9:15 AM',text:'Boot Camp (Jill) — RED',type:'event'},
-{time:'6:00 PM',text:'6th Month Team Eval #5',type:'event'}
+{time:'9:15 AM',text:'Boot Camp (Jill) — was RED, now graphite',type:'event'},
+{time:'1:00 PM',text:'Testimony video on GMB + website (Francis) (NEW)',type:'task'},
+{time:'2:00 PM',text:'Campaign Matrix fill — Sunshine endorse & launch (NEW)',type:'task'},
+{time:'3:30 PM',text:'Pipeline check-in: Gill (NEW)',type:'task'}
 ],
 'Thu Apr 2':[
-{time:'10:00 AM',text:'Personal CA Annual Filing + Payment',type:'task'}
+{time:'10:00 AM',text:'Personal CA Annual Filing + Payment',type:'task'},
+{time:'1:00 PM',text:'Verify Claude databases + auto-update check (NEW)',type:'task'},
+{time:'2:30 PM',text:'Handover to Vishnu: LS campaigns (NEW)',type:'task'}
 ],
 'Fri Apr 3':[
-{time:'9:15 AM',text:'Boot Camp (Megan)',type:'event'},
-{time:'6:00 PM',text:'6th Month Team Eval #7 (Final)',type:'event'}
+{time:'9:15 AM',text:'Boot Camp (Megan) — RED',type:'event'},
+{time:'1:00 PM',text:'Auto email campaign "— add to dashboard (NEW)',type:'task'},
+{time:'2:00 PM',text:'Pipeline check-in: Maxime referral (NEW)',type:'task'},
+{time:'10:00 PM',text:'Review March Payroll CSV',type:'task'}
 ],
 'Sat Apr 4':[
 {time:'9:00 AM',text:'Monthly Venmo — verify received',type:'task'},
-{time:'12:00 PM',text:'Monthly Charge VA Retainer Fee Isabel Deibel (NEW)',type:'task'},
-{time:'4:00 PM',text:'Oil Change Car',type:'task'}
+{time:'12:00 PM',text:'Monthly Charge VA Retainer Fee Isabel Deibel',type:'task'},
+{time:'4:00 PM',text:'Oil Change Car',type:'task'},
+{time:'4:15 PM',text:'ZOUKCHATA (NEW social)',type:'event'},
+{time:'10:00 PM',text:'Review March Payroll CSV',type:'task'}
 ],
 'Mon Apr 7':[
 {time:'9:00 AM',text:'Arthur Rosen & LS (NEW)',type:'event'},
@@ -924,17 +947,17 @@ showDay('Sun Mar 29');
 
 function showDay(key){
 const evts=CD[key]||[];
-let html='<strong style="color:#d4ac0d;font-size:12px">'+ key +'</strong>';
+let html='<strong style="color:#d4ac0d;font-size:12px">'+key+'</strong>';
 if(!evts.length){html+='<div style="font-size:11px;color:#95a5a6;margin-top:6px">No events</div>';}
 else{evts.forEach(e=>{
-const c=e.type==='urgent'?'color:#c0392b;font-weight:600':e.type==='event'?'color:#3498db':'' ;
+const c=e.type==='urgent'?'color:#c0392b;font-weight:600':e.type==='event'?'color:#3498db':'';
 html+=`<div class="de-e"><span class="de-t">${e.time}</span><span class="de-x" style="${c}">${e.text}</span></div>`;
 });}
 document.getElementById('dayEvents').innerHTML=html;
 }
 
 function updateStats(){
-const state=JSON.parse(localStorage.getItem(SK)||'{}'​);
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
 const done=Object.values(state).filter(v=>v).length;
 document.getElementById('statDone').textContent=done;
 }
@@ -942,7 +965,7 @@ document.getElementById('statDone').textContent=done;
 function doLater(btn){
 const ti=btn.closest('.ti');
 const tid=ti.id;
-const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}'​);
+const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}');
 if(ti.classList.contains('later')){
 ti.classList.remove('later');
 delete later[tid];
@@ -959,7 +982,7 @@ parent.querySelectorAll('.ti.later').forEach(el=>{parent.appendChild(el);});
 }
 
 function loadState(){
-const state=JSON.parse(localStorage.getItem(SK)||'{}'​);
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
 Object.keys(state).forEach(id=>{
 const el=document.getElementById(id);
 if(el){
@@ -970,7 +993,7 @@ if(cb&&!cb.disabled&&state[id]){cb.checked=true;el.classList.add('d');}
 const msg=localStorage.getItem(SK+'_msg');
 if(msg)document.getElementById('messageInput').value=msg;
 // Restore later state
-const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}'​);
+const later=JSON.parse(localStorage.getItem(SK+'_later')||'{}');
 Object.keys(later).forEach(id=>{
 const el=document.getElementById(id);
 if(el&&later[id]){
@@ -987,7 +1010,7 @@ function attachEventListeners(){
 document.querySelectorAll('.tc').forEach(cb=>{
 if(cb.disabled)return;
 cb.addEventListener('change',function(){
-const state=JSON.parse(localStorage.getItem(SK)||'{}'​);
+const state=JSON.parse(localStorage.getItem(SK)||'{}');
 const tid=this.closest('.ti').id;
 if(this.checked){this.closest('.ti').classList.add('d');state[tid]=true;}
 else{this.closest('.ti').classList.remove('d');state[tid]=false;}
